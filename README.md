@@ -10,12 +10,13 @@
 4. 舊期不要刪除，頁面會自動出現在封存區。
 5. 每篇文獻至少保留 `pmid` 或 `doi`，不確定欄位填入 `尚待確認`。
 
-## GitHub Pages 建議
+## GitHub Pages 設定
 
+- 專用 repo：`https://github.com/a7662888/neurology-literature-alert`
 - Source: `Deploy from a branch`
 - Branch: `main`
-- Folder: `/docs`
-- URL path: `/literature-alert/`
+- Folder: `/`
+- Public URL: `https://a7662888.github.io/neurology-literature-alert/`
 
 ## 本機預覽
 
