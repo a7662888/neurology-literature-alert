@@ -46,10 +46,10 @@
       "zotero": {
         "imported": 0,
         "duplicatesSkipped": 0,
-        "collections": "尚未執行",
+        "collections": "每日文獻/2026/2026-06-08；主題/失智症；主題/預防；主題/阿茲海默症；主題/生物標記；主題/腦中風；主題/巴金森氏症；主題/神經退化；主題/數位認知評估",
         "itemKeysVerified": false,
-        "sqliteFallback": false,
-        "note": "本期原始 automation run 未能操作 Zotero；原因為當時無可用 Zotero connector 且本機 shell/node sandbox refresh 失敗。"
+        "sqliteFallback": "read-only duplicate check only",
+        "note": "已建立 Zotero 匯入清單 all_items.ris 與 collection_manifest；本機 Zotero connector 未開、ZOTERO_API_KEY 未設定，因此尚未實際寫入 Zotero library。SQLite 僅用於唯讀查重，未直接寫入。"
       },
       "articles": [
         {
