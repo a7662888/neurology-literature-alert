@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="近兩天神經科文獻速報：失智症、阿茲海默症、中風、巴金森氏症與神經退化研究。" />
+    <title>近兩天神經科文獻速報</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <nav class="topbar" aria-label="主要導覽">
+        <a class="brand" href="#top" aria-label="近兩天神經科文獻速報首頁">
+          <span class="brand-mark">N</span>
+          <span>Neurology Brief</span>
+        </a>
+        <div class="nav-links">
+          <a href="#current">本期</a>
+          <a href="#archive">封存</a>
+          <a href="#method">搜尋記錄</a>
+        </div>
+      </nav>
+
+      <section id="top" class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Dementia Prevention Center</p>
+          <h1>近兩天神經科文獻速報</h1>
+          <p class="lead">固定更新 dementia、mild cognitive impairment、Alzheimer disease、stroke、Parkinson disease、neurodegeneration、cognitive decline 與 prevention 相關新文獻。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#current">閱讀本期</a>
+            <a class="button secondary" href="#archive">查看舊期</a>
+          </div>
+        </div>
+        <aside class="status-panel" aria-label="網站狀態">
+          <span class="status-dot"></span>
+          <p>更新頻率</p>
+          <strong id="update-cadence">每兩天更新一次</strong>
+          <small id="last-updated">載入中</small>
+        </aside>
+      </section>
+    </header>
+
+    <main>
+      <section class="metrics-band" aria-label="本期概覽">
+        <div>
+          <span id="metric-issues">0</span>
+          <p>可查期別</p>
+        </div>
+        <div>
+          <span id="metric-articles">0</span>
+          <p>文獻項目</p>
+        </div>
+        <div>
+          <span id="metric-verified">0</span>
+          <p>PMID / DOI 可驗證</p>
+        </div>
+        <div>
+          <span id="metric-current">--</span>
+          <p>最新期別</p>
+        </div>
+      </section>
+
+      <section id="current" class="content-grid">
+        <aside class="controls" aria-label="篩選控制">
+          <label class="field-label" for="issue-select">期別</label>
+          <select id="issue-select"></select>
+
+          <label class="field-label" for="search-input">搜尋</label>
+          <input id="search-input" type="search" placeholder="PMID、主題、期刊、關鍵字" />
+
+          <div>
+            <p class="field-label">主題</p>
+            <div id="topic-filters" class="chips"></div>
+          </div>
+
+          <button id="reset-filters" class="button reset" type="button">清除篩選</button>
+        </aside>
+
+        <section class="issue-panel" aria-live="polite">
+          <div class="section-heading">
+            <p class="eyebrow">Current Issue</p>
+            <h2 id="issue-title">載入中</h2>
+            <p id="issue-summary"></p>
+          </div>
+          <div id="article-list" class="article-list"></div>
+        </section>
+      </section>
+
+      <section id="archive" class="archive-section">
+        <div class="section-heading">
+          <p class="eyebrow">Archive</p>
+          <h2>舊資料封存</h2>
+          <p>舊期不覆蓋，透過資料檔保留。新增期別時 append 到 `data/alerts.json` 即可。</p>
+        </div>
+        <div id="archive-list" class="archive-list"></div>
+      </section>
+
+      <section id="method" class="method-section">
+        <div class="section-heading">
+          <p class="eyebrow">Audit Trail</p>
+          <h2>搜尋記錄與 Zotero 狀態</h2>
+          <p>每期保留來源、搜尋式、執行日期、命中筆數、篩選理由與 Zotero 匯入狀態。</p>
+        </div>
+        <div class="method-grid">
+          <div class="method-card">
+            <h3>搜尋記錄</h3>
+            <div id="search-log"></div>
+          </div>
+          <div class="method-card">
+            <h3>Zotero 同步</h3>
+            <div id="zotero-status"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>只納入可驗證 PMID 或 DOI 的文獻；不確定欄位標示「尚待確認」。</p>
+      <p>Static GitHub Pages build. Data source: <code>docs/literature-alert/data/alerts.json</code> with <code>alerts.js</code> fallback for file preview.</p>
+    </footer>
+
+    <script src="./data/alerts.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
