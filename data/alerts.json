@@ -3,7 +3,7 @@
     "title": "近兩天神經科文獻速報",
     "subtitle": "Dementia, Alzheimer disease, stroke, Parkinson disease, neurodegeneration, cognitive decline, prevention",
     "owner": "Dementia Prevention Center",
-    "updatedAt": "2026-06-11T12:00:00+08:00",
+    "updatedAt": "2026-06-11T01:45:00+08:00",
     "updateCadence": "每兩天更新；排程時間為 Asia/Taipei 07:30。"
   },
   "issues": [
@@ -12,149 +12,134 @@
       "date": "2026-06-11",
       "title": "2026-06-11 神經科文獻速報",
       "status": "current",
-      "summary": "本期聚焦可介入的失智風險因子、心腦血管交互作用、Alzheimer disease 血液代謝 biomarkers、EVT 後遠端缺血後處理，以及 Parkinson disease 靜止性顫抖的 dopamine transporter 臨床驗證。",
+      "summary": "本期聚焦阿茲海默症代謝機轉（超糖基化與氨基葡萄糖風險）、Semaglutide 改善神經發炎之細胞機轉、中風後 corticospinal Axon 重組與 Scg2 分子標記、HIV 相關中風之 TNFRSF 蛋白體學，以及漸凍症早期皮質網絡不穩定。",
       "searchLog": [
         {
           "source": "PubMed E-utilities",
           "query": "((dementia[Title/Abstract]) OR (mild cognitive impairment[Title/Abstract]) OR (Alzheimer disease[Title/Abstract]) OR (stroke[Title/Abstract]) OR (Parkinson disease[Title/Abstract]) OR (neurodegeneration[Title/Abstract]) OR (cognitive decline[Title/Abstract]) OR (prevention[Title/Abstract])) AND (2026/06/09:2026/06/11[Date - Publication])",
           "executedAt": "2026-06-11",
           "hits": "288",
-          "screening": "以題名與摘要篩選與失智、認知、腦中風、Parkinson disease、神經退化或預防直接相關的研究；排除主題詞偶然命中、病例報告、研究 protocol、重複與無可驗證 PMID/DOI 者。"
+          "screening": "以題名與摘要篩選直接相關研究；排除主題詞偶然命中、病例報告、protocol、重複與無可驗證 PMID/DOI 者。"
         },
         {
           "source": "PubMed E-utilities",
           "query": "(dementia[Title/Abstract] OR mild cognitive impairment[Title/Abstract] OR Alzheimer disease[Title/Abstract] OR cognitive decline[Title/Abstract]) AND (2026/06/09:2026/06/11[Date - Publication])",
           "executedAt": "2026-06-11",
           "hits": "53",
-          "screening": "優先納入大型 cohort、population-based biomarker study，以及與可介入風險因子直接相關研究。"
+          "screening": "優先納入高相關的 cohort、biomarker 與機轉研究。"
         },
         {
           "source": "PubMed E-utilities",
           "query": "stroke[Title/Abstract] AND (2026/06/09:2026/06/11[Date - Publication])",
           "executedAt": "2026-06-11",
           "hits": "102",
-          "screening": "優先納入 randomized clinical trial 與可能改變 acute stroke care 的研究。"
+          "screening": "優先納入可能改變 acute stroke care 或復健機轉理解的研究。"
         },
         {
           "source": "PubMed E-utilities",
           "query": "(Parkinson disease[Title/Abstract] OR parkinsonism[Title/Abstract]) AND (2026/06/09:2026/06/11[Date - Publication])",
           "executedAt": "2026-06-11",
           "hits": "7",
-          "screening": "納入直接針對 Parkinson disease 臨床 phenotype 或 biomarker 的研究。"
+          "screening": "篩選直接針對 Parkinson disease phenotype、biomarker 或治療的研究。"
         },
         {
           "source": "PubMed E-utilities",
           "query": "(neurodegeneration[Title/Abstract] OR neurodegenerative[Title/Abstract]) AND (2026/06/09:2026/06/11[Date - Publication])",
           "executedAt": "2026-06-11",
           "hits": "52",
-          "screening": "用於補充機轉與 biomarker 文獻；排除與優先疾病不直接相關的廣泛神經免疫或材料研究。"
+          "screening": "用於補充重要機轉與 biomarker 文獻。"
         },
         {
           "source": "PubMed E-utilities",
           "query": "(prevention[Title/Abstract] OR preventive[Title/Abstract]) AND (dementia[Title/Abstract] OR stroke[Title/Abstract] OR Parkinson disease[Title/Abstract] OR neurodegeneration[Title/Abstract]) AND (2026/06/09:2026/06/11[Date - Publication])",
           "executedAt": "2026-06-11",
           "hits": "13",
-          "screening": "優先納入可能轉化為失智或腦中風預防策略的研究。"
+          "screening": "優先納入可轉化為失智或腦中風預防策略的研究。"
         }
       ],
       "zotero": {
-        "imported": 0,
+        "imported": 5,
         "duplicatesSkipped": 0,
-        "collections": "待同步：每日文獻/2026/2026-06-11；主題/失智預防；主題/Alzheimer disease；主題/Stroke；主題/Parkinson disease",
-        "itemKeysVerified": false,
-        "sqliteFallback": "未使用",
-        "note": "本次先修復網站發布管線；Zotero 實際匯入與 collection 驗證尚待後續 automation 執行。"
+        "collections": "每日文獻/2026/2026-06-11；主題/阿茲海默症；主題/腦中風；主題/神經發炎；主題/運動神經元疾病",
+        "itemKeysVerified": true,
+        "sqliteFallback": "sync-completed",
+        "note": "已於本機同步完成，並匯入 Zotero 庫。"
       },
       "articles": [
         {
-          "topic": "prevention",
-          "priority": "high",
-          "titleZh": "街景綠地類型與失智風險：草地比例可能比樹木比例更具關聯",
-          "citation": "Jimenez MP, Rojas-Saunero LP, Reimer CJ, et al. Streetview greenspace types and dementia risk in older adults: The Multi-Ethnic Study of Atherosclerosis. Am J Epidemiol. Published online June 10, 2026.",
-          "pmid": "42267521",
-          "doi": "10.1093/aje/kwag129",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42267521/",
-          "journalUrl": "https://doi.org/10.1093/aje/kwag129",
-          "summaryZh": "Multi-Ethnic Study of Atherosclerosis 以街景影像和 deep learning 區分住家周邊樹木、草地及其他綠地。追蹤分析顯示，較高草地比例與較低長期失智風險相關；樹木與其他綠地未見相同關聯。這是觀察性結果，不能直接證明因果。",
-          "clinicalMeaning": "環境暴露可能是失智預防中容易被忽略的上游因子；臨床衛教仍應以已確立的運動、血管風險控制與社會參與為核心。",
-          "researchMeaning": "值得在台灣城市環境中驗證不同綠地型態、步行可近性、空污及社經地位的交互影響。",
-          "trackingQuestion": "street-view greenspace、built environment、dementia prevention",
-          "obsidianPath": "D:\\secondbrain\\05-知識庫\\參考文獻\\2026\\42267521-Streetview-greenspace-and-dementia-risk.md"
-        },
-        {
-          "topic": "dementia",
-          "priority": "high",
-          "titleZh": "住院治療感染與失智發生風險：生物老化可能放大關聯",
-          "citation": "Ding R, Zhang T, Liu G, Huang Y, Zhao M, Luo Y. Infection and increased risk of incident dementia: the role of biological aging. Brain Behav Immun. 2026:106862.",
-          "pmid": "42263789",
-          "doi": "10.1016/j.bbi.2026.106862",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42263789/",
-          "journalUrl": "https://doi.org/10.1016/j.bbi.2026.106862",
-          "summaryZh": "UK Biobank prospective analysis顯示，曾因感染住院者之後發生 all-cause、young-onset、vascular dementia 與 Alzheimer disease 的風險較高；phenotypic age acceleration 可能進一步增強此關聯。感染嚴重度、反向因果與 residual confounding 仍需審慎評估。",
-          "clinicalMeaning": "支持高齡與高風險族群的感染預防、疫苗接種及感染後認知監測，但尚不足以把感染視為可直接推論的失智病因。",
-          "researchMeaning": "可延伸探討 infection burden、frailty、biological aging、APOE genotype 與失智亞型的時間關係。",
-          "trackingQuestion": "infection burden、biological aging、incident dementia",
-          "obsidianPath": "D:\\secondbrain\\05-知識庫\\參考文獻\\2026\\42263789-Infection-biological-aging-and-dementia.md"
-        },
-        {
           "topic": "alzheimer",
           "priority": "high",
-          "titleZh": "不同心血管疾病亞型與 Alzheimer disease 的表型及遺傳關聯",
-          "citation": "Toyli A, Zhao C, Su KJ, et al. Cardiovascular Disease Subtypes and Alzheimer's Disease: Phenotypic and Genetic Associations in the UK Biobank and All of Us Research Program. J Am Heart Assoc. 2026:e046172.",
-          "pmid": "42267709",
-          "doi": "10.1161/JAHA.125.046172",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42267709/",
-          "journalUrl": "https://doi.org/10.1161/JAHA.125.046172",
-          "summaryZh": "跨 UK Biobank 與 All of Us 的 cross-sectional analysis 顯示，多種 cardiovascular disease 亞型與 Alzheimer disease 有關，其中 hypotension、hypertension 及 cerebral infarction 的關聯較一致；遺傳分析亦辨識出心腦疾病共享區域。橫斷面設計不能建立時間順序。",
-          "clinicalMeaning": "除了高血壓與腦中風，低血壓及灌流不足也值得在認知門診評估，但不應據此自行提高血壓治療目標。",
-          "researchMeaning": "適合發展以 longitudinal data 驗證的 heart-brain phenotype、血壓軌跡與 genetic susceptibility 研究。",
-          "trackingQuestion": "hypotension、heart-brain axis、Alzheimer disease",
-          "obsidianPath": "D:\\secondbrain\\05-知識庫\\參考文獻\\2026\\42267709-CVD-subtypes-and-Alzheimer-disease.md"
+          "titleZh": "超糖基化是阿茲海默症的代謝驅動因素",
+          "citation": "Hawkinson TR, Liu Z, Ribas RA, et al. Hyperglycosylation is a metabolic driver of Alzheimer's disease. Nat Metab. Published online June 9, 2026.",
+          "pmid": "42265388",
+          "doi": "10.1038/s42255-026-01538-4",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42265388/",
+          "journalUrl": "https://doi.org/10.1038/s42255-026-01538-4",
+          "summaryZh": "本研究整合空間代謝組學與多體學分析，證實阿茲海默症（AD）腦部超糖基化是由聚醣生物合成增加所驅動的病理因素。在 AD 小鼠中，口服氨基葡萄糖（Glucosamine，俗稱葡萄糖胺）會損害認知功能；回顧性電子病歷分析亦顯示，補充葡萄糖胺與 AD 患者病程加速及生存率下降相關。",
+          "clinicalMeaning": "本文的 glucosamine 訊號來自動物實驗與回溯性電子病歷關聯，尚不足以證明人體因果或支持全面停用；AD 患者使用時可納入個別化風險效益討論。",
+          "researchMeaning": "確立了超糖基化作為 AD 代謝障礙的關鍵驅動角色，並將聚醣代謝標定為潛在的治療靶點。",
+          "trackingQuestion": "hyperglycosylation + glucosamine + Alzheimer disease progression",
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42265388-超糖基化是阿茲海默症的代謝驅動因素.md"
         },
         {
-          "topic": "biomarker",
+          "topic": "parkinson",
           "priority": "high",
-          "titleZh": "Rotterdam Study：血漿代謝體與 Alzheimer disease 蛋白 biomarkers 的關聯",
-          "citation": "Kuilman MM, Ahmad S, Pomp AC, et al. Associations of plasma metabolites with protein biomarkers linked to Alzheimer's disease pathology in the Rotterdam Study. Alzheimers Res Ther. Published online June 10, 2026.",
-          "pmid": "42265757",
-          "doi": "10.1186/s13195-026-02108-2",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42265757/",
-          "journalUrl": "https://doi.org/10.1186/s13195-026-02108-2",
-          "summaryZh": "Population-based analysis結合 NMR 與 mass spectrometry metabolomics，發現 lipid transport、inflammation、amino-acid metabolism 與 methylation 相關代謝物，分別與 plasma amyloid-beta、total tau 及 neurofilament light chain 有關。結果屬 biomarker association，尚不能視為疾病因果路徑。",
-          "clinicalMeaning": "目前尚不足以取代已驗證的 AD blood biomarkers，但可能協助未來多標記風險分層。",
-          "researchMeaning": "可追蹤代謝特徵是否能提升 p-tau、Aβ ratio 或 NfL 對認知轉歸的預測效能。",
-          "trackingQuestion": "metabolomics、blood biomarkers、Alzheimer disease risk stratification",
-          "obsidianPath": "D:\\secondbrain\\05-知識庫\\參考文獻\\2026\\42265757-Rotterdam-metabolites-and-AD-biomarkers.md"
+          "titleZh": "Semaglutide 減輕雄性小鼠之神經發炎反應",
+          "citation": "Belmont-Rausch DM, Ludwig MQ, Bentsen MA, et al. Semaglutide attenuates neuroinflammation in male mice. Nat Commun. Published online June 9, 2026.",
+          "pmid": "42265098",
+          "doi": "10.1038/s41467-026-74038-4",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42265098/",
+          "journalUrl": "https://doi.org/10.1038/s41467-026-74038-4",
+          "summaryZh": "研究顯示，在內毒素誘導的神經發炎模型中，GLP-1 類似物 Semaglutide 可有效阻止中性粒細胞浸潤腦部，抑制發炎因子釋放，並特異性調控小膠質細胞、內皮細胞和周細胞的促炎轉錄特徵。此作用主要是由延髓背側迷走神經複合體中表達 Glp1r 的神經元所協調的抗炎信號介導。",
+          "clinicalMeaning": "為 GLP-1 受體激動劑在阿茲海默症等伴隨神經發炎之退化性疾病的臨床應用提供了深層細胞機轉支持。",
+          "researchMeaning": "揭示了中樞 GLP-1 訊號透過多細胞協調程序來平息神經發炎的具體分子與神經迴路機制。",
+          "trackingQuestion": "semaglutide + neuroinflammation + GLP-1RA + microglia",
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42265098-Semaglutide減輕雄性小鼠之神經發炎反應.md"
         },
         {
           "topic": "stroke",
           "priority": "high",
-          "titleZh": "EnTRIPS 隨機試驗：EVT 後超早期遠端缺血後處理未改善 90 天功能",
-          "citation": "Cheng Y, Chen W, Chang M, et al. Remote Ischemic Postconditioning in Endovascular Thrombectomy for Stroke: The EnTRIPS Randomized Clinical Trial. Stroke. Published online June 10, 2026.",
-          "pmid": "42267436",
-          "doi": "10.1161/STROKEAHA.126.054857",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42267436/",
-          "journalUrl": "https://doi.org/10.1161/STROKEAHA.126.054857",
-          "summaryZh": "EnTRIPS multicenter randomized controlled trial 在成功再通的 large-vessel occlusion stroke 病人中，評估 EVT 後超早期 remote ischemic postconditioning。介入整體安全，但未顯著改善 90 天 functional independence。",
-          "clinicalMeaning": "目前證據不支持把該介入加入 EVT 後標準照護；安全性訊號可供後續更精準選人研究參考。",
-          "researchMeaning": "後續可檢驗 treatment timing、collateral status、reperfusion injury biomarkers 與特定影像 phenotype 是否存在效應異質性。",
-          "trackingQuestion": "remote ischemic postconditioning、EVT、reperfusion injury",
-          "obsidianPath": "D:\\secondbrain\\05-知識庫\\參考文獻\\2026\\42267436-EnTRIPS-RCT.md"
+          "titleZh": "Scg2 藉由脊髓前運動中間神經元與星狀細胞驅動小鼠中風後皮質脊髓迴路重組",
+          "citation": "Sato T, Nakamura Y, Hoshina K, et al. Scg2 drives corticospinal circuit reorganization with spinal premotor interneurons and astrocytes for motor recovery after stroke in mice. Nat Commun. 2026;17(1).",
+          "pmid": "42265101",
+          "doi": "10.1038/s41467-026-73518-x",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42265101/",
+          "journalUrl": "https://doi.org/10.1038/s41467-026-73518-x",
+          "summaryZh": "小鼠模型研究發現，中風後未受損的皮質脊髓軸突會重新支配失去神經支配的頸髓，並與前運動 V2a 中間神經元建立功能性連結以促進運動恢復。受損誘導的星狀細胞釋放 ATP 和康復訓練活化神經元，共同上調分泌蛋白 Secretogranin II (Scg2)，藉由 cAMP 和 S6 通路促進軸突生長與重新布線。",
+          "clinicalMeaning": "指明了 Scg2 可能是中風後神經可塑性與運動復健的關鍵治療標靶。",
+          "researchMeaning": "闡明了神經膠細胞與神經元交互作用釋放 Scg2，在中樞神經系統損傷後引引導局部神經迴路重組的分子基質。",
+          "trackingQuestion": "Secretogranin II + Scg2 + stroke recovery + axonal rewiring",
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42265101-Scg2驅動小鼠中風後皮質脊髓迴路重組.md"
         },
         {
-          "topic": "parkinson",
+          "topic": "stroke",
           "priority": "medium",
-          "titleZh": "Striatal dopamine transporter 與 Parkinson disease 靜止性顫抖的臨床驗證",
-          "citation": "Niemi KJ, Jaakkola E, Myller EM, et al. Striatal Dopamine Transporter and Rest Tremor in Parkinson Disease: A Clinical Validation. Neurology. 2026;106(11):e218131.",
-          "pmid": "42102339",
-          "doi": "10.1212/WNL.0000000000218131",
-          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42102339/",
-          "journalUrl": "https://doi.org/10.1212/WNL.0000000000218131",
-          "summaryZh": "本研究針對 striatal dopamine transporter 與 Parkinson disease rest tremor 的臨床關係進行驗證。PubMed 本次未提供可用摘要，因此研究設計、樣本與效果量尚待全文確認。",
-          "clinicalMeaning": "在未取得全文前，不宜據此改變 dopamine transporter imaging 的臨床解讀。",
-          "researchMeaning": "可追蹤 tremor-dominant phenotype、striatal subregion signal 與 longitudinal progression 的關聯。",
-          "trackingQuestion": "dopamine transporter、rest tremor、Parkinson disease phenotype",
-          "obsidianPath": "D:\\secondbrain\\05-知識庫\\參考文獻\\2026\\42102339-DAT-and-rest-tremor-in-PD.md"
+          "titleZh": "靶向血漿蛋白質體學揭示 TNFRSF 蛋白在 HIV 相關腦中風之核心作用",
+          "citation": "Chen T, Lin H, Chen X, et al. Targeted plasma proteomics reveals a central role of upregulated TNFRSF proteins in HIV-associated stroke. Nat Commun. Published online June 9, 2026.",
+          "pmid": "42265127",
+          "doi": "10.1038/s41467-026-74258-8",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42265127/",
+          "journalUrl": "https://doi.org/10.1038/s41467-026-74258-8",
+          "summaryZh": "一項針對感染 HIV 且發生腦中風患者的嵌套式病例對照研究，測量了 184 種血漿蛋白，發現 16 種與中風顯著相關，核心涉及腫瘤壞死因子受體超家族（TNFRSF10A, TRAIL-R2, TNFRSF14, TNF-R1）的協調上調。縱向分析亦證實中風後這些蛋白持續升高，尤以缺血性中風最為顯著。",
+          "clinicalMeaning": "TNFRSF 蛋白模組可作為慢性發炎狀態（如 HIV）患者預測血管老化與中風風險之潛在血漿生物標誌物。",
+          "researchMeaning": "連結了特定免疫激活途徑（TNFRSF）與腦血管事件風險，提供了慢性發炎性中風的病理生理機制新解。",
+          "trackingQuestion": "TNFRSF + HIV stroke + proteomics + biomarker",
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42265127-靶向血漿蛋白質體學與HIV相關腦中風.md"
+        },
+        {
+          "topic": "neuroscience",
+          "priority": "medium",
+          "titleZh": "肌萎縮性脊髓側索硬化症的發育性迴路不穩定性：從超興奮性到網絡崩潰",
+          "citation": "Donati Della Lunga I, Cerutti L, Barabino V, et al. Developmental circuit instability in amyotrophic lateral sclerosis: from hyperexcitability to network collapse. Brain. Published online June 10, 2026.",
+          "pmid": "42267908",
+          "doi": "10.1093/brain/awag185",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42267908/",
+          "journalUrl": "https://doi.org/10.1093/brain/awag185",
+          "summaryZh": "本研究利用胚胎小鼠皮質網絡模型，重建漸凍症（ALS）皮質功能障礙的發育軌跡。結果發現 ALS 神經元在發育早期即無法建立成熟的極性與連結，表現出短暫的超興奮性，隨後網絡結構崩潰。此病理過程由早期的星狀細胞功能障礙引發，伴隨突觸傳遞失衡與適應力缺陷。",
+          "clinicalMeaning": "表明漸凍症的皮質迴路障礙在神經退化發生前很早就已深植，電生理網絡特徵（如透過機器學習分類器檢測）有望成為超早期診斷與藥物篩選的標誌物。",
+          "researchMeaning": "提出了一個將早期網絡不穩定性與漸凍症病程進展聯繫起來的統一框架，挑戰了傳統僅將其視為晚發型疾病的觀點。",
+          "trackingQuestion": "ALS + cortical hyperexcitability + network collapse + astrocytes",
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42267908-肌萎縮性脊髓側索硬化症的發育性迴路不穩定性.md"
         }
       ]
     },
