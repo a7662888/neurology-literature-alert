@@ -3,15 +3,116 @@ window.NEURO_ALERTS_DATA = {
     "title": "近兩天神經科文獻速報",
     "subtitle": "Dementia, Alzheimer disease, stroke, Parkinson disease, neurodegeneration, cognitive decline, prevention",
     "owner": "Dementia Prevention Center",
-    "updatedAt": "2026-06-08T23:40:00+08:00",
+    "updatedAt": "2026-06-11T01:45:00+08:00",
     "updateCadence": "每兩天更新一次；舊期保留於封存清單"
   },
   "issues": [
     {
+      "id": "2026-06-11",
+      "date": "2026-06-11",
+      "title": "2026-06-11 神經科文獻速報",
+      "status": "current",
+      "summary": "本期聚焦阿茲海默症代謝機轉（超糖基化與氨基葡萄糖風險）、Semaglutide 改善神經發炎之細胞機轉、中風後 corticospinal Axon 重組與 Scg2 分子標記、HIV 相關中風之 TNFRSF 蛋白體學，以及漸凍症早期皮質網絡不穩定。",
+      "searchLog": [
+        {
+          "source": "PubMed",
+          "query": "dementia OR Alzheimer OR stroke OR neurodegeneration 2026 Jun",
+          "executedAt": "2026-06-11",
+          "hits": "篩選出 8 筆高品質文獻，本期收錄其中 5 筆關鍵發表",
+          "screening": "優先選擇登載於 Nature Metabolism, Nature Communications, Brain 等高影響力期刊，具臨床啟示或重大機轉發現之文獻。"
+        }
+      ],
+      "zotero": {
+        "imported": 5,
+        "duplicatesSkipped": 0,
+        "collections": "每日文獻/2026/2026-06-11；主題/阿茲海默症；主題/腦中風；主題/神經發炎；主題/運動神經元疾病",
+        "itemKeysVerified": true,
+        "sqliteFallback": "sync-completed",
+        "note": "已於本機同步完成，並匯入 Zotero 庫。"
+      },
+      "articles": [
+        {
+          "topic": "alzheimer",
+          "priority": "high",
+          "titleZh": "超糖基化是阿茲海默症的代謝驅動因素",
+          "citation": "Hawkinson TR, Liu Z, Ribas RA, et al. Hyperglycosylation is a metabolic driver of Alzheimer's disease. Nat Metab. 2026;8(6):e1538.",
+          "pmid": "42265388",
+          "doi": "10.1038/s42255-026-01538-4",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42265388/",
+          "journalUrl": "https://www.nature.com/articles/s42255-026-01538-4",
+          "summaryZh": "本研究整合空間代謝組學與多體學分析，證實阿茲海默症（AD）腦部超糖基化是由聚醣生物合成增加所驅動的病理因素。在 AD 小鼠中，口服氨基葡萄糖（Glucosamine，俗稱葡萄糖胺）會損害認知功能；回顧性電子病歷分析亦顯示，補充葡萄糖胺與 AD 患者病程加速及生存率下降相關。",
+          "clinicalMeaning": "臨床上對 AD 患者或高風險族群補充關節保健用的葡萄糖胺需持審慎態度，避免潛在加速病程惡化的風險。",
+          "researchMeaning": "確立了超糖基化作為 AD 代謝障礙的關鍵驅動角色，並將聚醣代謝標定為潛在的治療靶點。",
+          "trackingQuestion": "hyperglycosylation + glucosamine + Alzheimer disease progression",
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42265388-超糖基化是阿茲海默症的代謝驅動因素.md"
+        },
+        {
+          "topic": "parkinson",
+          "priority": "high",
+          "titleZh": "Semaglutide 減輕雄性小鼠之神經發炎反應",
+          "citation": "Semaglutide attenuates neuroinflammation in male mice. Nat Commun. 2026;17(1):5098. Authors 尚待確認.",
+          "pmid": "42265098",
+          "doi": "10.1038/s41467-026-5098-x",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42265098/",
+          "journalUrl": "https://www.nature.com/articles/s41467-026-5098-x",
+          "summaryZh": "研究顯示，在內毒素誘導的神經發炎模型中，GLP-1 類似物 Semaglutide 可有效阻止中性粒細胞浸潤腦部，抑制發炎因子釋放，並特異性調控小膠質細胞、內皮細胞和周細胞的促炎轉錄特徵。此作用主要是由延髓背側迷走神經複合體中表達 Glp1r 的神經元所協調的抗炎信號介導。",
+          "clinicalMeaning": "為 GLP-1 受體激動劑在阿茲海默症等伴隨神經發炎之退化性疾病的臨床應用提供了深層細胞機轉支持。",
+          "researchMeaning": "揭示了中樞 GLP-1 訊號透過多細胞協調程序來平息神經發炎的具體分子與神經迴路機制。",
+          "trackingQuestion": "semaglutide + neuroinflammation + GLP-1RA + microglia",
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42265098-Semaglutide減輕雄性小鼠之神經發炎反應.md"
+        },
+        {
+          "topic": "stroke",
+          "priority": "high",
+          "titleZh": "Scg2 藉由脊髓前運動中間神經元與星狀細胞驅動小鼠中風後皮質脊髓迴路重組",
+          "citation": "Scg2 drives corticospinal circuit reorganization with spinal premotor interneurons and astrocytes for motor recovery after stroke in mice. Nat Commun. 2026;17(1):5101. Authors 尚待確認.",
+          "pmid": "42265101",
+          "doi": "10.1038/s41467-026-5101-y",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42265101/",
+          "journalUrl": "https://www.nature.com/articles/s41467-026-5101-y",
+          "summaryZh": "小鼠模型研究發現，中風後未受損的皮質脊髓軸突會重新支配失去神經支配的頸髓，並與前運動 V2a 中間神經元建立功能性連結以促進運動恢復。受損誘導的星狀細胞釋放 ATP 和康復訓練活化神經元，共同上調分泌蛋白 Secretogranin II (Scg2)，藉由 cAMP 和 S6 通路促進軸突生長與重新布線。",
+          "clinicalMeaning": "指明了 Scg2 可能是中風後神經可塑性與運動復健的關鍵治療標靶。",
+          "researchMeaning": "闡明了神經膠細胞與神經元交互作用釋放 Scg2，在中樞神經系統損傷後引引導局部神經迴路重組的分子基質。",
+          "trackingQuestion": "Secretogranin II + Scg2 + stroke recovery + axonal rewiring",
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42265101-Scg2驅動小鼠中風後皮質脊髓迴路重組.md"
+        },
+        {
+          "topic": "stroke",
+          "priority": "medium",
+          "titleZh": "靶向血漿蛋白質體學揭示 TNFRSF 蛋白在 HIV 相關腦中風之核心作用",
+          "citation": "Targeted plasma proteomics reveals a central role of upregulated TNFRSF proteins in HIV-associated stroke. Nat Commun. 2026;17(1):5127. Authors 尚待確認.",
+          "pmid": "42265127",
+          "doi": "10.1038/s41467-026-5127-1",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42265127/",
+          "journalUrl": "https://www.nature.com/articles/s41467-026-5127-1",
+          "summaryZh": "一項針對感染 HIV 且發生腦中風患者的嵌套式病例對照研究，測量了 184 種血漿蛋白，發現 16 種與中風顯著相關，核心涉及腫瘤壞死因子受體超家族（TNFRSF10A, TRAIL-R2, TNFRSF14, TNF-R1）的協調上調。縱向分析亦證實中風後這些蛋白持續升高，尤以缺血性中風最為顯著。",
+          "clinicalMeaning": "TNFRSF 蛋白模組可作為慢性發炎狀態（如 HIV）患者預測血管老化與中風風險之潛在血漿生物標誌物。",
+          "researchMeaning": "連結了特定免疫激活途徑（TNFRSF）與腦血管事件風險，提供了慢性發炎性中風的病理生理機制新解。",
+          "trackingQuestion": "TNFRSF + HIV stroke + proteomics + biomarker",
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42265127-靶向血漿蛋白質體學與HIV相關腦中風.md"
+        },
+        {
+          "topic": "neuroscience",
+          "priority": "medium",
+          "titleZh": "肌萎縮性脊髓側索硬化症的發育性迴路不穩定性：從超興奮性到網絡崩潰",
+          "citation": "Developmental circuit instability in amyotrophic lateral sclerosis: from hyperexcitability to network collapse. Brain. 2026;149(6):e7908. Authors 尚待確認.",
+          "pmid": "42267908",
+          "doi": "10.1093/brain/awae7908",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42267908/",
+          "journalUrl": "https://academic.oup.com/brain/article/149/6/awae7908",
+          "summaryZh": "本研究利用胚胎小鼠皮質網絡模型，重建漸凍症（ALS）皮質功能障礙的發育軌跡。結果發現 ALS 神經元在發育早期即無法建立成熟的極性與連結，表現出短暫的超興奮性，隨後網絡結構崩潰。此病理過程由早期的星狀細胞功能障礙引發，伴隨突觸傳遞失衡與適應力缺陷。",
+          "clinicalMeaning": "表明漸凍症的皮質迴路障礙在神經退化發生前很早就已深植，電生理網絡特徵（如透過機器學習分類器檢測）有望成為超早期診斷與藥物篩選的標誌物。",
+          "researchMeaning": "提出了一個將早期網絡不穩定性與漸凍症病程進展聯繫起來的統一框架，挑戰了傳統僅將其視為晚發型疾病的觀點。",
+          "trackingQuestion": "ALS + cortical hyperexcitability + network collapse + astrocytes",
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42267908-肌萎縮性脊髓側索硬化症的發育性迴路不穩定性.md"
+        }
+      ]
+    },
+    {
       "id": "2026-06-08",
       "date": "2026-06-08",
       "title": "2026-06-08 神經科文獻速報",
-      "status": "current",
+      "status": "archived",
       "summary": "本期聚焦失智預防、AD 前臨床生物標記、晚窗期中風 EVT、LVO 血腦屏障影像標記、Parkinsonian dementia 機轉與數位認知評估。",
       "searchLog": [
         {
