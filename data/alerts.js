@@ -4,7 +4,7 @@ window.NEURO_ALERTS_DATA = {
     "subtitle": "Dementia, Alzheimer disease, stroke, Parkinson disease, neurodegeneration, cognitive decline, prevention",
     "owner": "Dementia Prevention Center",
     "updatedAt": "2026-06-12T15:12:37+08:00",
-    "updateCadence": "每日 07:30（Asia/Taipei）；奇數日 Antigravity、偶數日 Codex。"
+    "updateCadence": "每日 07:30（Asia/Taipei）由 GitHub Actions 雲端發布；12:00 雲端補漏。"
   },
   "issues": [
     {
