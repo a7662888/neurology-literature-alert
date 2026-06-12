@@ -226,7 +226,8 @@ def citation(row: dict) -> str:
     authors = ", ".join(row["authors"][:3])
     if len(row["authors"]) > 3:
         authors += ", et al."
-    return f"{authors}. {row['title']} {row['journal_abbrev'] or row['journal']}. {row['pub_date']}."
+    title = row["title"].rstrip(".")
+    return f"{authors}. {title}. {row['journal_abbrev'] or row['journal']}. {row['pub_date']}."
 
 
 def build_article(row: dict) -> dict:
@@ -327,7 +328,16 @@ def main() -> int:
     eligible = []
     for row in rows_by_pmid.values():
         types = {value.lower() for value in row["publication_types"]}
-        if types & EXCLUDED_TYPES or not row["doi"] or not row["title"]:
+        # PubMed may label publisher research briefings as generic journal
+        # articles. Require authors and an abstract so they are not mistaken
+        # for the underlying original research.
+        if (
+            types & EXCLUDED_TYPES
+            or not row["doi"]
+            or not row["title"]
+            or not row["authors"]
+            or not row["abstract"]
+        ):
             continue
         row["score"] = article_score(row)
         eligible.append(row)
