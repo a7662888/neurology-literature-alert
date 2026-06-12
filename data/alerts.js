@@ -3,15 +3,145 @@ window.NEURO_ALERTS_DATA = {
     "title": "近兩天神經科文獻速報",
     "subtitle": "Dementia, Alzheimer disease, stroke, Parkinson disease, neurodegeneration, cognitive decline, prevention",
     "owner": "Dementia Prevention Center",
-    "updatedAt": "2026-06-11T01:45:00+08:00",
-    "updateCadence": "每兩天更新；排程時間為 Asia/Taipei 07:30。"
+    "updatedAt": "2026-06-12T15:12:37+08:00",
+    "updateCadence": "每日 07:30（Asia/Taipei）；奇數日 Antigravity、偶數日 Codex。"
   },
   "issues": [
+    {
+      "id": "2026-06-12",
+      "date": "2026-06-12",
+      "title": "2026-06-12 神經科文獻速報",
+      "status": "current",
+      "publisher": "codex",
+      "summary": "本期由背景排程自動收錄 5 篇經 PubMed PMID/DOI 驗證且通過跨來源去重的神經科新文獻。內容為 metadata/abstract 層級，全文效果量與臨床結論尚待人工審讀。",
+      "searchLog": [
+        {
+          "source": "PubMed E-utilities",
+          "query": "(dementia[Title/Abstract] OR \"mild cognitive impairment\"[Title/Abstract] OR \"Alzheimer disease\"[Title/Abstract] OR Alzheimer[Title/Abstract] OR \"cognitive decline\"[Title/Abstract]) AND (2026/06/11:2026/06/12[EDAT])",
+          "executedAt": "2026-06-12",
+          "hits": "139",
+          "screening": "排除既有 PMID、DOI、正規化標題、評論、社論、信件、撤稿與缺少可驗證 DOI 者；依主題相關性、文章類型及期刊排序。"
+        },
+        {
+          "source": "PubMed E-utilities",
+          "query": "(stroke[Title/Abstract] OR \"cerebral ischemia\"[Title/Abstract] OR \"intracerebral hemorrhage\"[Title/Abstract] OR thrombectomy[Title/Abstract]) AND (2026/06/11:2026/06/12[EDAT])",
+          "executedAt": "2026-06-12",
+          "hits": "146",
+          "screening": "排除既有 PMID、DOI、正規化標題、評論、社論、信件、撤稿與缺少可驗證 DOI 者；依主題相關性、文章類型及期刊排序。"
+        },
+        {
+          "source": "PubMed E-utilities",
+          "query": "(\"Parkinson disease\"[Title/Abstract] OR Parkinson[Title/Abstract] OR parkinsonism[Title/Abstract] OR \"movement disorder\"[Title/Abstract]) AND (2026/06/11:2026/06/12[EDAT])",
+          "executedAt": "2026-06-12",
+          "hits": "56",
+          "screening": "排除既有 PMID、DOI、正規化標題、評論、社論、信件、撤稿與缺少可驗證 DOI 者；依主題相關性、文章類型及期刊排序。"
+        },
+        {
+          "source": "PubMed E-utilities",
+          "query": "(neurodegeneration[Title/Abstract] OR neurodegenerative[Title/Abstract] OR \"neural circuit\"[Title/Abstract] OR synaptic[Title/Abstract]) AND (2026/06/11:2026/06/12[EDAT])",
+          "executedAt": "2026-06-12",
+          "hits": "151",
+          "screening": "排除既有 PMID、DOI、正規化標題、評論、社論、信件、撤稿與缺少可驗證 DOI 者；依主題相關性、文章類型及期刊排序。"
+        },
+        {
+          "source": "PubMed E-utilities",
+          "query": "((prevention[Title/Abstract] OR preventive[Title/Abstract]) AND (dementia[Title/Abstract] OR stroke[Title/Abstract] OR Parkinson[Title/Abstract] OR neurodegeneration[Title/Abstract])) AND (2026/06/11:2026/06/12[EDAT])",
+          "executedAt": "2026-06-12",
+          "hits": "17",
+          "screening": "排除既有 PMID、DOI、正規化標題、評論、社論、信件、撤稿與缺少可驗證 DOI 者；依主題相關性、文章類型及期刊排序。"
+        }
+      ],
+      "zotero": {
+        "imported": 0,
+        "duplicatesSkipped": 0,
+        "collections": "每日文獻/2026/2026-06-12",
+        "itemKeysVerified": false,
+        "sqliteFallback": "disabled",
+        "note": "背景發布器不寫入 Zotero SQLite；待 Zotero Web API 可用時由 canonical workflow 同步。"
+      },
+      "articles": [
+        {
+          "topic": "parkinson",
+          "priority": "high",
+          "titleZh": "Dual-target gene therapy in Parkinson's disease: a multicenter phase 1 trial.",
+          "citation": "Niu M, Guo J, Yang Y, et al.. Dual-target gene therapy in Parkinson's disease: a multicenter phase 1 trial. Nat Med. 2026-06-10.",
+          "pmid": "42271071",
+          "doi": "10.1038/s41591-026-04436-0",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42271071/",
+          "journalUrl": "https://doi.org/10.1038/s41591-026-04436-0",
+          "summaryZh": "本篇為 巴金森氏症 主題之Journal Article，由 PubMed abstract 自動收錄。本速報不自動推導原文未明列的效果量或因果結論；完整方法、結果與限制仍需全文核對。",
+          "clinicalMeaning": "此為背景自動收錄項目；臨床應用前須核對全文、研究設計、族群與效果量。",
+          "researchMeaning": "可納入「巴金森氏症」研究監測與後續全文審讀清單。",
+          "trackingQuestion": "Parkinson disease OR parkinsonism OR movement disorder",
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42271071-巴金森氏症自動文獻.md"
+        },
+        {
+          "topic": "dementia",
+          "priority": "high",
+          "titleZh": "Microglia at a key inflection point in Alzheimer's disease.",
+          "citation": ". Microglia at a key inflection point in Alzheimer's disease. Nat Med. 2026-06-11.",
+          "pmid": "42277464",
+          "doi": "10.1038/s41591-026-04409-3",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42277464/",
+          "journalUrl": "https://doi.org/10.1038/s41591-026-04409-3",
+          "summaryZh": "本篇為 失智症 主題之Journal Article，由 PubMed metadata 自動收錄。本速報不自動推導原文未明列的效果量或因果結論；完整方法、結果與限制仍需全文核對。",
+          "clinicalMeaning": "此為背景自動收錄項目；臨床應用前須核對全文、研究設計、族群與效果量。",
+          "researchMeaning": "可納入「失智症」研究監測與後續全文審讀清單。",
+          "trackingQuestion": "dementia OR mild cognitive impairment OR Alzheimer disease OR cognitive decline",
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42277464-失智症自動文獻.md"
+        },
+        {
+          "topic": "dementia",
+          "priority": "high",
+          "titleZh": "Cerebellar aging is spatially heterogeneous and supports cognitive resilience in later life.",
+          "citation": "d'Oleire Uquillas F, Sefik E, Seidlitz J, et al.. Cerebellar aging is spatially heterogeneous and supports cognitive resilience in later life. Nat Neurosci. 2026-06-10.",
+          "pmid": "42271047",
+          "doi": "10.1038/s41593-026-02289-x",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42271047/",
+          "journalUrl": "https://doi.org/10.1038/s41593-026-02289-x",
+          "summaryZh": "本篇為 失智症 主題之Journal Article，由 PubMed abstract 自動收錄。本速報不自動推導原文未明列的效果量或因果結論；完整方法、結果與限制仍需全文核對。",
+          "clinicalMeaning": "此為背景自動收錄項目；臨床應用前須核對全文、研究設計、族群與效果量。",
+          "researchMeaning": "可納入「失智症」研究監測與後續全文審讀清單。",
+          "trackingQuestion": "dementia OR mild cognitive impairment OR Alzheimer disease OR cognitive decline",
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42271047-失智症自動文獻.md"
+        },
+        {
+          "topic": "stroke",
+          "priority": "high",
+          "titleZh": "Cerebrovascular vulnerability and fibrosis in human brain aneurysms.",
+          "citation": "Wang JC, Kim CN, Bhalla S, et al.. Cerebrovascular vulnerability and fibrosis in human brain aneurysms. Nat Neurosci. 2026-06-10.",
+          "pmid": "42271045",
+          "doi": "10.1038/s41593-026-02326-9",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42271045/",
+          "journalUrl": "https://doi.org/10.1038/s41593-026-02326-9",
+          "summaryZh": "本篇為 腦中風 主題之Journal Article，由 PubMed abstract 自動收錄。本速報不自動推導原文未明列的效果量或因果結論；完整方法、結果與限制仍需全文核對。",
+          "clinicalMeaning": "此為背景自動收錄項目；臨床應用前須核對全文、研究設計、族群與效果量。",
+          "researchMeaning": "可納入「腦中風」研究監測與後續全文審讀清單。",
+          "trackingQuestion": "stroke OR cerebral ischemia OR intracerebral hemorrhage OR thrombectomy",
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42271045-腦中風自動文獻.md"
+        },
+        {
+          "topic": "neuroscience",
+          "priority": "high",
+          "titleZh": "A prognostic human brain network for diffuse midline glioma.",
+          "citation": "Sidpra J, Lind V, Cohen AL, et al.. A prognostic human brain network for diffuse midline glioma. Nature. 2026-06-10.",
+          "pmid": "42271051",
+          "doi": "10.1038/s41586-026-10631-3",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42271051/",
+          "journalUrl": "https://doi.org/10.1038/s41586-026-10631-3",
+          "summaryZh": "本篇為 神經科學基礎 主題之Journal Article，由 PubMed abstract 自動收錄。本速報不自動推導原文未明列的效果量或因果結論；完整方法、結果與限制仍需全文核對。",
+          "clinicalMeaning": "此為背景自動收錄項目；臨床應用前須核對全文、研究設計、族群與效果量。",
+          "researchMeaning": "可納入「神經科學基礎」研究監測與後續全文審讀清單。",
+          "trackingQuestion": "neurodegeneration OR neural circuit OR synaptic",
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42271051-神經科學基礎自動文獻.md"
+        }
+      ]
+    },
     {
       "id": "2026-06-11",
       "date": "2026-06-11",
       "title": "2026-06-11 神經科文獻速報",
-      "status": "current",
+      "status": "archived",
       "summary": "本期聚焦阿茲海默症代謝機轉（超糖基化與氨基葡萄糖風險）、Semaglutide 改善神經發炎之細胞機轉、中風後 corticospinal Axon 重組與 Scg2 分子標記、HIV 相關中風之 TNFRSF 蛋白體學，以及漸凍症早期皮質網絡不穩定。",
       "searchLog": [
         {
