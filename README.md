@@ -10,6 +10,17 @@
 4. 舊期不要刪除，頁面會自動出現在封存區。
 5. 每篇文獻至少保留 `pmid` 或 `doi`，不確定欄位填入 `尚待確認`。
 
+## 雲端自動發布
+
+GitHub Actions 會在每日台北時間 `07:30` 執行，並於 `12:00` 補漏。
+排程在 GitHub 雲端執行，因此本機關機時仍會更新網站。
+
+- 奇數日期：標記發布者為 `antigravity`
+- 偶數日期：標記發布者為 `codex`
+- 搜尋與驗證：PubMed E-utilities
+- 去重：既有網站歷史中的 PMID、DOI、正規化標題
+- 雲端只更新網站；Obsidian/Zotero 由本機開機後補同步
+
 ## GitHub Pages 設定
 
 - 專用 repo：`https://github.com/a7662888/neurology-literature-alert`
