@@ -3,15 +3,145 @@
     "title": "近兩天神經科文獻速報",
     "subtitle": "Dementia, Alzheimer disease, stroke, Parkinson disease, neurodegeneration, cognitive decline, prevention",
     "owner": "Dementia Prevention Center",
-    "updatedAt": "2026-06-12T15:12:37+08:00",
-    "updateCadence": "每日 07:30（Asia/Taipei）由 GitHub Actions 雲端發布；12:00 雲端補漏。"
+    "updatedAt": "2026-06-13T08:25:50+08:00",
+    "updateCadence": "每日 07:30（Asia/Taipei）；GitHub Actions 雲端發布，12:00 補漏。"
   },
   "issues": [
+    {
+      "id": "2026-06-13",
+      "date": "2026-06-13",
+      "title": "2026-06-13 神經科文獻速報",
+      "status": "current",
+      "publisher": "antigravity",
+      "summary": "本期由 GitHub Actions 背景排程收錄 5 篇經 PubMed PMID/DOI 驗證且通過歷史去重的神經科新文獻。內容為 metadata/abstract 層級，全文效果量與臨床結論尚待人工審讀。",
+      "searchLog": [
+        {
+          "source": "PubMed E-utilities",
+          "query": "(dementia[Title/Abstract] OR \"mild cognitive impairment\"[Title/Abstract] OR \"Alzheimer disease\"[Title/Abstract] OR Alzheimer[Title/Abstract] OR \"cognitive decline\"[Title/Abstract]) AND (2026/06/12:2026/06/13[EDAT])",
+          "executedAt": "2026-06-13",
+          "hits": "143",
+          "screening": "排除既有 PMID、DOI、正規化標題、評論、社論、信件、撤稿與缺少可驗證 DOI 者；依主題相關性、文章類型及期刊排序。"
+        },
+        {
+          "source": "PubMed E-utilities",
+          "query": "(stroke[Title/Abstract] OR \"cerebral ischemia\"[Title/Abstract] OR \"intracerebral hemorrhage\"[Title/Abstract] OR thrombectomy[Title/Abstract]) AND (2026/06/12:2026/06/13[EDAT])",
+          "executedAt": "2026-06-13",
+          "hits": "142",
+          "screening": "排除既有 PMID、DOI、正規化標題、評論、社論、信件、撤稿與缺少可驗證 DOI 者；依主題相關性、文章類型及期刊排序。"
+        },
+        {
+          "source": "PubMed E-utilities",
+          "query": "(\"Parkinson disease\"[Title/Abstract] OR Parkinson[Title/Abstract] OR parkinsonism[Title/Abstract] OR \"movement disorder\"[Title/Abstract]) AND (2026/06/12:2026/06/13[EDAT])",
+          "executedAt": "2026-06-13",
+          "hits": "57",
+          "screening": "排除既有 PMID、DOI、正規化標題、評論、社論、信件、撤稿與缺少可驗證 DOI 者；依主題相關性、文章類型及期刊排序。"
+        },
+        {
+          "source": "PubMed E-utilities",
+          "query": "(neurodegeneration[Title/Abstract] OR neurodegenerative[Title/Abstract] OR \"neural circuit\"[Title/Abstract] OR synaptic[Title/Abstract]) AND (2026/06/12:2026/06/13[EDAT])",
+          "executedAt": "2026-06-13",
+          "hits": "176",
+          "screening": "排除既有 PMID、DOI、正規化標題、評論、社論、信件、撤稿與缺少可驗證 DOI 者；依主題相關性、文章類型及期刊排序。"
+        },
+        {
+          "source": "PubMed E-utilities",
+          "query": "((prevention[Title/Abstract] OR preventive[Title/Abstract]) AND (dementia[Title/Abstract] OR stroke[Title/Abstract] OR Parkinson[Title/Abstract] OR neurodegeneration[Title/Abstract])) AND (2026/06/12:2026/06/13[EDAT])",
+          "executedAt": "2026-06-13",
+          "hits": "18",
+          "screening": "排除既有 PMID、DOI、正規化標題、評論、社論、信件、撤稿與缺少可驗證 DOI 者；依主題相關性、文章類型及期刊排序。"
+        }
+      ],
+      "zotero": {
+        "imported": 0,
+        "duplicatesSkipped": 0,
+        "collections": "每日文獻/2026/2026-06-13",
+        "itemKeysVerified": false,
+        "sqliteFallback": "disabled",
+        "note": "雲端發布不寫入 Zotero；本機開機後由同步流程補齊 Obsidian/Zotero。"
+      },
+      "articles": [
+        {
+          "topic": "stroke",
+          "priority": "high",
+          "titleZh": "Clazosentan in aneurysmal subarachnoid hemorrhage: an updated systematic review and meta-analysis of efficacy and safety.",
+          "citation": "Alsakti AM, Ghazwi ZHA, AlOtaibi AK, et al.. Clazosentan in aneurysmal subarachnoid hemorrhage: an updated systematic review and meta-analysis of efficacy and safety. BMC Neurol. 2026-06-11.",
+          "pmid": "42277709",
+          "doi": "10.1186/s12883-026-05016-y",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42277709/",
+          "journalUrl": "https://doi.org/10.1186/s12883-026-05016-y",
+          "summaryZh": "本篇為 腦中風 主題之Journal Article、Systematic Review，由 PubMed abstract 自動收錄。本速報不自動推導原文未明列的效果量或因果結論；完整方法、結果與限制仍需全文核對。",
+          "clinicalMeaning": "此為背景自動收錄項目；臨床應用前須核對全文、研究設計、族群與效果量。",
+          "researchMeaning": "可納入「腦中風」研究監測與後續全文審讀清單。",
+          "trackingQuestion": "stroke OR cerebral ischemia OR intracerebral hemorrhage OR thrombectomy",
+          "obsidianPath": ""
+        },
+        {
+          "topic": "dementia",
+          "priority": "high",
+          "titleZh": "Long-term physical activity, brain structure, and cognitive function: a systematic review of longitudinal observational evidence.",
+          "citation": "Shettigar D, Sukumar S, Kadavigere R, et al.. Long-term physical activity, brain structure, and cognitive function: a systematic review of longitudinal observational evidence. BMC Neurol. 2026-06-11.",
+          "pmid": "42277754",
+          "doi": "10.1186/s12883-026-05055-5",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42277754/",
+          "journalUrl": "https://doi.org/10.1186/s12883-026-05055-5",
+          "summaryZh": "本篇為 失智症 主題之Journal Article、Systematic Review，由 PubMed abstract 自動收錄。本速報不自動推導原文未明列的效果量或因果結論；完整方法、結果與限制仍需全文核對。",
+          "clinicalMeaning": "此為背景自動收錄項目；臨床應用前須核對全文、研究設計、族群與效果量。",
+          "researchMeaning": "可納入「失智症」研究監測與後續全文審讀清單。",
+          "trackingQuestion": "dementia OR mild cognitive impairment OR Alzheimer disease OR cognitive decline",
+          "obsidianPath": ""
+        },
+        {
+          "topic": "stroke",
+          "priority": "high",
+          "titleZh": "Stroke risk factors and outcomes in Trinidad and Tobago: the START study.",
+          "citation": "Seecheran NA, Maharaj N, Swarath S, et al.. Stroke risk factors and outcomes in Trinidad and Tobago: the START study. BMC Neurol. 2026-06-12.",
+          "pmid": "42277678",
+          "doi": "10.1186/s12883-026-05063-5",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42277678/",
+          "journalUrl": "https://doi.org/10.1186/s12883-026-05063-5",
+          "summaryZh": "本篇為 腦中風 主題之Journal Article，由 PubMed abstract 自動收錄。本速報不自動推導原文未明列的效果量或因果結論；完整方法、結果與限制仍需全文核對。",
+          "clinicalMeaning": "此為背景自動收錄項目；臨床應用前須核對全文、研究設計、族群與效果量。",
+          "researchMeaning": "可納入「腦中風」研究監測與後續全文審讀清單。",
+          "trackingQuestion": "stroke OR cerebral ischemia OR intracerebral hemorrhage OR thrombectomy",
+          "obsidianPath": ""
+        },
+        {
+          "topic": "neuroscience",
+          "priority": "high",
+          "titleZh": "Cell-Type-Specific CB1R Signaling Modulates Prefrontal Synaptic Responses to HF-rTMS in Chronically Stressed Mice.",
+          "citation": "Zhou CH, Yu H, He L, et al.. Cell-Type-Specific CB1R Signaling Modulates Prefrontal Synaptic Responses to HF-rTMS in Chronically Stressed Mice. Behav Brain Res. 2026-06-11.",
+          "pmid": "42276282",
+          "doi": "10.1016/j.bbr.2026.116333",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42276282/",
+          "journalUrl": "https://doi.org/10.1016/j.bbr.2026.116333",
+          "summaryZh": "本篇為 神經科學基礎 主題之Journal Article，由 PubMed abstract 自動收錄。本速報不自動推導原文未明列的效果量或因果結論；完整方法、結果與限制仍需全文核對。",
+          "clinicalMeaning": "此為背景自動收錄項目；臨床應用前須核對全文、研究設計、族群與效果量。",
+          "researchMeaning": "可納入「神經科學基礎」研究監測與後續全文審讀清單。",
+          "trackingQuestion": "neurodegeneration OR neural circuit OR synaptic",
+          "obsidianPath": ""
+        },
+        {
+          "topic": "neuroscience",
+          "priority": "high",
+          "titleZh": "Meta-analysis of brain and blood transcriptional signatures of neuroimmune dysregulation in Schizophrenia: convergent evidence for excessive complement system activity and CX3CL1-CX3CR1 axis disruption.",
+          "citation": "Boughanmi ME, Lespine LF, Leboyer M, et al.. Meta-analysis of brain and blood transcriptional signatures of neuroimmune dysregulation in Schizophrenia: convergent evidence for excessive complement system activity and CX3CL1-CX3CR1 axis disruption. Brain Behav Immun. 2026-06-11.",
+          "pmid": "42276261",
+          "doi": "10.1016/j.bbi.2026.106865",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42276261/",
+          "journalUrl": "https://doi.org/10.1016/j.bbi.2026.106865",
+          "summaryZh": "本篇為 神經科學基礎 主題之Journal Article，由 PubMed abstract 自動收錄。本速報不自動推導原文未明列的效果量或因果結論；完整方法、結果與限制仍需全文核對。",
+          "clinicalMeaning": "此為背景自動收錄項目；臨床應用前須核對全文、研究設計、族群與效果量。",
+          "researchMeaning": "可納入「神經科學基礎」研究監測與後續全文審讀清單。",
+          "trackingQuestion": "neurodegeneration OR neural circuit OR synaptic",
+          "obsidianPath": ""
+        }
+      ]
+    },
     {
       "id": "2026-06-12",
       "date": "2026-06-12",
       "title": "2026-06-12 神經科文獻速報",
-      "status": "current",
+      "status": "archived",
       "publisher": "codex",
       "summary": "本期收錄 5 篇經 PMID/DOI 驗證的神經科文獻；已於 2026-06-12 依 PubMed 摘要與 Nature 官方頁面完成證據層級校正。所有臨床意義均限於原始研究設計可支持的範圍。",
       "searchLog": [
