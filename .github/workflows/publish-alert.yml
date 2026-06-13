@@ -53,7 +53,7 @@ jobs:
         run: python scripts/cloud_publish.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_MODELS_MODEL: openai/gpt-4o
+          GITHUB_MODELS_MODEL: openai/gpt-4.1
 
       - name: Commit and push when data changed
         if: github.event_name != 'workflow_dispatch' || !inputs.smoke_test

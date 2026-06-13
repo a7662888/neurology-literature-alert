@@ -227,7 +227,7 @@ def article_score(row: dict) -> int:
 def citation(row: dict) -> str:
     authors = ", ".join(row["authors"][:3])
     if len(row["authors"]) > 3:
-        authors += ", et al."
+        authors += ", et al"
     title = row["title"].rstrip(".")
     return f"{authors}. {title}. {row['journal_abbrev'] or row['journal']}. {row['pub_date']}."
 
@@ -237,7 +237,7 @@ def github_models_summary(title: str, abstract: str, theme_label: str) -> dict:
     if not token:
         raise RuntimeError("GITHUB_TOKEN is required for verified AI summaries")
 
-    model = os.environ.get("GITHUB_MODELS_MODEL", "openai/gpt-4o")
+    model = os.environ.get("GITHUB_MODELS_MODEL", "openai/gpt-4.1")
     required = (
         "titleZh",
         "summaryZh",
@@ -257,7 +257,9 @@ def github_models_summary(title: str, abstract: str, theme_label: str) -> dict:
 3. 不得把相關性改寫成因果，也不得把安全性或可行性研究寫成療效證明。
 4. 若摘要未提供機制或限制，請明寫「摘要未提供，尚待全文確認」。
 5. titleZh 必須是忠實的繁體中文標題，不得保留為完整英文標題。
-6. 每個欄位都必須是非空字串，不要輸出 Markdown。
+6. 先交叉核對目的、方法、結果與結論；若摘要內部互相矛盾，必須明確指出矛盾，不得自行選擇其中一種敘述。
+7. 回溯性 cohort、橫斷面或無對照研究只能寫「觀察到」或「與...相關」，不得寫成證實療效或因果。
+8. 每個欄位都必須是非空字串，不要輸出 Markdown。
 
 主題：{theme_label}
 英文標題：{title}
