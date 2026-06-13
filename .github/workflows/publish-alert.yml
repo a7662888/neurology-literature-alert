@@ -33,6 +33,8 @@ jobs:
       - name: Generate verified alert
         id: generate
         run: python scripts/cloud_publish.py
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       - name: Commit and push when data changed
         run: |

@@ -230,11 +230,72 @@ def citation(row: dict) -> str:
     return f"{authors}. {title}. {row['journal_abbrev'] or row['journal']}. {row['pub_date']}."
 
 
-def build_article(row: dict) -> dict:
+def generate_summaries_via_gemini(title: str, abstract: str, theme_label: str) -> dict | None:
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        return None
+    
+    prompt = f"""
+你是一位專業的神經醫學專家。請閱讀以下文獻的英文標題與摘要，並生成繁體中文（台灣醫學術語，禁止使用簡體字）的精確內容。
+
+標題：{title}
+主題：{theme_label}
+摘要：{abstract}
+
+請輸出以下三個部分，並嚴格遵循 JSON 格式返回，不要包含任何 markdown 語法（例如 ```json 標記或反引號）：
+{{
+  "summaryZh": "以繁體中文撰寫的學術摘要，簡述研究設計、對象、核心發現與主要結果（約 2-3 句）",
+  "clinicalMeaning": "此研究對失智症防治、腦中風或神經科臨床診斷與治療的具體臨床意義（約 1-2 句）",
+  "researchMeaning": "此研究在學術上的研究價值，說明後續監測與審讀的關鍵點（約 1-2 句）"
+}}
+"""
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
+    payload = {
+        "contents": [{
+            "parts": [{
+                "text": prompt
+            }]
+        }],
+        "generationConfig": {
+            "responseMimeType": "application/json"
+        }
+    }
+    
+    try:
+        req = urllib.request.Request(
+            url,
+            data=json.dumps(payload).encode("utf-8"),
+            headers={"Content-Type": "application/json"}
+        )
+        with urllib.request.urlopen(req, timeout=30) as response:
+            res_data = json.loads(response.read().decode("utf-8"))
+            text = res_data["candidates"][0]["content"]["parts"][0]["text"].strip()
+            return json.loads(text)
+    except Exception as exc:
+        print(f"Gemini API call failed for '{title}': {exc}")
+        return None
+
+
+def build_article(row: dict, run_date: date) -> dict:
     theme = row["themes"][0]
     label = THEMES[theme]["label"]
     basis = "PubMed abstract" if row["abstract"] else "PubMed metadata"
     types = "、".join(row["publication_types"][:2]) or "期刊文獻"
+    
+    gemini_data = generate_summaries_via_gemini(row["title"], row["abstract"], label)
+    
+    if gemini_data and "summaryZh" in gemini_data:
+        summary_zh = gemini_data["summaryZh"]
+        clinical_meaning = gemini_data["clinicalMeaning"]
+        research_meaning = gemini_data["researchMeaning"]
+    else:
+        summary_zh = (
+            f"本篇為 {label} 主題之{types}，由 {basis} 自動收錄。"
+            "本速報不自動推導原文未明列的效果量或因果結論；完整方法、結果與限制仍需全文核對。"
+        )
+        clinical_meaning = "此為背景自動收錄項目；臨床應用前須核對全文、研究設計、族群與效果量。"
+        research_meaning = f"可納入「{label}」研究監測與後續全文審讀清單。"
+        
     return {
         "topic": theme,
         "priority": "high" if row["score"] >= 75 else "medium",
@@ -244,14 +305,11 @@ def build_article(row: dict) -> dict:
         "doi": row["doi"],
         "sourceUrl": f"https://pubmed.ncbi.nlm.nih.gov/{row['pmid']}/",
         "journalUrl": f"https://doi.org/{row['doi']}",
-        "summaryZh": (
-            f"本篇為 {label} 主題之{types}，由 {basis} 自動收錄。"
-            "本速報不自動推導原文未明列的效果量或因果結論；完整方法、結果與限制仍需全文核對。"
-        ),
-        "clinicalMeaning": "此為背景自動收錄項目；臨床應用前須核對全文、研究設計、族群與效果量。",
-        "researchMeaning": f"可納入「{label}」研究監測與後續全文審讀清單。",
+        "summaryZh": summary_zh,
+        "clinicalMeaning": clinical_meaning,
+        "researchMeaning": research_meaning,
         "trackingQuestion": THEMES[theme]["tracking"],
-        "obsidianPath": "",
+        "obsidianPath": f"E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\{run_date.year}\\{row['pmid']}-{label}自動文獻.md",
     }
 
 
@@ -377,7 +435,7 @@ def main() -> int:
             "sqliteFallback": "disabled",
             "note": "雲端發布不寫入 Zotero；本機開機後由同步流程補齊 Obsidian/Zotero。",
         },
-        "articles": [build_article(row) for row in selected],
+        "articles": [build_article(row, run_date) for row in selected],
     }
     for old_issue in payload.get("issues", []):
         old_issue["status"] = "archived"
