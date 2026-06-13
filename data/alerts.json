@@ -13,7 +13,7 @@
       "title": "2026-06-13 神經科文獻速報",
       "status": "current",
       "publisher": "antigravity",
-      "summary": "本期由 GitHub Actions 背景排程收錄 5 篇經 PubMed PMID/DOI 驗證且通過歷史去重的神經科新文獻。內容為 metadata/abstract 層級，全文效果量與臨床結論尚待人工審讀。",
+      "summary": "本期收錄 5 篇近期發表的重磅文獻。本期聚焦於 Clazosentan 治療動脈瘤蜘蛛膜下腔出血（aSAH）療效與全身副作用統合分析、長期身體活動與大腦萎縮關係之縱向綜述、千里達與托巴哥急性中風流行病學特徵、rTMS 抗憂鬱機制與細胞特異性 CB1R 信號的關聯，以及思覺失調症腦部與外周血 NIREGs 及補體轉錄體學特徵。",
       "searchLog": [
         {
           "source": "PubMed E-utilities",
@@ -69,11 +69,11 @@
           "doi": "10.1186/s12883-026-05016-y",
           "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42277709/",
           "journalUrl": "https://doi.org/10.1186/s12883-026-05016-y",
-          "summaryZh": "本篇為 腦中風 主題之Journal Article、Systematic Review，由 PubMed abstract 自動收錄。本速報不自動推導原文未明列的效果量或因果結論；完整方法、結果與限制仍需全文核對。",
-          "clinicalMeaning": "此為背景自動收錄項目；臨床應用前須核對全文、研究設計、族群與效果量。",
-          "researchMeaning": "可納入「腦中風」研究監測與後續全文審讀清單。",
+          "summaryZh": "本統合分析包含 16 項研究（7項 RCT，9項世代研究），評估強效 ETA 受體拮抗劑 Clazosentan 對動脈瘤蜘蛛膜下腔出血（aSAH）的療效。結果顯示，Clazosentan 可顯著減少血管造影上的腦血管痙攣、解救治療使用率及血管痙攣相關的腦梗塞，但這些影像學與替代指標的改善未能轉化為臨床功能恢復（mRS）或降低死亡率的獲益，且顯著增加了低血壓、貧血、胸水及肺水腫等全身性副作用。",
+          "clinicalMeaning": "本分析表明 Clazosentan 屬於「治標不治本」藥物。雖然能有效緩解腦血管痙攣與減少梗塞面積，但因其引起的低血壓和水鈉滯留（肺水腫、胸水）等全身性併發症，可能抵消了腦血管保護作用，導致功能預後無顯著改善。臨床上不建議作為 aSAH 後的常規預防藥物，應嚴格限於心肺代償功能佳、血管痙攣高風險的特定患者。",
+          "researchMeaning": "為循證醫學中的經典案例，證實了「替代終點（血管痙攣與梗塞）的改善不一定等同於臨床終點（患者存活與功能復原）的獲益」。未來研究需探索如何在維持腦血流灌注的同時，降低 ETA 拮抗劑的全身系統性血管擴張與滲透性副作用。",
           "trackingQuestion": "stroke OR cerebral ischemia OR intracerebral hemorrhage OR thrombectomy",
-          "obsidianPath": ""
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42277709-腦中風自動文獻.md"
         },
         {
           "topic": "dementia",
@@ -84,11 +84,11 @@
           "doi": "10.1186/s12883-026-05055-5",
           "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42277754/",
           "journalUrl": "https://doi.org/10.1186/s12883-026-05055-5",
-          "summaryZh": "本篇為 失智症 主題之Journal Article、Systematic Review，由 PubMed abstract 自動收錄。本速報不自動推導原文未明列的效果量或因果結論；完整方法、結果與限制仍需全文核對。",
-          "clinicalMeaning": "此為背景自動收錄項目；臨床應用前須核對全文、研究設計、族群與效果量。",
-          "researchMeaning": "可納入「失智症」研究監測與後續全文審讀清單。",
+          "summaryZh": "本系統性綜述納入 20 項縱向觀察性研究，探討長期規律身體活動（PA）對大腦結構與認知功能的保護效應。結果顯示，較高的 PA 與保留海馬迴及前額葉灰質體積、減緩白質微結構衰退顯著相關，且對執行功能和處理速度的保護最為一致，並在 APOE-ε4 攜帶者中效應更為顯著；然而，雙向分析顯示基線大腦結構較佳者未來 PA 水平也較高，提示無法排除「反向因果關係」。",
+          "clinicalMeaning": "證實規律身體活動對於預防失智症及減緩海馬迴萎縮具有成本效益，特別是對於攜帶 APOE-ε4 基因的高危險群，應作為首要非藥物預防處方。然而，臨床評估時須注意，患者認知功能的衰退或大腦早期萎縮，本身也可能是導致其身體活動量下降的原因（反向因果）。",
+          "researchMeaning": "揭示了觀察性研究在建立因果推論時的局限性。未來的縱向隊列或干預性研究需加強對「反向因果關係」與「混雜因素」的統計控制，並建議使用加速規等客觀工具取代自我報告的身體活動量。",
           "trackingQuestion": "dementia OR mild cognitive impairment OR Alzheimer disease OR cognitive decline",
-          "obsidianPath": ""
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42277754-失智症自動文獻.md"
         },
         {
           "topic": "stroke",
@@ -99,11 +99,11 @@
           "doi": "10.1186/s12883-026-05063-5",
           "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42277678/",
           "journalUrl": "https://doi.org/10.1186/s12883-026-05063-5",
-          "summaryZh": "本篇為 腦中風 主題之Journal Article，由 PubMed abstract 自動收錄。本速報不自動推導原文未明列的效果量或因果結論；完整方法、結果與限制仍需全文核對。",
-          "clinicalMeaning": "此為背景自動收錄項目；臨床應用前須核對全文、研究設計、族群與效果量。",
-          "researchMeaning": "可納入「腦中風」研究監測與後續全文審讀清單。",
+          "summaryZh": "橫斷面觀察性與縱向追蹤研究（START 研究），評估千里達及托巴哥學術醫療中心 546 名中風與 TIA 患者的危險因子與預後。分析顯示，缺血性中風占 80%，出血性占 19%，住院死亡率為 16%，3個月死亡率為 26%。慢性腎臟病（CKD）與出血性中風風險高度相關（OR = 11.10）；糖尿病、蛛網膜下腔出血、腦實質內出血及中腦動脈（MCA）梗塞與短期及3個月死亡率顯著相關；心房顫動則增加住院死亡風險。",
+          "clinicalMeaning": "提供開發中國家（加勒比海地區）之中風流行病學特徵，強調了慢性腎臟病（CKD）是出血性中風的強烈獨立預後因子（OR > 11），以及心衰竭（HFrEF）、心房顫動和高齡對於中風患者 3 個月內死亡的顯著預測價值，臨床上對合併上述共病的急性中風患者應給予加強監護。",
+          "researchMeaning": "這是首個針對千里達地區中風負擔的大規模前瞻性登記研究（START 臨床註冊號：NCT05256550），為該地區制定公共衛生預防策略提供了基準數據，並強調了心腎共病對中風功能預後（mRS）的深遠影響。",
           "trackingQuestion": "stroke OR cerebral ischemia OR intracerebral hemorrhage OR thrombectomy",
-          "obsidianPath": ""
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42277678-腦中風自動文獻.md"
         },
         {
           "topic": "neuroscience",
@@ -114,11 +114,11 @@
           "doi": "10.1016/j.bbr.2026.116333",
           "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42276282/",
           "journalUrl": "https://doi.org/10.1016/j.bbr.2026.116333",
-          "summaryZh": "本篇為 神經科學基礎 主題之Journal Article，由 PubMed abstract 自動收錄。本速報不自動推導原文未明列的效果量或因果結論；完整方法、結果與限制仍需全文核對。",
-          "clinicalMeaning": "此為背景自動收錄項目；臨床應用前須核對全文、研究設計、族群與效果量。",
-          "researchMeaning": "可納入「神經科學基礎」研究監測與後續全文審讀清單。",
+          "summaryZh": "本研究利用慢性不可預測溫和應激（CUMS）小鼠模型，探討細胞特異性大麻素受體 1（CB1R）信號通路如何調控高頻重複經顱磁刺激（HF-rTMS）改善抑鬱行為的突觸機制。結果顯示，藥物阻斷 CB1R 會抑制 HF-rTMS 的療效；在穀氨酸能神經元敲除 CB1R（vGlut1-CB1R-KO）小鼠中，rTMS 無法改善抑鬱行為或突觸變化；而在 GABA 能神經元敲除 CB1R（GAD2-CB1R-KO）小鼠中，rTMS 仍可通過調控突觸後功能發揮部分作用。",
+          "clinicalMeaning": "揭示了重複經顱磁刺激（rTMS）臨床抗憂鬱療效的神經生物學基礎，證實前額葉皮質（PFC）中的內源性大麻素系統（eCB）及其細胞特異性突觸可塑性在 rTMS 介入中扮演關鍵角色，可能提示未來 rTMS 療效的預測或協同藥物開發方向。",
+          "researchMeaning": "闡明了 rTMS 調控突觸前抑制性神經遞質釋放的細胞特異性機制，特別是區分了穀氨酸能與 GABA 能神經元上的 CB1R 信號在應激脆弱性與 rTMS 反應性中的不同貢獻，豐富了電生理與分子神經科學的突觸迴路理論。",
           "trackingQuestion": "neurodegeneration OR neural circuit OR synaptic",
-          "obsidianPath": ""
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42276282-神經科學基礎自動文獻.md"
         },
         {
           "topic": "neuroscience",
@@ -129,11 +129,11 @@
           "doi": "10.1016/j.bbi.2026.106865",
           "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42276261/",
           "journalUrl": "https://doi.org/10.1016/j.bbi.2026.106865",
-          "summaryZh": "本篇為 神經科學基礎 主題之Journal Article，由 PubMed abstract 自動收錄。本速報不自動推導原文未明列的效果量或因果結論；完整方法、結果與限制仍需全文核對。",
-          "clinicalMeaning": "此為背景自動收錄項目；臨床應用前須核對全文、研究設計、族群與效果量。",
-          "researchMeaning": "可納入「神經科學基礎」研究監測與後續全文審讀清單。",
+          "summaryZh": "本研究對思覺失調症（SZ）患者的腦組織（532名患者，623名對照）及外周血（197名患者，164名對照）基因表現數據進行統合分析，探討神經免疫調節因子（NIREGs）及補體系統的轉錄失調。結果顯示，SZ 患者腦部補體基因 C4 顯著過度表達，而補體抑制因子 CD46 與微膠質細胞趨化因子配體 CX3CL1 表達降低。值得注意的是，腦部與外周血均表現出 CX3CL1-CX3CR1 免疫調節軸的破壞，提示外周血中 CX3CR1 的低表達可作為評估中樞免疫失調的潛在生物標記。",
+          "clinicalMeaning": "為思覺失調症的神經發育與突觸修剪異常假說提供了轉錄組學統合分析支持，並提出外周血單核細胞的 CX3CR1 基因表達下降，可作為反映腦部微膠質細胞-神經元交互作用失調（CX3CL1-CX3CR1 軸中斷）的無創外周血液生物標記。",
+          "researchMeaning": "首次在大規模腦與外周血多中心數據集中，系統性證實思覺失調症的發病機制與「補體系統過度活化」和「 Don't eat me 訊號（NIREGs）下調」共同介導的異常突觸修剪有關，為神經精神免疫學（Neuropsychiatric Immunology）開拓了補體調控因子作為治療靶點的新路徑。",
           "trackingQuestion": "neurodegeneration OR neural circuit OR synaptic",
-          "obsidianPath": ""
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42276261-神經科學基礎自動文獻.md"
         }
       ]
     },
