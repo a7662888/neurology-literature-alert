@@ -4,12 +4,23 @@ on:
   schedule:
     # Asia/Taipei is UTC+8 year-round: 23:30 UTC = 07:30 next day.
     - cron: "30 23 * * *"
-    # Cloud watchdog: 04:00 UTC = 12:00 Asia/Taipei.
-    - cron: "0 4 * * *"
+    # GitHub cron can be delayed or skipped during peak load. These runs are
+    # idempotent because the publisher exits when today's issue already exists.
+    - cron: "15 0 * * *"
+    - cron: "15 1 * * *"
+    # Cloud watchdog: 04:05 UTC = 12:05 Asia/Taipei.
+    - cron: "5 4 * * *"
   workflow_dispatch:
+    inputs:
+      smoke_test:
+        description: Test GitHub Models without publishing an issue
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
+  models: read
 
 concurrency:
   group: neurology-literature-alert-publisher
@@ -30,21 +41,30 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Test GitHub Models
+        if: github.event_name == 'workflow_dispatch' && inputs.smoke_test
+        run: python scripts/cloud_publish.py --ai-smoke-test
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Generate verified alert
+        if: github.event_name != 'workflow_dispatch' || !inputs.smoke_test
         id: generate
         run: python scripts/cloud_publish.py
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_MODELS_MODEL: openai/gpt-4o
 
       - name: Commit and push when data changed
+        if: github.event_name != 'workflow_dispatch' || !inputs.smoke_test
         run: |
-          if git diff --quiet -- data/alerts.json data/alerts.js; then
+          if [ -z "$(git status --porcelain -- data/alerts.json data/alerts.js knowledge-notes)" ]; then
             echo "No alert changes."
             exit 0
           fi
           git config user.name "neurology-alert-bot"
           git config user.email "codex-automation@users.noreply.github.com"
-          git add data/alerts.json data/alerts.js
+          git add data/alerts.json data/alerts.js knowledge-notes
           git commit -m "Publish ${ISSUE_DATE} neurology literature alert"
           git push
         env:

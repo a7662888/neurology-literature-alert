@@ -19,7 +19,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ALERTS_JSON = ROOT / "data" / "alerts.json"
 ALERTS_JS = ROOT / "data" / "alerts.js"
+KNOWLEDGE_NOTES = ROOT / "knowledge-notes"
 EUTILS = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
+GITHUB_MODELS_ENDPOINT = "https://models.github.ai/inference/chat/completions"
 USER_AGENT = "NeurologyLiteratureAlert-GitHubActions/1.0 (a7662888@gmail.com)"
 TAIPEI = timezone(timedelta(hours=8))
 
@@ -230,86 +232,194 @@ def citation(row: dict) -> str:
     return f"{authors}. {title}. {row['journal_abbrev'] or row['journal']}. {row['pub_date']}."
 
 
-def generate_summaries_via_gemini(title: str, abstract: str, theme_label: str) -> dict | None:
-    api_key = os.environ.get("GEMINI_API_KEY")
-    if not api_key:
-        return None
-    
+def github_models_summary(title: str, abstract: str, theme_label: str) -> dict:
+    token = os.environ.get("GITHUB_TOKEN")
+    if not token:
+        raise RuntimeError("GITHUB_TOKEN is required for verified AI summaries")
+
+    model = os.environ.get("GITHUB_MODELS_MODEL", "openai/gpt-4o")
+    required = (
+        "titleZh",
+        "summaryZh",
+        "keyFindings",
+        "mechanism",
+        "clinicalMeaning",
+        "researchMeaning",
+        "teachingApplication",
+        "limitations",
+    )
     prompt = f"""
-你是一位專業的神經醫學專家。請閱讀以下文獻的英文標題與摘要，並生成繁體中文（台灣醫學術語，禁止使用簡體字）的精確內容。
+請只根據下列 PubMed 英文標題與摘要，建立繁體中文（台灣醫學術語）的神經科文獻摘要。
 
-標題：{title}
+嚴格規則：
+1. 不得使用摘要以外的知識補寫研究結果。
+2. 數字、樣本數、效果量與時間只能在摘要明確出現時引用。
+3. 不得把相關性改寫成因果，也不得把安全性或可行性研究寫成療效證明。
+4. 若摘要未提供機制或限制，請明寫「摘要未提供，尚待全文確認」。
+5. titleZh 必須是忠實的繁體中文標題，不得保留為完整英文標題。
+6. 每個欄位都必須是非空字串，不要輸出 Markdown。
+
 主題：{theme_label}
-摘要：{abstract}
+英文標題：{title}
+PubMed 摘要：
+{abstract}
 
-請輸出以下三個部分，並嚴格遵循 JSON 格式返回，不要包含任何 markdown 語法（例如 ```json 標記或反引號）：
-{{
-  "summaryZh": "以繁體中文撰寫的學術摘要，簡述研究設計、對象、核心發現與主要結果（約 2-3 句）",
-  "clinicalMeaning": "此研究對失智症防治、腦中風或神經科臨床診斷與治療的具體臨床意義（約 1-2 句）",
-  "researchMeaning": "此研究在學術上的研究價值，說明後續監測與審讀的關鍵點（約 1-2 句）"
-}}
-"""
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
+輸出 JSON 欄位：
+titleZh, summaryZh, keyFindings, mechanism, clinicalMeaning,
+researchMeaning, teachingApplication, limitations
+""".strip()
     payload = {
-        "contents": [{
-            "parts": [{
-                "text": prompt
-            }]
-        }],
-        "generationConfig": {
-            "responseMimeType": "application/json"
-        }
+        "model": model,
+        "messages": [
+            {
+                "role": "system",
+                "content": (
+                    "You are a conservative neurology literature editor. "
+                    "Return valid JSON and never invent evidence."
+                ),
+            },
+            {"role": "user", "content": prompt},
+        ],
+        "temperature": 0.1,
+        "max_tokens": 1200,
+        "response_format": {"type": "json_object"},
     }
-    
-    try:
-        req = urllib.request.Request(
-            url,
-            data=json.dumps(payload).encode("utf-8"),
-            headers={"Content-Type": "application/json"}
-        )
-        with urllib.request.urlopen(req, timeout=30) as response:
-            res_data = json.loads(response.read().decode("utf-8"))
-            text = res_data["candidates"][0]["content"]["parts"][0]["text"].strip()
-            return json.loads(text)
-    except Exception as exc:
-        print(f"Gemini API call failed for '{title}': {exc}")
-        return None
+    last_error: Exception | None = None
+    for attempt in range(1, 4):
+        try:
+            request = urllib.request.Request(
+                GITHUB_MODELS_ENDPOINT,
+                data=json.dumps(payload).encode("utf-8"),
+                headers={
+                    "Accept": "application/vnd.github+json",
+                    "Authorization": f"Bearer {token}",
+                    "Content-Type": "application/json",
+                    "X-GitHub-Api-Version": "2022-11-28",
+                    "User-Agent": USER_AGENT,
+                },
+                method="POST",
+            )
+            with urllib.request.urlopen(request, timeout=90) as response:
+                result = json.loads(response.read().decode("utf-8"))
+            content = result["choices"][0]["message"]["content"].strip()
+            generated = json.loads(content)
+            missing = [key for key in required if not str(generated.get(key, "")).strip()]
+            if missing:
+                raise ValueError(f"AI response omitted fields: {', '.join(missing)}")
+            return {key: str(generated[key]).strip() for key in required}
+        except Exception as exc:
+            last_error = exc
+            if attempt < 3:
+                time.sleep(attempt * 5)
+    raise RuntimeError(f"GitHub Models failed for PMID/title: {title}") from last_error
+
+
+def safe_filename(value: str, limit: int = 72) -> str:
+    cleaned = re.sub(r'[<>:"/\\|?*\x00-\x1f]', "-", value)
+    cleaned = re.sub(r"\s+", " ", cleaned).strip(" .-")
+    return cleaned[:limit].rstrip(" .-") or "文獻摘要"
+
+
+def cloud_note_relative_path(row: dict, run_date: date) -> Path:
+    return Path("knowledge-notes") / str(run_date.year) / run_date.isoformat() / f"{row['pmid']}.md"
+
+
+def intended_obsidian_path(row: dict, generated: dict, run_date: date) -> str:
+    filename = safe_filename(f"{row['pmid']}-{generated['titleZh']}") + ".md"
+    return rf"E:\OneDrive\Obsidian Vault\05-知識庫\文獻\{run_date.year}\{filename}"
+
+
+def render_knowledge_note(row: dict, article: dict, run_date: date) -> str:
+    tag = THEMES[row["themes"][0]]["label"]
+    return f"""---
+title: {json.dumps(article["titleZh"], ensure_ascii=False)}
+type: literature
+source: {json.dumps(f"PubMed/{row['doi']}", ensure_ascii=False)}
+pmid: {json.dumps(row["pmid"], ensure_ascii=False)}
+doi: {json.dumps(row["doi"], ensure_ascii=False)}
+created: {run_date.isoformat()}
+evidence_level: abstract only
+tags:
+  - {tag}
+  - 每日文獻
+summary: {json.dumps(article["summaryZh"], ensure_ascii=False)}
+---
+
+# {article["titleZh"]}
+
+## 英文標題與引用
+
+- Original title: {row["title"]}
+- Citation: {citation(row)}
+- PMID: [{row["pmid"]}](https://pubmed.ncbi.nlm.nih.gov/{row["pmid"]}/)
+- DOI: [{row["doi"]}](https://doi.org/{row["doi"]})
+
+## 核心發現（Key Findings）
+
+{article["keyFindings"]}
+
+## 機制（Mechanism）
+
+{article["mechanism"]}
+
+## 臨床意義（Clinical Relevance）
+
+{article["clinicalMeaning"]}
+
+## 研究意義（Research Relevance）
+
+{article["researchMeaning"]}
+
+## 教學應用（Teaching Application）
+
+{article["teachingApplication"]}
+
+## 批判（Strengths & Limitations）
+
+{article["limitations"]}
+
+## PubMed Abstract
+
+{row["abstract"]}
+
+## 連結
+
+- [[{tag}]]
+- [[每日文獻]]
+
+---
+
+## 知識總結（Key Takeaways）
+
+- {article["summaryZh"]}
+- 本筆記依 PubMed 摘要自動生成；全文方法、數值與限制仍須回到原文核對。
+"""
 
 
 def build_article(row: dict, run_date: date) -> dict:
     theme = row["themes"][0]
     label = THEMES[theme]["label"]
-    basis = "PubMed abstract" if row["abstract"] else "PubMed metadata"
-    types = "、".join(row["publication_types"][:2]) or "期刊文獻"
-    
-    gemini_data = generate_summaries_via_gemini(row["title"], row["abstract"], label)
-    
-    if gemini_data and "summaryZh" in gemini_data:
-        summary_zh = gemini_data["summaryZh"]
-        clinical_meaning = gemini_data["clinicalMeaning"]
-        research_meaning = gemini_data["researchMeaning"]
-    else:
-        summary_zh = (
-            f"本篇為 {label} 主題之{types}，由 {basis} 自動收錄。"
-            "本速報不自動推導原文未明列的效果量或因果結論；完整方法、結果與限制仍需全文核對。"
-        )
-        clinical_meaning = "此為背景自動收錄項目；臨床應用前須核對全文、研究設計、族群與效果量。"
-        research_meaning = f"可納入「{label}」研究監測與後續全文審讀清單。"
-        
+    generated = github_models_summary(row["title"], row["abstract"], label)
+    cloud_path = cloud_note_relative_path(row, run_date)
     return {
         "topic": theme,
         "priority": "high" if row["score"] >= 75 else "medium",
-        "titleZh": row["title"],
+        "titleZh": generated["titleZh"],
         "citation": citation(row),
         "pmid": row["pmid"],
         "doi": row["doi"],
         "sourceUrl": f"https://pubmed.ncbi.nlm.nih.gov/{row['pmid']}/",
         "journalUrl": f"https://doi.org/{row['doi']}",
-        "summaryZh": summary_zh,
-        "clinicalMeaning": clinical_meaning,
-        "researchMeaning": research_meaning,
+        "summaryZh": generated["summaryZh"],
+        "keyFindings": generated["keyFindings"],
+        "mechanism": generated["mechanism"],
+        "clinicalMeaning": generated["clinicalMeaning"],
+        "researchMeaning": generated["researchMeaning"],
+        "teachingApplication": generated["teachingApplication"],
+        "limitations": generated["limitations"],
         "trackingQuestion": THEMES[theme]["tracking"],
-        "obsidianPath": f"E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\{run_date.year}\\{row['pmid']}-{label}自動文獻.md",
+        "cloudNotePath": cloud_path.as_posix(),
+        "obsidianPath": intended_obsidian_path(row, generated, run_date),
     }
 
 
@@ -324,7 +434,21 @@ def main() -> int:
     parser.add_argument("--date")
     parser.add_argument("--top", type=int, default=5)
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--ai-smoke-test", action="store_true")
     args = parser.parse_args()
+
+    if args.ai_smoke_test:
+        sample = github_models_summary(
+            "Feasibility of a neurology prevention program",
+            (
+                "This pilot study enrolled 20 adults and assessed feasibility over "
+                "12 weeks. The abstract reports retention and safety observations "
+                "but does not test clinical efficacy."
+            ),
+            "政策公衛",
+        )
+        print("GitHub Models smoke test passed:", ",".join(sorted(sample)))
+        return 0
 
     run_date = run_date_from_environment(args.date)
     publisher = "codex" if run_date.day % 2 == 0 else "antigravity"
@@ -416,6 +540,8 @@ def main() -> int:
     if args.dry_run:
         return 0
 
+    article_pairs = [(row, build_article(row, run_date)) for row in selected]
+    articles = [article for _, article in article_pairs]
     issue = {
         "id": run_date.isoformat(),
         "date": run_date.isoformat(),
@@ -424,7 +550,7 @@ def main() -> int:
         "publisher": publisher,
         "summary": (
             f"本期由 GitHub Actions 背景排程收錄 {len(selected)} 篇經 PubMed PMID/DOI 驗證且通過歷史去重的神經科新文獻。"
-            "內容為 metadata/abstract 層級，全文效果量與臨床結論尚待人工審讀。"
+            "繁體中文摘要由 GitHub Models 僅依 PubMed abstract 產生；全文效果量與臨床結論仍須回到原文審讀。"
         ),
         "searchLog": search_log,
         "zotero": {
@@ -435,19 +561,25 @@ def main() -> int:
             "sqliteFallback": "disabled",
             "note": "雲端發布不寫入 Zotero；本機開機後由同步流程補齊 Obsidian/Zotero。",
         },
-        "articles": [build_article(row, run_date) for row in selected],
+        "articles": articles,
     }
     for old_issue in payload.get("issues", []):
         old_issue["status"] = "archived"
     payload["issues"] = [issue, *payload.get("issues", [])]
     payload["site"]["updatedAt"] = datetime.now(TAIPEI).isoformat(timespec="seconds")
-    payload["site"]["updateCadence"] = "每日 07:30（Asia/Taipei）；GitHub Actions 雲端發布，12:00 補漏。"
+    payload["site"]["updateCadence"] = (
+        "每日 07:30（Asia/Taipei）GitHub Actions 雲端發布；08:15、09:15、12:05 冪等補漏。"
+    )
 
     ALERTS_JSON.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     ALERTS_JS.write_text(
         "window.NEURO_ALERTS_DATA = " + json.dumps(payload, ensure_ascii=False, indent=2) + ";\n",
         encoding="utf-8",
     )
+    for row, article in article_pairs:
+        note_path = ROOT / article["cloudNotePath"]
+        note_path.parent.mkdir(parents=True, exist_ok=True)
+        note_path.write_text(render_knowledge_note(row, article, run_date), encoding="utf-8")
 
     output = os.environ.get("GITHUB_OUTPUT")
     if output:

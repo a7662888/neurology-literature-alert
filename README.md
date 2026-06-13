@@ -12,15 +12,20 @@
 
 ## 雲端自動發布
 
-GitHub Actions 會在每日台北時間 `07:30` 執行，並於 `12:00` 補漏。
-排程在 GitHub 雲端執行，因此本機關機時仍會更新網站。
+GitHub Actions 會在每日台北時間 `07:30` 執行，並於 `08:15`、`09:15`、`12:05` 冪等補漏。
+排程在 GitHub 雲端執行，因此本機關機時仍會搜尋、摘要、建立雲端知識筆記並更新網站。
 
 - 奇數日期：標記發布者為 `antigravity`
 - 偶數日期：標記發布者為 `codex`
 - 搜尋與驗證：PubMed E-utilities
 - 去重：既有網站歷史中的 PMID、DOI、正規化標題
-- 雲端更新網站；本機開機後由 Windows `12:30` 工作補回網站資料與 Obsidian metadata/abstract 筆記
+- 摘要：GitHub Models，使用 workflow 內建 `GITHUB_TOKEN`，不需要另設 API key
+- AI 摘要失敗時整個 workflow 失敗，不發布模板或半成品
+- 雲端知識筆記：`knowledge-notes/YYYY/YYYY-MM-DD/<PMID>.md`
+- 雲端更新網站；本機開機後由 Windows `12:30` 工作把雲端筆記同步進 Obsidian Vault
 - Zotero 仍需本機與 Zotero Web API 可用時另外同步
+
+`antigravity` 與 `codex` 是奇偶日責任標籤與提示詞規約。電腦關機時並非啟動桌面版 Agent，而是由 GitHub Actions 與 GitHub Models 執行同一套已驗證流程。
 
 ## GitHub Pages 設定
 
