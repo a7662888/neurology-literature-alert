@@ -3,15 +3,170 @@ window.NEURO_ALERTS_DATA = {
     "title": "近兩天神經科文獻速報",
     "subtitle": "Dementia, Alzheimer disease, stroke, Parkinson disease, neurodegeneration, cognitive decline, prevention",
     "owner": "Dementia Prevention Center",
-    "updatedAt": "2026-06-13T08:25:50+08:00",
-    "updateCadence": "每日 07:30（Asia/Taipei）；GitHub Actions 雲端發布，12:00 補漏。"
+    "updatedAt": "2026-06-14T07:56:24+08:00",
+    "updateCadence": "每日 07:30（Asia/Taipei）GitHub Actions 雲端發布；08:15、09:15、12:05 冪等補漏。"
   },
   "issues": [
+    {
+      "id": "2026-06-14",
+      "date": "2026-06-14",
+      "title": "2026-06-14 神經科文獻速報",
+      "status": "current",
+      "publisher": "codex",
+      "summary": "本期由 GitHub Actions 背景排程收錄 5 篇經 PubMed PMID/DOI 驗證且通過歷史去重的神經科新文獻。繁體中文摘要由 GitHub Models 僅依 PubMed abstract 產生；全文效果量與臨床結論仍須回到原文審讀。",
+      "searchLog": [
+        {
+          "source": "PubMed E-utilities",
+          "query": "(dementia[Title/Abstract] OR \"mild cognitive impairment\"[Title/Abstract] OR \"Alzheimer disease\"[Title/Abstract] OR Alzheimer[Title/Abstract] OR \"cognitive decline\"[Title/Abstract]) AND (2026/06/13:2026/06/14[EDAT])",
+          "executedAt": "2026-06-14",
+          "hits": "31",
+          "screening": "排除既有 PMID、DOI、正規化標題、評論、社論、信件、撤稿與缺少可驗證 DOI 者；依主題相關性、文章類型及期刊排序。"
+        },
+        {
+          "source": "PubMed E-utilities",
+          "query": "(stroke[Title/Abstract] OR \"cerebral ischemia\"[Title/Abstract] OR \"intracerebral hemorrhage\"[Title/Abstract] OR thrombectomy[Title/Abstract]) AND (2026/06/13:2026/06/14[EDAT])",
+          "executedAt": "2026-06-14",
+          "hits": "41",
+          "screening": "排除既有 PMID、DOI、正規化標題、評論、社論、信件、撤稿與缺少可驗證 DOI 者；依主題相關性、文章類型及期刊排序。"
+        },
+        {
+          "source": "PubMed E-utilities",
+          "query": "(\"Parkinson disease\"[Title/Abstract] OR Parkinson[Title/Abstract] OR parkinsonism[Title/Abstract] OR \"movement disorder\"[Title/Abstract]) AND (2026/06/13:2026/06/14[EDAT])",
+          "executedAt": "2026-06-14",
+          "hits": "18",
+          "screening": "排除既有 PMID、DOI、正規化標題、評論、社論、信件、撤稿與缺少可驗證 DOI 者；依主題相關性、文章類型及期刊排序。"
+        },
+        {
+          "source": "PubMed E-utilities",
+          "query": "(neurodegeneration[Title/Abstract] OR neurodegenerative[Title/Abstract] OR \"neural circuit\"[Title/Abstract] OR synaptic[Title/Abstract]) AND (2026/06/13:2026/06/14[EDAT])",
+          "executedAt": "2026-06-14",
+          "hits": "39",
+          "screening": "排除既有 PMID、DOI、正規化標題、評論、社論、信件、撤稿與缺少可驗證 DOI 者；依主題相關性、文章類型及期刊排序。"
+        },
+        {
+          "source": "PubMed E-utilities",
+          "query": "((prevention[Title/Abstract] OR preventive[Title/Abstract]) AND (dementia[Title/Abstract] OR stroke[Title/Abstract] OR Parkinson[Title/Abstract] OR neurodegeneration[Title/Abstract])) AND (2026/06/13:2026/06/14[EDAT])",
+          "executedAt": "2026-06-14",
+          "hits": "4",
+          "screening": "排除既有 PMID、DOI、正規化標題、評論、社論、信件、撤稿與缺少可驗證 DOI 者；依主題相關性、文章類型及期刊排序。"
+        }
+      ],
+      "zotero": {
+        "imported": 0,
+        "duplicatesSkipped": 0,
+        "collections": "每日文獻/2026/2026-06-14",
+        "itemKeysVerified": false,
+        "sqliteFallback": "disabled",
+        "note": "雲端發布不寫入 Zotero；本機開機後由同步流程補齊 Obsidian/Zotero。"
+      },
+      "articles": [
+        {
+          "topic": "dementia",
+          "priority": "high",
+          "titleZh": "荷葉生物鹼Nuciferine透過靶向胰島素受體並活化PI3K/AKT訊號改善第二型糖尿病的認知障礙與胰島素抗性",
+          "citation": "Zheng M, Wang C, Liu J, et al.. Nuciferine ameliorates cognitive impairment and insulin resistance in T2DM by targeting the insulin receptor and activating PI3K/AKT signaling. Chin J Nat Med. 2026.",
+          "pmid": "42285687",
+          "doi": "10.1016/S1875-5364(26)61190-9",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42285687/",
+          "journalUrl": "https://doi.org/10.1016/S1875-5364(26)61190-9",
+          "summaryZh": "胰島素抗性是第二型糖尿病（T2DM）的特徵，並可能增加認知障礙（包括阿茲海默症）的風險。本研究探討了荷葉生物鹼Nuciferine對T2DM引起的認知障礙（T2DM-CI）的保護作用及其機制。研究使用高脂飲食和鏈脲佐菌素誘導的小鼠模型，以及高葡萄糖誘導的HT-22細胞模型。結果顯示，Nuciferine可降低血糖、改善認知功能，並減少T2DM小鼠中的膠質細胞活化、神經元及突觸損失。Nuciferine透過增加IR、IRS1和IGF-1R蛋白水平，逆轉PI3K和AKT磷酸化，抑制GSK3β活性，並減少HT-22細胞和T2DM小鼠中的過度磷酸化Tau，從而增強胰島素訊號。進一步研究顯示，Nuciferine可直接與IR結合，且敲除IR會消除其對PI3K/AKT途徑的影響。",
+          "keyFindings": "Nuciferine可降低血糖、改善T2DM小鼠的認知功能，並減少膠質細胞活化、神經元及突觸損失。其作用機制與增強胰島素訊號及調控PI3K/AKT途徑相關。",
+          "mechanism": "Nuciferine透過直接與胰島素受體（IR）結合，活化PI3K/AKT訊號途徑，進而改善胰島素抗性並減緩T2DM引起的認知障礙。",
+          "clinicalMeaning": "摘要未提供，尚待全文確認。",
+          "researchMeaning": "本研究提供了Nuciferine在改善T2DM相關認知障礙及胰島素抗性方面的潛在機制，為未來相關治療研究提供了基礎。",
+          "teachingApplication": "可用於教學中介紹T2DM與認知障礙的關聯性，以及Nuciferine在調控胰島素訊號途徑中的潛在作用。",
+          "limitations": "摘要未提供，尚待全文確認。",
+          "trackingQuestion": "dementia OR mild cognitive impairment OR Alzheimer disease OR cognitive decline",
+          "cloudNotePath": "knowledge-notes/2026/2026-06-14/42285687.md",
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42285687-荷葉生物鹼Nuciferine透過靶向胰島素受體並活化PI3K-AKT訊號改善第二型糖尿病的認知障礙與胰島素抗性.md"
+        },
+        {
+          "topic": "neuroscience",
+          "priority": "high",
+          "titleZh": "AMPA受體生命週期：組裝、調控與突觸多樣性",
+          "citation": "Bowie D, Wang XT, Miguez-Cabello F, et al.. The AMPA receptor life cycle: assembly, regulation and synaptic diversity. Nat Rev Neurosci. 2026-06-12.",
+          "pmid": "42286176",
+          "doi": "10.1038/s41583-026-01055-z",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42286176/",
+          "journalUrl": "https://doi.org/10.1038/s41583-026-01055-z",
+          "summaryZh": "AMPA受體（AMPARs）負責哺乳動物大腦中大部分快速興奮性神經傳遞。近期的結構、功能及蛋白質組學研究進展重新塑造了我們對這些受體在不同突觸環境中如何組裝、閘控及多樣化的理解。AMPAR功能受多層調控機制影響，包括受體亞基內閘控及滲透區域的選擇性剪接與RNA編輯，以及與不同輔助蛋白家族的直接變構耦合。AMPARs透過專門的內質網生物生成途徑進行組裝，確保準確的四聚體形成並提供突觸受體豐度的調控檢查點。隨著腦部發育，編輯、剪接及輔助亞基表達從胚胎階段轉變為成年階段，與細胞外蛋白的相互作用則促進突觸結構在神經迴路中的組織與多樣化。因此，AMPARs是動態的大分子組裝體，其多樣性是健康與疾病中穀氨酸能信號廣度的基礎。本綜述整合了這些新興原則，強調AMPARs如何從分子“誕生”過渡到功能專業化的突觸部署。",
+          "keyFindings": "AMPARs的功能受多層調控，包括RNA編輯、選擇性剪接及輔助蛋白的變構耦合；內質網生物生成途徑確保準確的四聚體形成；腦部發育過程中，AMPARs的調控機制隨著胚胎到成年階段的轉變而改變。",
+          "mechanism": "摘要未提供，尚待全文確認。",
+          "clinicalMeaning": "摘要未提供，尚待全文確認。",
+          "researchMeaning": "本研究綜述了AMPARs的組裝、調控及突觸多樣性，為穀氨酸能信號在健康與疾病中的作用提供了基礎性理解。",
+          "teachingApplication": "可用於神經科學課程中講解AMPARs的生命週期及其在突觸環境中的多樣性。",
+          "limitations": "摘要未提供，尚待全文確認。",
+          "trackingQuestion": "neurodegeneration OR neural circuit OR synaptic",
+          "cloudNotePath": "knowledge-notes/2026/2026-06-14/42286176.md",
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42286176-AMPA受體生命週期：組裝、調控與突觸多樣性.md"
+        },
+        {
+          "topic": "dementia",
+          "priority": "high",
+          "titleZh": "1999至2023年間美國中老年人阿茲海默症與糖尿病相關死亡率趨勢：基於CDC WONDER資料庫的分析",
+          "citation": "Javed A, Kumar S, Iftekhar M, et al.. Trends in both Alzheimer's disease and Diabetes mellitus related mortality among middle-aged and older adults in the United States, 1999 to 2023: a CDC WONDER database analysis. BMC Neurol. 2026-06-12.",
+          "pmid": "42286514",
+          "doi": "10.1186/s12883-026-05058-2",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42286514/",
+          "journalUrl": "https://doi.org/10.1186/s12883-026-05058-2",
+          "summaryZh": "本研究分析1999年至2023年間美國45歲以上成人中，阿茲海默症與糖尿病相關死亡率的時間趨勢，並評估死亡模式的變化。研究利用CDC WONDER資料庫，計算每10萬人的年齡調整死亡率（AAMRs）與粗死亡率（CMRs），並採用節點回歸模型分析時間變化，計算年百分比變化（APC）與平均年百分比變化（AAPC）。",
+          "keyFindings": "研究期間內，共有224,082例阿茲海默症與糖尿病共病患者死亡，年齡均為45歲以上。從1999年的2.82上升至2023年的4.42，2017至2020年間死亡率達到高峰，隨後有所下降。女性的死亡率持續高於男性。45至64歲中年人群的死亡率上升，65歲及以上人群的趨勢增幅約為41%。白人死亡人數最多（78.9%），但黑人與西班牙裔的年齡調整死亡率較高，顯示種族差異。地區上，西部的年齡調整死亡率最高，非都市地區的死亡率高於都市地區。",
+          "mechanism": "摘要未提供，尚待全文確認。",
+          "clinicalMeaning": "研究顯示阿茲海默症與糖尿病共病患者的死亡率在過去二十年間有所增加，特別是在2020年後出現顯著上升，可能與COVID-19疫情影響相關。",
+          "researchMeaning": "研究強調需要進一步探討阿茲海默症與糖尿病共病患者的死亡率上升趨勢，並考量種族與地區差異，以制定更有效的公共衛生策略。",
+          "teachingApplication": "本研究可用於醫學教育中，幫助學生了解阿茲海默症與糖尿病共病對死亡率的影響，並強調種族與地區差異的重要性。",
+          "limitations": "摘要未提供，尚待全文確認。",
+          "trackingQuestion": "dementia OR mild cognitive impairment OR Alzheimer disease OR cognitive decline",
+          "cloudNotePath": "knowledge-notes/2026/2026-06-14/42286514.md",
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42286514-1999至2023年間美國中老年人阿茲海默症與糖尿病相關死亡率趨勢：基於CDC WONDER資料庫的分析.md"
+        },
+        {
+          "topic": "stroke",
+          "priority": "high",
+          "titleZh": "基於信號的步態特徵與血液分析物與輕度急性缺血性中風狀態及步行速度相關性的研究",
+          "citation": "Şahin Erdoğan M, Özgün M, Kaya D, et al.. Identification of signal-based gait features and blood analytes associated with stroke status and walking speed in mild acute ischemic stroke. BMC Neurol. 2026-06-12.",
+          "pmid": "42286488",
+          "doi": "10.1186/s12883-026-05057-3",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42286488/",
+          "journalUrl": "https://doi.org/10.1186/s12883-026-05057-3",
+          "summaryZh": "本研究探討將常規血液分析與可穿戴步態評估結合，用於識別輕度急性缺血性中風（mAIS）及估算其功能性結果的可能性。研究收集了22名mAIS患者與9名健康對照者的視頻、智慧型手機數據及血液數據，並使用嶺回歸邏輯回歸模型建立了兩個提名圖，一個用於估算中風狀態，另一個用於估算患者的步行速度。",
+          "keyFindings": "步態特徵提名圖在識別mAIS方面的曲線下面積（AUC）為0.878，血液分析物提名圖在估算步行速度方面的AUC為0.906（均為樂觀校正後）。與中風狀態相關的步態特徵包括較低的xgyr_energy、xgyr_max、xgyr_std、zgyr_energy和zacc_rms，以及較高的zgyr_iqr；與較慢步行速度相關的血液分析物包括較高的血尿素氮（BUN）、較低的估算腎小球過濾率（eGFR）及平均血紅素濃度（MCHC）。",
+          "mechanism": "摘要未提供，尚待全文確認。",
+          "clinicalMeaning": "研究結果顯示，結合步態統計數據與血液分析物可能有助於在資源有限的環境中識別輕度急性缺血性中風並規劃康復計畫。",
+          "researchMeaning": "本研究展示了多模態信號特徵在中風檢測與功能性結果估算中的潛力，為未來相關研究提供了基礎。",
+          "teachingApplication": "可用於教學中介紹多模態數據整合在中風檢測與康復規劃中的應用潛力。",
+          "limitations": "摘要未提供，尚待全文確認。",
+          "trackingQuestion": "stroke OR cerebral ischemia OR intracerebral hemorrhage OR thrombectomy",
+          "cloudNotePath": "knowledge-notes/2026/2026-06-14/42286488.md",
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42286488-基於信號的步態特徵與血液分析物與輕度急性缺血性中風狀態及步行速度相關性的研究.md"
+        },
+        {
+          "topic": "stroke",
+          "priority": "high",
+          "titleZh": "血管再通手術對煙霧病的臨床療效：歐洲患者的長期結果",
+          "citation": "Mertens R, Efe I, Mrosk F, et al.. Clinical Efficacy of Revascularization Surgery for Moyamoya Angiopathy: Long-Term Results of a European Cohort. Eur J Neurol. 2026.",
+          "pmid": "42286416",
+          "doi": "10.1111/ene.70664",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42286416/",
+          "journalUrl": "https://doi.org/10.1111/ene.70664",
+          "summaryZh": "本研究探討了歐洲煙霧病患者接受血管再通手術後的長期結果。研究納入1998年至2023年間接受手術治療的患者，進行臨床與影像學檢查及電子問卷追蹤，並回顧性分析患者數據以識別不良結果的預測因子。結果顯示，手術後30天內的併發症發生率為6.3%，圍手術期中風風險為2.6%。在院內追蹤的148名患者中，86.3%達到mRS評分0-2，旁路通暢率為95.7%，每人每年的中風風險為0.3%。電子追蹤的201名患者中，87.9%達到mRS評分0-2，90.7%在日常生活中獨立，但僅50.5%重返工作或學校。術前中風及無症狀的MRI缺血病灶為不良結果的預測因子。",
+          "keyFindings": "血管再通手術後，患者的功能結果普遍良好，併發症及中風風險低。術前中風及無症狀的MRI缺血病灶與不良結果相關。",
+          "mechanism": "摘要未提供，尚待全文確認。",
+          "clinicalMeaning": "血管再通手術對於煙霧病患者是一種有效的治療選擇，特別是在降低中風風險和改善功能結果方面具有潛力。",
+          "researchMeaning": "研究結果支持血管再通手術在煙霧病患者中的應用，但需要進一步研究以制定針對術前中風患者的個體化策略。",
+          "teachingApplication": "本研究可用於教學中，幫助醫學生及臨床醫師了解血管再通手術在煙霧病治療中的長期效果及相關風險因素。",
+          "limitations": "摘要未提供，尚待全文確認。",
+          "trackingQuestion": "stroke OR cerebral ischemia OR intracerebral hemorrhage OR thrombectomy",
+          "cloudNotePath": "knowledge-notes/2026/2026-06-14/42286416.md",
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42286416-血管再通手術對煙霧病的臨床療效：歐洲患者的長期結果.md"
+        }
+      ]
+    },
     {
       "id": "2026-06-13",
       "date": "2026-06-13",
       "title": "2026-06-13 神經科文獻速報",
-      "status": "current",
+      "status": "archived",
       "publisher": "antigravity",
       "summary": "本期收錄 5 篇近期發表的重磅文獻。本期聚焦於 Clazosentan 治療動脈瘤蜘蛛膜下腔出血（aSAH）療效與全身副作用統合分析、長期身體活動與大腦萎縮關係之縱向綜述、千里達與托巴哥急性中風流行病學特徵、rTMS 抗憂鬱機制與細胞特異性 CB1R 信號的關聯，以及思覺失調症腦部與外周血 NIREGs 及補體轉錄體學特徵。",
       "searchLog": [
