@@ -3,15 +3,69 @@ window.NEURO_ALERTS_DATA = {
     "title": "近兩天神經科文獻速報",
     "subtitle": "Dementia, Alzheimer disease, stroke, Parkinson disease, neurodegeneration, cognitive decline, prevention",
     "owner": "Dementia Prevention Center",
-    "updatedAt": "2026-06-14T07:56:24+08:00",
+    "updatedAt": "2026-06-15T09:40:44+08:00",
     "updateCadence": "每日 07:30（Asia/Taipei）GitHub Actions 雲端發布；08:15、09:15、12:05 冪等補漏。"
   },
   "issues": [
     {
+      "id": "2026-06-15",
+      "date": "2026-06-15",
+      "title": "2026-06-15 神經科文獻速報",
+      "status": "current",
+      "publisher": "antigravity",
+      "summary": "本期由 GitHub Actions 背景排程收錄 0 篇經 PubMed PMID/DOI 驗證且通過歷史去重的神經科新文獻。繁體中文摘要由 GitHub Models 僅依 PubMed abstract 產生；全文效果量與臨床結論仍須回到原文審讀。",
+      "searchLog": [
+        {
+          "source": "PubMed E-utilities",
+          "query": "(dementia[Title/Abstract] OR \"mild cognitive impairment\"[Title/Abstract] OR \"Alzheimer disease\"[Title/Abstract] OR Alzheimer[Title/Abstract] OR \"cognitive decline\"[Title/Abstract]) AND (2026/06/14:2026/06/15[EDAT])",
+          "executedAt": "2026-06-15",
+          "hits": "0",
+          "screening": "排除既有 PMID、DOI、正規化標題、評論、社論、信件、撤稿與缺少可驗證 DOI 者；依主題相關性、文章類型及期刊排序。"
+        },
+        {
+          "source": "PubMed E-utilities",
+          "query": "(stroke[Title/Abstract] OR \"cerebral ischemia\"[Title/Abstract] OR \"intracerebral hemorrhage\"[Title/Abstract] OR thrombectomy[Title/Abstract]) AND (2026/06/14:2026/06/15[EDAT])",
+          "executedAt": "2026-06-15",
+          "hits": "0",
+          "screening": "排除既有 PMID、DOI、正規化標題、評論、社論、信件、撤稿與缺少可驗證 DOI 者；依主題相關性、文章類型及期刊排序。"
+        },
+        {
+          "source": "PubMed E-utilities",
+          "query": "(\"Parkinson disease\"[Title/Abstract] OR Parkinson[Title/Abstract] OR parkinsonism[Title/Abstract] OR \"movement disorder\"[Title/Abstract]) AND (2026/06/14:2026/06/15[EDAT])",
+          "executedAt": "2026-06-15",
+          "hits": "0",
+          "screening": "排除既有 PMID、DOI、正規化標題、評論、社論、信件、撤稿與缺少可驗證 DOI 者；依主題相關性、文章類型及期刊排序。"
+        },
+        {
+          "source": "PubMed E-utilities",
+          "query": "(neurodegeneration[Title/Abstract] OR neurodegenerative[Title/Abstract] OR \"neural circuit\"[Title/Abstract] OR synaptic[Title/Abstract]) AND (2026/06/14:2026/06/15[EDAT])",
+          "executedAt": "2026-06-15",
+          "hits": "0",
+          "screening": "排除既有 PMID、DOI、正規化標題、評論、社論、信件、撤稿與缺少可驗證 DOI 者；依主題相關性、文章類型及期刊排序。"
+        },
+        {
+          "source": "PubMed E-utilities",
+          "query": "((prevention[Title/Abstract] OR preventive[Title/Abstract]) AND (dementia[Title/Abstract] OR stroke[Title/Abstract] OR Parkinson[Title/Abstract] OR neurodegeneration[Title/Abstract])) AND (2026/06/14:2026/06/15[EDAT])",
+          "executedAt": "2026-06-15",
+          "hits": "0",
+          "screening": "排除既有 PMID、DOI、正規化標題、評論、社論、信件、撤稿與缺少可驗證 DOI 者；依主題相關性、文章類型及期刊排序。"
+        }
+      ],
+      "zotero": {
+        "imported": 0,
+        "duplicatesSkipped": 0,
+        "collections": "每日文獻/2026/2026-06-15",
+        "itemKeysVerified": false,
+        "sqliteFallback": "disabled",
+        "note": "雲端發布不寫入 Zotero；本機開機後由同步流程補齊 Obsidian/Zotero。"
+      },
+      "articles": []
+    },
+    {
       "id": "2026-06-14",
       "date": "2026-06-14",
       "title": "2026-06-14 神經科文獻速報",
-      "status": "current",
+      "status": "archived",
       "publisher": "codex",
       "summary": "本期由 GitHub Actions 背景排程收錄 5 篇經 PubMed PMID/DOI 驗證且通過歷史去重的神經科新文獻。繁體中文摘要由 GitHub Models 僅依 PubMed abstract 產生；全文效果量與臨床結論仍須回到原文審讀。",
       "searchLog": [
