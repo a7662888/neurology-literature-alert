@@ -6,7 +6,186 @@
     "updatedAt": "2026-06-21T08:21:32+08:00",
     "updateCadence": "每日 07:30 更新；延遲時由雲端排程自動補發。"
   },
-  "features": [],
+  "features": [
+    {
+      "id": "ad-att-2026",
+      "kicker": "Anti-amyloid treatment · 2026",
+      "title": "AD 新藥 ATT：Lecanemab 與 Donanemab 的真實世界考驗",
+      "subtitle": "從臨床試驗後的 ARIA、PET 監測、成本效益與用藥邊界，重新閱讀 2026 年 8 篇全文。",
+      "summary": "逐頁閱讀 8 份 2026 年全文，聚焦 ARIA、真實世界安全性、amyloid PET、成本效益及 donanemab 實務選案。",
+      "publishedAt": "2026-06-21",
+      "updatedAt": "2026-06-21",
+      "evidenceNote": "本專題是聚焦式全文策展，不是系統性回顧。材料包括 4 篇原始研究、3 篇敘述性／臨床綜述與 1 篇讀者投書；其中真實世界 ARIA 研究仍為未經同儕審查的 medRxiv 前印本。所有 PMID／DOI 已於 2026-06-21 交叉核實。",
+      "sections": [
+        {
+          "kicker": "Clinical signal",
+          "title": "療效已進入日常照護，風險管理才是真正的臨床工作",
+          "body": "2026 年的新資料並未再證明一次抗類澱粉蛋白抗體能清除 amyloid，而是把問題推向更務實的層次：哪些病人會發生 ARIA、不同國家的標示如何處理風險、治療後 PET 訊號能否信任，以及醫療體系是否負擔得起。臨床價值因此取決於精準選案、APOE 與基準 MRI 風險溝通、可持續的 MRI 監測，以及對有限平均效益的誠實說明。"
+        },
+        {
+          "kicker": "What changed",
+          "title": "真實世界 ARIA 與試驗數字接近，但偵測方式會改變表面發生率",
+          "body": "Mass General Brigham 前印本納入 468 位接受 lecanemab 的早期 AD 病人；any ARIA 為 25.2%，ARIA-H 22.4%，ARIA-E 12.2%，有症狀者占全體 4.5%。作者指出其 ARIA-H 高於 CLARITY-AD，可能與常規使用 3T MRI、提高微出血敏感度有關。這提醒讀者：跨研究比較 ARIA 時，MRI 場強、序列、判讀流程與納入門檻不可省略。"
+        },
+        {
+          "kicker": "Practice boundary",
+          "title": "Amyloid PET 可監測清除，但不能把體外證據直接當成臨床驗證",
+          "body": "人類 AD 腦組織的體外競爭實驗未見 lecanemab 或 donanemab 抑制 florbetaben 結合，支持治療期間 PET 訊號下降較可能反映 amyloid 減少，而非抗體遮蔽示蹤劑結合位點。然而研究屬 proof-of-principle、樣本少且非活體，仍需臨床影像與縱向資料確認。"
+        },
+        {
+          "kicker": "System reality",
+          "title": "藥價之外，輸注、MRI、ARIA 與照護資源共同決定可近性",
+          "body": "美國醫療體系模型顯示，lecanemab 相對 aducanumab 的 ICER 為每 QALY 121,678.49 美元，但兩者以現價相對標準照護均不具成本效益；lecanemab 相對標準照護的 ICER 為每 QALY 409,488.34 美元。模型依賴間接比較與試驗參數，不能直接移植到台灣，但清楚指出 ATT 的財務評估不能只看藥價。"
+        }
+      ],
+      "articles": [
+        {
+          "titleZh": "Lecanemab 真實世界 ARIA：468 人學術醫療體系世代",
+          "title": "Real-World Characterization of Amyloid-Related Imaging Abnormalities (ARIA) in Lecanemab Treatment at an Academic Health System",
+          "citation": "Rezaii N, Dickson JR, Ford JN, et al. medRxiv. 2026. doi:10.64898/2026.01.23.26344739.",
+          "doi": "10.64898/2026.01.23.26344739",
+          "pmid": "",
+          "evidenceLevel": "前印本・全文",
+          "articleType": "回溯性世代研究",
+          "pages": "PDF pp. 2–16",
+          "summaryZh": "在至少接受首劑 90 天的 468 位早期 AD 病人中，any ARIA 為 25.2%（118 人）、ARIA-H 22.4%、ARIA-E 12.2%；23 位 ARIA 病人有症狀，換算全體為 4.5%。",
+          "keyFindings": [
+            "ARIA-H 多為輕度且持續；ARIA-E 多為暫時性，平均 75.6 天消退。兩型皆偏枕葉，ARIA-H 另有額顳優勢。",
+            "APOE ε4 與基準微出血再次呈現較高風險；舒張壓與高正常電解質切點屬資料驅動探索結果，尚不能直接作為臨床門檻。",
+            "研究使用 3T MRI，作者認為較高的 ARIA-H 偵測率可能部分來自較高影像敏感度。"
+          ],
+          "clinicalMeaning": "可用來設計真實世界 MRI 監測與風險溝通，但新的血壓／電解質預測值必須先經外部驗證。",
+          "limitations": "單一三級學術中心、回溯性資料、amyloid 檢測方式不一，且尚未同儕審查；不可據此改變治療標示或自行設定停藥門檻。"
+        },
+        {
+          "titleZh": "Lecanemab 的終生成本效益：與 Aducanumab 及標準照護比較",
+          "title": "Lifetime cost-effectiveness of lecanemab for early Alzheimer’s disease",
+          "citation": "Jiang X, Lv G, Mendes ME, et al. Front Public Health. 2026;14:1692508.",
+          "doi": "10.3389/fpubh.2026.1692508",
+          "pmid": "41694525",
+          "evidenceLevel": "同儕審查・全文",
+          "articleType": "成本效益模型",
+          "pages": "PDF pp. 1–9",
+          "summaryZh": "五狀態 Markov 模型以美國醫療體系、終生期間與 3% 折現估算。Lecanemab 相對 aducanumab 增加 30,018.97 美元與 0.25 QALY，ICER 為每 QALY 121,678.49 美元。",
+          "keyFindings": [
+            "相對標準照護，lecanemab 的 ICER 為每 QALY 409,488.34 美元；以現價而言，兩種抗體均未達作者採用的成本效益判準。",
+            "單向敏感度分析最受輕度 AD 失智狀態效用值影響；機率敏感度分析仍顯示 lecanemab 通常優於 aducanumab。",
+            "模型把臨床療效、ARIA 成本與照護狀態轉換整合，顯示 ATT 的價值評估必須包含監測與照護資源。"
+          ],
+          "clinicalMeaning": "結果可支持價格與給付討論，但屬美國成本結構，不能直接換算為台灣 ICER 或健保決策。",
+          "limitations": "沒有 head-to-head 試驗，療效來自間接比較；試驗族群、ARIA 發生率、監測及未納入的其他不良事件成本均造成不確定性。"
+        },
+        {
+          "titleZh": "Lecanemab 的法規、臨床與上市後挑戰",
+          "title": "Regulatory, clinical, and post-marketing challenges of lecanemab for Alzheimer’s disease: insights from real-world data",
+          "citation": "Marano G, Da Cas R, Ippoliti I, et al. Neurol Sci. 2026;47:322.",
+          "doi": "10.1007/s10072-026-08829-4",
+          "pmid": "41787137",
+          "evidenceLevel": "同儕審查・全文",
+          "articleType": "混合方法研究",
+          "pages": "PDF pp. 1–14",
+          "summaryZh": "研究比較四個主管機關標示、系統性整理 MEDLINE／Embase 真實世界資料，並分析 FAERS。26 篇納入研究包括 9 個世代與 17 篇病例報告；FAERS 有 1,286 份報告、2,627 個不良事件，30% 列為嚴重，含 46 例死亡報告。",
+          "keyFindings": [
+            "各主管機關均要求 amyloid 確認並重視 APOE ε4 同型合子，但適應症、禁忌、MRI 監測及暫停／恢復／停藥規則並不一致。",
+            "真實世界資料中的輸注反應與 ARIA 多出現在前七次輸注；病例報告也包含中風、癲癇與死亡等罕見嚴重事件。",
+            "FAERS 的 headache、ARIA-E、ARIA-H 與 chills 最常被報告，但自發通報只能產生安全訊號，不能估算發生率或證明因果。"
+          ],
+          "clinicalMeaning": "支持建立跨專科登錄、標準化 ARIA 管理與藥物警戒；不同國家標示不可混用。",
+          "limitations": "世代研究規模與追蹤不一且有選擇／失訪偏差；FAERS 有重複、漏報、通報偏差與分母缺失，死亡報告不等同藥物致死。"
+        },
+        {
+          "titleZh": "Lecanemab／Donanemab 是否干擾 Florbetaben PET 結合？",
+          "title": "In-vitro interaction studies between the amyloid PET tracer florbetaben and the amyloid-beta targeting antibodies lecanemab and donanemab on AD brain samples reveal no interferences",
+          "citation": "Mueller A, Jovalekic A, Chapleau M, et al. Alzheimers Res Ther. 2026;18:70.",
+          "doi": "10.1186/s13195-026-02001-y",
+          "pmid": "41803942",
+          "evidenceLevel": "同儕審查・全文",
+          "articleType": "人腦組織體外研究",
+          "pages": "PDF pp. 2–10",
+          "summaryZh": "研究以 AD 死後腦組織進行免疫組織化學、autoradiography 與 ligand binding assay；三組實驗均未見 lecanemab 或 donanemab 與 florbetaben 競爭或抑制結合。",
+          "keyFindings": [
+            "非放射性 florbetaben 可濃度依賴地置換訊號，證實實驗能偵測競爭；兩種治療抗體在測試濃度下則未降低 florbetaben 訊號。",
+            "結果支持 florbetaben 與兩種抗體的主要結合位點不同，治療後 PET 下降較不像單純的位點遮蔽。",
+            "研究也討論 ARIA 的局部性與不同機制，但並未直接在接受治療的活體病人驗證。"
+          ],
+          "clinicalMeaning": "強化以 amyloid PET 追蹤 plaque reduction 的方法學可信度，但不能單靠此研究決定個別病人的停藥時點。",
+          "limitations": "proof-of-principle、樣本數少、部分分析為定性、使用死後組織與體外濃度；活體藥物分布、ARIA 與動態影像仍可能不同。"
+        },
+        {
+          "titleZh": "Lecanemab 與 Donanemab 臨床綜述：療效、安全與導入條件",
+          "title": "New Disease-Modifying Therapies in Alzheimer’s Disease: A Clinical Review of Lecanemab and Donanemab",
+          "citation": "Ollik K, Harenza K, Taranowicz M, et al. Int J Innov Technol Soc Sci. 2026;1(49).",
+          "doi": "10.31435/ijitss.1(49).2026.4885",
+          "pmid": "",
+          "evidenceLevel": "同儕審查・全文",
+          "articleType": "臨床敘述性綜述",
+          "pages": "PDF pp. 3–15",
+          "summaryZh": "以 PubMed 與 Google Scholar 聚焦搜尋，整理兩種抗體的機轉、樞紐試驗、ARIA、選案與監測。核心判讀是：平均臨床效益屬延緩惡化，而非恢復已失去的功能。",
+          "keyFindings": [
+            "兩種抗體均顯著降低 amyloid，但試驗間族群、量表、給藥與停藥策略不同，不宜用未校正的數字直接排名。",
+            "APOE ε4、基準微出血、CAA 風險與 MRI 可近性是實務導入的核心。",
+            "綜述提出 combination therapy 的研究方向，但目前不能推論組合療法已具臨床效益。"
+          ],
+          "clinicalMeaning": "適合作為教學與共同決策的全貌導讀，不是新的療效比較證據。",
+          "limitations": "敘述性搜尋，未呈現完整 PRISMA 流程、雙人篩選或 certainty grading；部分『clinically meaningful』措辭仍有爭議。"
+        },
+        {
+          "titleZh": "抗類澱粉免疫治療的證據、ARIA 與疾病修飾界線",
+          "title": "Anti-amyloid immunotherapy in early Alzheimer’s disease: lecanemab and donanemab — evidence base, ARIA and the limits of disease-modifying therapy",
+          "citation": "Myronets OM, Sholomon SM. Ukr Neurol J. 2026;1:11-19.",
+          "doi": "10.30978/unj2026-1-11",
+          "pmid": "",
+          "evidenceLevel": "同儕審查・全文",
+          "articleType": "批判性敘述綜述",
+          "pages": "PDF pp. 1–9",
+          "summaryZh": "截至 2026-02-06 的批判性敘述整合，將抗 amyloid mAb 定位為『生物學上疾病修飾、臨床上受限』：可減慢進展，但不會停止或逆轉疾病。",
+          "keyFindings": [
+            "作者強調 biomarker 變化明顯大於臨床量表差異，平均效益的溝通應使用絕對差異與時間尺度。",
+            "ARIA 具基因型依賴性，治療可行性取決於 MRI、輸注、急性神經事件處置與熟悉流程的團隊。",
+            "高監測負擔與不平等可近性是治療倫理的一部分，不只是行政問題。"
+          ],
+          "clinicalMeaning": "提供適合門診共同決策的平衡框架：效益是真實但有限，風險與系統負擔也必須一起說明。",
+          "limitations": "敘述性綜述，未做正式風險偏差與證據確定性評級；試驗效果數字皆為二手整理。"
+        },
+        {
+          "titleZh": "Donanemab：機轉、臨床效益與安全性的綜合回顧",
+          "title": "Donanemab: A comprehensive review of mechanism, clinical efficacy, and safety in early stage Alzheimer’s disease therapy",
+          "citation": "Ciećwierz J, Zielińska M, Szajewski P, et al. Ann Acad Med Siles. 2026.",
+          "doi": "10.18794/aams/218631",
+          "pmid": "",
+          "evidenceLevel": "同儕審查・全文",
+          "articleType": "敘述性綜述",
+          "pages": "PDF pp. 2–12",
+          "summaryZh": "以 PubMed 與 ClinicalTrials.gov 搜尋至 2025-10，整理 donanemab 對 pyroglutamate-modified Aβ 的標的、藥動、TRAILBLAZER 試驗、biomarker 與 ARIA。",
+          "keyFindings": [
+            "Donanemab 主要結合 dense-core plaque 的 N-terminal pyroglutamate-modified Aβ，透過 microglia 促進清除。",
+            "綜述認為其 amyloid clearance 快，但與 lecanemab 的比較多為跨試驗或二手資料，不能視為 head-to-head 優越性。",
+            "ARIA-E 尤其在 APOE ε4 帶因者仍是臨床導入的主要安全限制。"
+          ],
+          "clinicalMeaning": "可作 donanemab 機轉與試驗脈絡的教學資料；治療比較仍應回到各自 RCT 與標示。",
+          "limitations": "敘述性而非系統性回顧，納入 clinical trial 與 review 的層級混雜；部分比較語句可能受跨試驗差異影響。"
+        },
+        {
+          "titleZh": "Donanemab 使用建議：拉丁美洲觀點的臨床投書",
+          "title": "Recomendaciones de uso de donanemab",
+          "citation": "Bombón-Albán PE, Aldaz-López TG. Acta Neurol Colomb. 2026;42:e1993.",
+          "doi": "10.22379/anc.1993",
+          "pmid": "",
+          "evidenceLevel": "同儕審查・全文",
+          "articleType": "讀者投書／實務建議",
+          "pages": "PDF pp. 1–3",
+          "summaryZh": "西班牙文投書整理 donanemab 的適用期別、APOE／MRI、amyloid 確認、合併症與急性中風處置考量，主張選擇接近試驗族群的病人並建立 ARIA 管理流程。",
+          "keyFindings": [
+            "不建議把治療外推到中重度失智、無症狀 biomarker-positive 個案、Down syndrome 或證據不足的特殊族群。",
+            "作者建議治療前基因與 MRI 風險分層，並避免在治療期間使用靜脈血栓溶解劑；此項必須依正式標示與當地指引執行。",
+            "Amyloid PET 或 CSF 確認、輸注依從性與專科團隊可近性是候選者評估的一部分。"
+          ],
+          "clinicalMeaning": "提供臨床流程檢核題目，但屬專家投書，不應取代正式 appropriate use recommendations 或主管機關標示。",
+          "limitations": "無系統搜尋、無證據分級、沒有新資料；若干成本與核准狀態可能隨地區和時間改變。"
+        }
+      ]
+    }
+  ],
   "issues": [
     {
       "id": "2026-06-21",

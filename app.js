@@ -180,7 +180,9 @@ function renderFeatures() {
   }
   els.feature_list.innerHTML = features.map((feature) => `<article class="feature-card">
     <p class="eyebrow">${escapeHtml(feature.kicker || "Feature")}</p><h3>${escapeHtml(feature.title)}</h3>
-    <p>${escapeHtml(feature.summary)}</p><span>${escapeHtml(feature.publishedAt || "籌備中")}</span>
+    <p>${escapeHtml(feature.summary)}</p>
+    <div class="feature-meta"><span>${escapeHtml(feature.publishedAt || "籌備中")}</span>
+    <a href="./feature.html?id=${encodeURIComponent(feature.id)}">閱讀完整專題 <span aria-hidden="true">→</span></a></div>
   </article>`).join("");
 }
 
