@@ -89,6 +89,25 @@ HIGH_IMPACT = {
     "neuron": 72,
 }
 
+# Secondary journals are eligible only after the high-impact tier. This list
+# is intentionally identifier-based rather than storing display IF values,
+# which change annually and require a licensed/current source to verify.
+IF_ABOVE_2_PRIORITY = {
+    "alzheimers res ther",
+    "bmc neurol",
+    "brain commun",
+    "cns neurosci ther",
+    "eur j neurol",
+    "front aging neurosci",
+    "front neurol",
+    "j alzheimers dis",
+    "j cereb blood flow metab",
+    "neurobiol aging",
+    "npj parkinsons dis",
+    "parkinsonism relat disord",
+    "transl neurodegener",
+}
+
 EXCLUDED_TYPES = {
     "comment",
     "editorial",
@@ -212,8 +231,20 @@ def efetch(pmids: list[str]) -> list[dict]:
 
 
 def article_score(row: dict) -> int:
-    journal = f"{row['journal_abbrev']} {row['journal']}".lower()
-    score = max((value for key, value in HIGH_IMPACT.items() if key in journal), default=20)
+    journal_names = {
+        str(row.get("journal_abbrev") or "").strip().lower(),
+        str(row.get("journal") or "").strip().lower(),
+    }
+    high_scores = [value for key, value in HIGH_IMPACT.items() if key in journal_names]
+    if high_scores:
+        score = max(high_scores)
+        row["journal_tier"] = "high_impact"
+    elif any(key in journal_names for key in IF_ABOVE_2_PRIORITY):
+        score = 55
+        row["journal_tier"] = "if_above_2_priority"
+    else:
+        score = 20
+        row["journal_tier"] = "other"
     types = " ".join(row["publication_types"]).lower()
     if "randomized controlled trial" in types:
         score += 18
@@ -406,6 +437,7 @@ def build_article(row: dict, run_date: date) -> dict:
     return {
         "topic": theme,
         "priority": "high" if row["score"] >= 75 else "medium",
+        "journalTier": row.get("journal_tier", "other"),
         "titleZh": generated["titleZh"],
         "citation": citation(row),
         "pmid": row["pmid"],
@@ -478,7 +510,10 @@ def main() -> int:
                 known_titles.add(normalize_title(str(title)))
 
     previous_date = max(existing_dates) if existing_dates else run_date - timedelta(days=2)
-    search_start = min(previous_date, run_date - timedelta(days=1))
+    # Always retain a seven-day candidate pool. Historical PMID/DOI/title
+    # dedupe guarantees that older candidates are used only as unpublished
+    # fallback items when the newest day has too few strong papers.
+    search_start = min(previous_date, run_date - timedelta(days=6))
     rows_by_pmid: dict[str, dict] = {}
     search_log = []
 
@@ -492,7 +527,8 @@ def main() -> int:
                 "hits": str(count),
                 "screening": (
                     "排除既有 PMID、DOI、正規化標題、評論、社論、信件、撤稿與缺少可驗證 DOI 者；"
-                    "依主題相關性、文章類型及期刊排序。"
+                    "先選高影響力期刊，再選經維護清單確認之 IF>2 優先期刊；若當日不足，"
+                    "才自最近七日尚未發布候選依主題相關性與文章類型遞補。"
                 ),
             }
         )
@@ -570,7 +606,7 @@ def main() -> int:
     payload["issues"] = [issue, *payload.get("issues", [])]
     payload["site"]["updatedAt"] = datetime.now(TAIPEI).isoformat(timespec="seconds")
     payload["site"]["updateCadence"] = (
-        "每日 07:30（Asia/Taipei）GitHub Actions 雲端發布；08:15、09:15、12:05 冪等補漏。"
+        "每日 07:30（Asia/Taipei）更新；延遲時由雲端排程自動補發。"
     )
 
     ALERTS_JSON.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

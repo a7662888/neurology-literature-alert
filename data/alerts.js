@@ -1,11 +1,12 @@
 window.NEURO_ALERTS_DATA = {
   "site": {
-    "title": "近兩天神經科文獻速報",
-    "subtitle": "Dementia, Alzheimer disease, stroke, Parkinson disease, neurodegeneration, cognitive decline, prevention",
-    "owner": "Dementia Prevention Center",
+    "title": "神經前沿｜每日文獻雷達",
+    "subtitle": "失智症、腦中風、巴金森氏症與神經科學重要新文獻",
+    "owner": "陳培豪｜馬偕紀念醫院失智防治中心、神經科",
     "updatedAt": "2026-06-21T08:21:32+08:00",
-    "updateCadence": "每日 07:30（Asia/Taipei）GitHub Actions 雲端發布；08:15、09:15、12:05 冪等補漏。"
+    "updateCadence": "每日 07:30 更新；延遲時由雲端排程自動補發。"
   },
+  "features": [],
   "issues": [
     {
       "id": "2026-06-21",

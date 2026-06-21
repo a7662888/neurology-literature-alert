@@ -3,123 +3,113 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="近兩天神經科文獻速報：失智症、阿茲海默症、中風、巴金森氏症與神經退化研究。" />
-    <title>近兩天神經科文獻速報</title>
+    <meta name="description" content="神經前沿文獻雷達：每日追蹤失智症、腦中風、巴金森氏症與神經科學重要新文獻。" />
+    <title>神經前沿｜每日文獻雷達</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=IBM+Plex+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <header class="masthead">
+    <header id="top" class="masthead">
       <nav class="topbar" aria-label="主要導覽">
-        <a class="brand" href="#top" aria-label="近兩天神經科文獻速報首頁">
-          <span class="brand-mark">N</span>
-          <span>Neurology Brief</span>
+        <a class="brand" href="#top" aria-label="神經前沿首頁">
+          <span class="brand-mark" aria-hidden="true">N</span>
+          <span class="brand-copy"><strong>神經前沿</strong><small>Neurology Frontier</small></span>
         </a>
         <div class="nav-links">
-          <a href="#current">本期</a>
-          <a href="#archive">封存</a>
-          <a href="#method">搜尋記錄</a>
+          <a href="#current">Current</a>
+          <a href="#features">專題</a>
+          <a href="#archive">Archived</a>
         </div>
       </nav>
 
-      <section id="top" class="hero">
+      <section class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">Dementia Prevention Center</p>
-          <h1>近兩天神經科文獻速報</h1>
-          <p class="lead">固定更新 dementia、mild cognitive impairment、Alzheimer disease、stroke、Parkinson disease、neurodegeneration、cognitive decline 與 prevention 相關新文獻。</p>
+          <p class="eyebrow">Evidence radar · updated daily</p>
+          <h1>神經前沿<br /><em>每日文獻雷達</em></h1>
+          <p class="lead">從每日新文獻中，挑出值得神經科臨床與研究者停下來閱讀的訊號。</p>
+          <div class="author-line">
+            <span>作者</span>
+            <strong>陳培豪</strong>
+            <span>馬偕紀念醫院失智防治中心、神經科</span>
+          </div>
           <div class="hero-actions">
-            <a class="button primary" href="#current">閱讀本期</a>
-            <a class="button secondary" href="#archive">查看舊期</a>
+            <a class="button primary" href="#current">進入本期</a>
+            <a class="text-link" href="#features">瀏覽專題策展 <span aria-hidden="true">↗</span></a>
           </div>
         </div>
-        <aside class="status-panel" aria-label="網站狀態">
-          <span class="status-dot"></span>
-          <p>更新頻率</p>
-          <strong id="update-cadence">每兩天更新一次</strong>
-          <small id="last-updated">載入中</small>
+        <aside class="signal-card" aria-label="網站狀態">
+          <div class="signal-pulse" aria-hidden="true"></div>
+          <p>Current window</p>
+          <strong id="current-period">載入中</strong>
+          <span id="update-cadence">每日更新</span>
+          <small id="last-updated">正在同步最新資料</small>
         </aside>
       </section>
     </header>
 
     <main>
-      <section class="metrics-band" aria-label="本期概覽">
-        <div>
-          <span id="metric-issues">0</span>
-          <p>可查期別</p>
+      <section class="metrics-band" aria-label="文獻概覽">
+        <div><span id="metric-days">0</span><p>Current 天數</p></div>
+        <div><span id="metric-articles">0</span><p>Current 文獻</p></div>
+        <div><span id="metric-topics">0</span><p>涵蓋主題</p></div>
+        <div><span id="metric-verified">0</span><p>識別碼驗證</p></div>
+      </section>
+
+      <section id="current" class="reader-shell">
+        <div class="reader-header">
+          <div>
+            <p class="eyebrow" id="period-kicker">Current · 14 day briefing</p>
+            <h2 id="period-title">本期文獻</h2>
+            <p id="period-summary">最近兩週的神經學與神經科學研究。</p>
+          </div>
+          <button id="return-current" class="button ghost is-hidden" type="button">返回 Current</button>
         </div>
-        <div>
-          <span id="metric-articles">0</span>
-          <p>文獻項目</p>
-        </div>
-        <div>
-          <span id="metric-verified">0</span>
-          <p>PMID / DOI 可驗證</p>
-        </div>
-        <div>
-          <span id="metric-current">--</span>
-          <p>最新期別</p>
+
+        <div id="day-rail" class="day-rail" aria-label="每日速報選擇"></div>
+
+        <div class="content-grid">
+          <aside class="controls" aria-label="篩選控制">
+            <label class="field-label" for="search-input">搜尋本期文獻</label>
+            <input id="search-input" type="search" placeholder="PMID、期刊、關鍵字" />
+            <div>
+              <p class="field-label">主題</p>
+              <div id="topic-filters" class="chips"></div>
+            </div>
+            <button id="reset-filters" class="button reset" type="button">清除篩選</button>
+          </aside>
+
+          <section class="issue-panel" aria-live="polite">
+            <div class="issue-heading">
+              <div><p class="date-label" id="issue-date">--</p><h3 id="issue-title">載入中</h3></div>
+              <span id="issue-count" class="issue-count">0 篇</span>
+            </div>
+            <div id="article-list" class="article-list"></div>
+          </section>
         </div>
       </section>
 
-      <section id="current" class="content-grid">
-        <aside class="controls" aria-label="篩選控制">
-          <label class="field-label" for="issue-select">期別</label>
-          <select id="issue-select"></select>
-
-          <label class="field-label" for="search-input">搜尋</label>
-          <input id="search-input" type="search" placeholder="PMID、主題、期刊、關鍵字" />
-
-          <div>
-            <p class="field-label">主題</p>
-            <div id="topic-filters" class="chips"></div>
-          </div>
-
-          <button id="reset-filters" class="button reset" type="button">清除篩選</button>
-        </aside>
-
-        <section class="issue-panel" aria-live="polite">
-          <div class="section-heading">
-            <p class="eyebrow">Current Issue</p>
-            <h2 id="issue-title">載入中</h2>
-            <p id="issue-summary"></p>
-          </div>
-          <div id="article-list" class="article-list"></div>
-        </section>
+      <section id="features" class="features-section">
+        <div class="section-heading split-heading">
+          <div><p class="eyebrow">Curated features</p><h2>專題策展</h2></div>
+          <p>針對特定治療、疾病或研究爭點，由作者主動指定後進行跨期文獻整合。</p>
+        </div>
+        <div id="feature-list" class="feature-list"></div>
       </section>
 
       <section id="archive" class="archive-section">
-        <div class="section-heading">
-          <p class="eyebrow">Archive</p>
-          <h2>舊資料封存</h2>
-          <p>舊期不覆蓋，透過資料檔保留。新增期別時 append 到 `data/alerts.json` 即可。</p>
+        <div class="section-heading split-heading">
+          <div><p class="eyebrow">Biweekly archive</p><h2>雙週封存</h2></div>
+          <p>Current 以最近 14 天為閱讀窗口；更早的每日速報依 14 天一期封存。</p>
         </div>
         <div id="archive-list" class="archive-list"></div>
-      </section>
-
-      <section id="method" class="method-section">
-        <div class="section-heading">
-          <p class="eyebrow">Audit Trail</p>
-          <h2>搜尋記錄與 Zotero 狀態</h2>
-          <p>每期保留來源、搜尋式、執行日期、命中筆數、篩選理由與 Zotero 匯入狀態。</p>
-        </div>
-        <div class="method-grid">
-          <div class="method-card">
-            <h3>搜尋記錄</h3>
-            <div id="search-log"></div>
-          </div>
-          <div class="method-card">
-            <h3>Zotero 同步</h3>
-            <div id="zotero-status"></div>
-          </div>
-        </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>只納入可驗證 PMID 或 DOI 的文獻；不確定欄位標示「尚待確認」。</p>
-      <p>Static GitHub Pages build. Data source: <code>docs/literature-alert/data/alerts.json</code> with <code>alerts.js</code> fallback for file preview.</p>
+      <div><strong>神經前沿 · 每日文獻雷達</strong><p>僅納入具可驗證 PMID 與 DOI 的文獻；AI 摘要不取代全文閱讀與臨床判斷。</p></div>
+      <div class="footer-author"><span>作者</span><strong>陳培豪</strong><p>馬偕紀念醫院失智防治中心、神經科</p></div>
     </footer>
 
     <script src="./data/alerts.js"></script>
