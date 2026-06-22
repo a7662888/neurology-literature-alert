@@ -3,8 +3,8 @@ window.NEURO_ALERTS_DATA = {
     "title": "神經前沿｜每日文獻雷達",
     "subtitle": "失智症、腦中風、巴金森氏症與神經科學重要新文獻",
     "owner": "陳培豪｜馬偕紀念醫院失智防治中心、神經科",
-    "updatedAt": "2026-06-21T08:21:32+08:00",
-    "updateCadence": "每日 07:30 更新；延遲時由雲端排程自動補發。"
+    "updatedAt": "2026-06-22T09:40:58+08:00",
+    "updateCadence": "每日 07:30（Asia/Taipei）更新；延遲時由雲端排程自動補發。"
   },
   "features": [
     {
@@ -188,10 +188,170 @@ window.NEURO_ALERTS_DATA = {
   ],
   "issues": [
     {
+      "id": "2026-06-22",
+      "date": "2026-06-22",
+      "title": "2026-06-22 神經科文獻速報",
+      "status": "current",
+      "publisher": "codex",
+      "summary": "本期由 GitHub Actions 背景排程收錄 5 篇經 PubMed PMID/DOI 驗證且通過歷史去重的神經科新文獻。繁體中文摘要由 GitHub Models 僅依 PubMed abstract 產生；全文效果量與臨床結論仍須回到原文審讀。",
+      "searchLog": [
+        {
+          "source": "PubMed E-utilities",
+          "query": "(dementia[Title/Abstract] OR \"mild cognitive impairment\"[Title/Abstract] OR \"Alzheimer disease\"[Title/Abstract] OR Alzheimer[Title/Abstract] OR \"cognitive decline\"[Title/Abstract]) AND (2026/06/16:2026/06/22[EDAT])",
+          "executedAt": "2026-06-22",
+          "hits": "410",
+          "screening": "排除既有 PMID、DOI、正規化標題、評論、社論、信件、撤稿與缺少可驗證 DOI 者；先選高影響力期刊，再選經維護清單確認之 IF>2 優先期刊；若當日不足，才自最近七日尚未發布候選依主題相關性與文章類型遞補。"
+        },
+        {
+          "source": "PubMed E-utilities",
+          "query": "(stroke[Title/Abstract] OR \"cerebral ischemia\"[Title/Abstract] OR \"intracerebral hemorrhage\"[Title/Abstract] OR thrombectomy[Title/Abstract]) AND (2026/06/16:2026/06/22[EDAT])",
+          "executedAt": "2026-06-22",
+          "hits": "414",
+          "screening": "排除既有 PMID、DOI、正規化標題、評論、社論、信件、撤稿與缺少可驗證 DOI 者；先選高影響力期刊，再選經維護清單確認之 IF>2 優先期刊；若當日不足，才自最近七日尚未發布候選依主題相關性與文章類型遞補。"
+        },
+        {
+          "source": "PubMed E-utilities",
+          "query": "(\"Parkinson disease\"[Title/Abstract] OR Parkinson[Title/Abstract] OR parkinsonism[Title/Abstract] OR \"movement disorder\"[Title/Abstract]) AND (2026/06/16:2026/06/22[EDAT])",
+          "executedAt": "2026-06-22",
+          "hits": "154",
+          "screening": "排除既有 PMID、DOI、正規化標題、評論、社論、信件、撤稿與缺少可驗證 DOI 者；先選高影響力期刊，再選經維護清單確認之 IF>2 優先期刊；若當日不足，才自最近七日尚未發布候選依主題相關性與文章類型遞補。"
+        },
+        {
+          "source": "PubMed E-utilities",
+          "query": "(neurodegeneration[Title/Abstract] OR neurodegenerative[Title/Abstract] OR \"neural circuit\"[Title/Abstract] OR synaptic[Title/Abstract]) AND (2026/06/16:2026/06/22[EDAT])",
+          "executedAt": "2026-06-22",
+          "hits": "386",
+          "screening": "排除既有 PMID、DOI、正規化標題、評論、社論、信件、撤稿與缺少可驗證 DOI 者；先選高影響力期刊，再選經維護清單確認之 IF>2 優先期刊；若當日不足，才自最近七日尚未發布候選依主題相關性與文章類型遞補。"
+        },
+        {
+          "source": "PubMed E-utilities",
+          "query": "((prevention[Title/Abstract] OR preventive[Title/Abstract]) AND (dementia[Title/Abstract] OR stroke[Title/Abstract] OR Parkinson[Title/Abstract] OR neurodegeneration[Title/Abstract])) AND (2026/06/16:2026/06/22[EDAT])",
+          "executedAt": "2026-06-22",
+          "hits": "73",
+          "screening": "排除既有 PMID、DOI、正規化標題、評論、社論、信件、撤稿與缺少可驗證 DOI 者；先選高影響力期刊，再選經維護清單確認之 IF>2 優先期刊；若當日不足，才自最近七日尚未發布候選依主題相關性與文章類型遞補。"
+        }
+      ],
+      "zotero": {
+        "imported": 0,
+        "duplicatesSkipped": 0,
+        "collections": "每日文獻/2026/2026-06-22",
+        "itemKeysVerified": false,
+        "sqliteFallback": "disabled",
+        "note": "雲端發布不寫入 Zotero；本機開機後由同步流程補齊 Obsidian/Zotero。"
+      },
+      "articles": [
+        {
+          "topic": "stroke",
+          "priority": "high",
+          "journalTier": "high_impact",
+          "titleZh": "根據偵測時機與抗凝治療狀態分類之心房顫動型態對缺血性腦中風長期預後之分析",
+          "citation": "Egashira S, Inoue K, Koga M, et al. Long-Term Outcomes After Ischemic Stroke Across Atrial Fibrillation Phenotypes Defined by Detection Timing and Prior Anticoagulation Status. Neurology. 2026-06-18.",
+          "pmid": "42314108",
+          "doi": "10.1212/WNL.0000000000218198",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42314108/",
+          "journalUrl": "https://doi.org/10.1212/WNL.0000000000218198",
+          "summaryZh": "本研究利用日本全國性行政資料庫，分析三種心房顫動（AF）型態對缺血性腦中風患者長期預後的影響，包括：抗凝治療下仍發生中風（AFIDA）、未接受抗凝治療即發生中風（OAC-naive AF）、及中風後才診斷出AF（AFDAS）。主要結果為復發性缺血性中風或全身性栓塞，次要結果包括重大出血、心衰竭住院及全因死亡。結果顯示，AFIDA組復發性中風/栓塞風險最高，AFDAS組最低，且AFIDA組心衰竭住院風險亦較高。",
+          "keyFindings": "五年復發性中風/栓塞累積發生率：AFIDA組18.6%、OAC-naive AF組13.0%、AFDAS組10.5%。AFIDA組較OAC-naive AF組有更高復發性中風/栓塞風險（aSHR 1.38），AFDAS組則較低（aSHR 0.87）。AFIDA組心衰竭住院風險亦較高（aSHR 1.15）。",
+          "mechanism": "摘要未提供，尚待全文確認",
+          "clinicalMeaning": "不同心房顫動型態的缺血性腦中風患者，長期預後存在顯著差異，臨床上應將這些型態視為不同的次級預防目標族群。",
+          "researchMeaning": "本研究觀察到心房顫動型態與缺血性腦中風長期預後相關，未來臨床試驗及次級預防策略應針對不同型態設計。",
+          "teachingApplication": "教育醫療人員認識心房顫動型態對缺血性腦中風預後的影響，強調個別化次級預防的重要性。",
+          "limitations": "摘要未提供，尚待全文確認",
+          "trackingQuestion": "stroke OR cerebral ischemia OR intracerebral hemorrhage OR thrombectomy",
+          "cloudNotePath": "knowledge-notes/2026/2026-06-22/42314108.md",
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42314108-根據偵測時機與抗凝治療狀態分類之心房顫動型態對缺血性腦中風長期預後之分析.md"
+        },
+        {
+          "topic": "dementia",
+          "priority": "high",
+          "journalTier": "high_impact",
+          "titleZh": "2024年修訂阿茲海默症生物與臨床分期標準於中國之臨床評估",
+          "citation": "Wang ZY, Xin JW, Wang MY, et al. Clinical Evaluation of the Revised Biological and Clinical Staging Criteria for Alzheimer Disease in China. Neurology. 2026-06-18.",
+          "pmid": "42314105",
+          "doi": "10.1212/WNL.0000000000218184",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42314105/",
+          "journalUrl": "https://doi.org/10.1212/WNL.0000000000218184",
+          "summaryZh": "本研究於中國專科記憶門診，評估2024年修訂的阿茲海默症生物與臨床分期標準，針對1,214名接受類澱粉與tau-PET檢查的參與者進行分期，並分析臨床與生物分期一致與不一致者的特徵。結果顯示，臨床與生物分期不一致在類澱粉陽性者中常見，且不同分組在認知、教育、血漿p-tau217及神經解剖特徵上有明顯差異。血漿p-tau217隨tau PET分期逐步上升，顯示其作為tau病理嚴重度血液標誌的潛力。研究支持修訂分期標準於中國專科門診的臨床相關性。",
+          "keyFindings": "在818名類澱粉陽性者中，臨床與生物分期一致者佔50.4%，臨床分期高於生物分期者佔40.3%，臨床分期低於生物分期者佔9.3%。血漿p-tau217隨tau PET分期逐步上升，stage D顯著高於stage A與C。臨床分期低於生物分期者認知表現較佳、教育年數較高、AD相關區域皮質厚度與體積較大；臨床分期高於生物分期者認知分數較低、皮質厚度與體積較小，且血管危險因子負擔較高。",
+          "mechanism": "摘要未提供，尚待全文確認",
+          "clinicalMeaning": "2024年修訂阿茲海默症分期標準可協助區分不同臨床與生物特徵亞群，血漿p-tau217可作為tau病理嚴重度的血液標誌，具臨床應用潛力。",
+          "researchMeaning": "本研究觀察到臨床與生物分期不一致在中國專科記憶門診常見，並與認知、教育、神經影像及生物標誌差異相關，支持分期標準於非西方族群的臨床效用，未證實因果關係。",
+          "teachingApplication": "可用於教學說明阿茲海默症分期標準在臨床與生物層面的應用，並強調血漿p-tau217於tau病理評估的價值。",
+          "limitations": "摘要未提供研究機制與限制，尚待全文確認",
+          "trackingQuestion": "dementia OR mild cognitive impairment OR Alzheimer disease OR cognitive decline",
+          "cloudNotePath": "knowledge-notes/2026/2026-06-22/42314105.md",
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42314105-2024年修訂阿茲海默症生物與臨床分期標準於中國之臨床評估.md"
+        },
+        {
+          "topic": "stroke",
+          "priority": "high",
+          "journalTier": "high_impact",
+          "titleZh": "血栓切除術於兒童大血管阻塞性腦中風且症狀輕微之應用",
+          "citation": "Bhatia KD, Joga VP, Muthusami P, et al. Thrombectomy for Pediatric Large Vessel Occlusion Stroke With Mild Presenting Symptoms. Neurology. 2026-06-18.",
+          "pmid": "42314104",
+          "doi": "10.1212/WNL.0000000000218149",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42314104/",
+          "journalUrl": "https://doi.org/10.1212/WNL.0000000000218149",
+          "summaryZh": "本研究旨在探討血栓切除術是否與單純藥物治療相比，能改善兒童急性大血管阻塞性腦中風且症狀輕微患者的功能性預後。研究採用病例對照設計，整合四個已發表的兒童大血管阻塞性腦中風隊列研究資料，納入影像證實急性大血管阻塞且入院時兒童NIH中風量表分數≤5的患者。主要臨床結果為三個月後的功能狀態（兒童修正版Rankin量表），主要安全結果為有症狀的腦內出血發生率。結果顯示，血栓切除組在三個月後的功能性預後顯著優於藥物治療組，且血栓切除組早期神經惡化比例較低，兩組皆未發生有症狀的腦內出血。",
+          "keyFindings": "血栓切除組（n=25）於三個月後兒童修正版Rankin量表分數顯著優於藥物治療組（n=38），勝算比為5.5（95%信賴區間1.22-24.81，p=0.027）。藥物治療組有13人（34.2%）於24小時內出現早期神經惡化，血栓切除組僅1人（4%，p=0.005）。兩組皆未發生有症狀的腦內出血。",
+          "mechanism": "摘要未提供，尚待全文確認",
+          "clinicalMeaning": "在兒童急性大血管阻塞性腦中風且症狀輕微的情境下，血栓切除術與較佳功能性預後及較低早期神經惡化相關，無明顯安全性疑慮。臨床團隊可參考此結果於急性決策。",
+          "researchMeaning": "本研究提供Class III證據，顯示血栓切除術在兒童急性大血管阻塞性腦中風且症狀輕微患者中，與較佳功能性預後相關。由於缺乏隨機對照試驗，療效仍需進一步研究確認。",
+          "teachingApplication": "可用於教學說明兒童大血管阻塞性腦中風且症狀輕微時，血栓切除術與功能性預後及早期神經惡化之相關性，並強調目前證據等級與研究設計限制。",
+          "limitations": "本研究為病例對照設計，整合多個隊列資料，未進行隨機分派，可能存在選擇偏差。療效與安全性需更高等級證據驗證。機制與其他限制摘要未提供，尚待全文確認。",
+          "trackingQuestion": "stroke OR cerebral ischemia OR intracerebral hemorrhage OR thrombectomy",
+          "cloudNotePath": "knowledge-notes/2026/2026-06-22/42314104.md",
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42314104-血栓切除術於兒童大血管阻塞性腦中風且症狀輕微之應用.md"
+        },
+        {
+          "topic": "dementia",
+          "priority": "high",
+          "journalTier": "high_impact",
+          "titleZh": "阿茲海默症與輕度認知障礙第二期無效性試驗：ADNI資料庫隊列分析",
+          "citation": "Ganesh A, Smith EE, Mostert J, et al. Phase 2 Futility Trials in Alzheimer Disease and Mild Cognitive Impairment: A Cohort Analysis of the ADNI Data Set. Neurology. 2026-06-18.",
+          "pmid": "42314102",
+          "doi": "10.1212/WNL.0000000000218227",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42314102/",
+          "journalUrl": "https://doi.org/10.1212/WNL.0000000000218227",
+          "summaryZh": "本研究利用阿茲海默症神經影像倡議（ADNI）資料，評估在阿茲海默症相關失智症與輕度認知障礙（MCI）患者中，採用Simon兩階段無效性試驗設計的可行性。研究分析了2,665名參與者的縱向認知評估，並比較不同認知量表在6、12、24個月的惡化與改善比例，進一步推估試驗所需樣本數與入選條件。",
+          "keyFindings": "在AD相關失智症患者中，臨床失智症評分盒總分（CDR-SB）於12個月時惡化比例最高（60.6%，惡化≥1.0分），改善比例為6.2%。ADAS-Cog 13於12個月時有41.7%惡化（≥5分），5.8%改善。MMSE於12個月時有25.8%惡化（≥5分），2.9%改善。短期（6-12個月）試驗在AD相關失智症患者中，樣本數35-62人似乎可行；MCI則需24個月及特定入選條件（年齡、ApoE ε4狀態、基線CDR-SB表現）。",
+          "mechanism": "摘要未提供，尚待全文確認",
+          "clinicalMeaning": "無效性試驗設計在AD相關失智症患者中具可行性，CDR-SB可作為主要評估指標，提供較快速且成本效益高的第二期臨床試驗替代方案。療效證明尚需進一步臨床試驗驗證。",
+          "researchMeaning": "本研究觀察到不同認知量表在AD相關失智症與MCI患者中的惡化比例，並推估無效性試驗設計的樣本數與入選條件，為未來臨床試驗設計提供參考。",
+          "teachingApplication": "可用於教學說明無效性試驗設計在失智症臨床研究的應用、認知量表選擇及樣本數推估方法。",
+          "limitations": "摘要未提供研究限制，尚待全文確認",
+          "trackingQuestion": "dementia OR mild cognitive impairment OR Alzheimer disease OR cognitive decline",
+          "cloudNotePath": "knowledge-notes/2026/2026-06-22/42314102.md",
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42314102-阿茲海默症與輕度認知障礙第二期無效性試驗：ADNI資料庫隊列分析.md"
+        },
+        {
+          "topic": "prevention",
+          "priority": "high",
+          "journalTier": "high_impact",
+          "titleZh": "自發性腦內出血後抗血小板治療之研究：隨機試驗",
+          "citation": "Eilertsen H, Larsen KT, Forfang E, et al. Study of Antithrombotic Treatment After Intracerebral Hemorrhage-Antiplatelets: A Randomized Trial. Stroke. 2026-06-18.",
+          "pmid": "42312355",
+          "doi": "10.1161/STROKEAHA.125.054990",
+          "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42312355/",
+          "journalUrl": "https://doi.org/10.1161/STROKEAHA.125.054990",
+          "summaryZh": "本研究為多中心、隨機、開放、盲化終點的平行組試驗，評估自發性腦內出血（ICH）後有抗血小板治療適應症成人，開始或避免抗血小板治療的安全性與療效。共納入69位患者，隨機分配至開始（34人）或避免（35人）抗血小板治療組，並追蹤至少2年。主要安全性結果為復發性症狀性ICH。",
+          "keyFindings": "開始抗血小板治療組觀察到較多復發性ICH（15%，5人），較少主要缺血性事件（9%，3人）；避免抗血小板治療組則觀察到較少復發性ICH（3%，1人），較多主要缺血性事件（20%，7人）。共記錄88件嚴重不良事件，無疑似意外嚴重不良反應。",
+          "mechanism": "摘要未提供，尚待全文確認",
+          "clinicalMeaning": "本試驗觀察到自發性ICH後開始抗血小板治療與復發性ICH及缺血性事件的相關性，但因樣本數不足及早期終止，臨床決策仍需謹慎，尚無法證實療效或因果關係。",
+          "researchMeaning": "本研究結果將納入個別患者資料的協作型統合分析，以協助釐清ICH後抗血小板治療的安全性與療效之爭議。",
+          "teachingApplication": "本研究可作為教學案例，說明ICH後抗血小板治療的風險與益處需進一步研究，並強調臨床試驗設計與招募困難對結果解釋的影響。",
+          "limitations": "試驗因招募緩慢而提前終止，僅納入69位患者，樣本數遠低於原定目標，結果精確度有限。參與者未盲化，僅評估人員盲化。摘要未提供機制與其他限制，尚待全文確認。",
+          "trackingQuestion": "neurological disease prevention",
+          "cloudNotePath": "knowledge-notes/2026/2026-06-22/42312355.md",
+          "obsidianPath": "E:\\OneDrive\\Obsidian Vault\\05-知識庫\\文獻\\2026\\42312355-自發性腦內出血後抗血小板治療之研究：隨機試驗.md"
+        }
+      ]
+    },
+    {
       "id": "2026-06-21",
       "date": "2026-06-21",
       "title": "2026-06-21 神經科文獻速報",
-      "status": "current",
+      "status": "archived",
       "publisher": "antigravity",
       "summary": "本期由 GitHub Actions 背景排程收錄 5 篇經 PubMed PMID/DOI 驗證且通過歷史去重的神經科新文獻。繁體中文摘要由 GitHub Models 僅依 PubMed abstract 產生；全文效果量與臨床結論仍須回到原文審讀。",
       "searchLog": [
