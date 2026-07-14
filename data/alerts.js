@@ -11,11 +11,11 @@ window.NEURO_ALERTS_DATA = {
       "id": "ad-att-2026",
       "kicker": "Anti-amyloid treatment · 2026",
       "title": "AD 新藥 ATT：Lecanemab 與 Donanemab 的真實世界考驗",
-      "subtitle": "從臨床試驗後的 ARIA、PET 監測、成本效益與用藥邊界，重新閱讀 2026 年 8 篇全文。",
-      "summary": "逐頁閱讀 8 份 2026 年全文，聚焦 ARIA、真實世界安全性、amyloid PET、成本效益及 donanemab 實務選案。",
+      "subtitle": "從臨床試驗後的 ARIA、PET 監測、成本效益與用藥邊界，重新閱讀 2026 年 10 篇全文。",
+      "summary": "逐頁閱讀 10 份 2026 年全文，聚焦 ARIA、真實世界安全性、amyloid PET、成本效益及 donanemab 實務選案。",
       "publishedAt": "2026-06-21",
-      "updatedAt": "2026-06-21",
-      "evidenceNote": "本專題是聚焦式全文策展，不是系統性回顧。材料包括 4 篇原始研究、3 篇敘述性／臨床綜述與 1 篇讀者投書；其中真實世界 ARIA 研究仍為未經同儕審查的 medRxiv 前印本。所有 PMID／DOI 已於 2026-06-21 交叉核實。",
+      "updatedAt": "2026-07-15",
+      "evidenceNote": "本專題是聚焦式全文策展，不是系統性回顧。材料包括 5 篇原始與真實世界研究、4 篇敘述性與治理綜述與 1 篇實務投書。",
       "sections": [
         {
           "kicker": "Clinical signal",
@@ -182,6 +182,42 @@ window.NEURO_ALERTS_DATA = {
           ],
           "clinicalMeaning": "提供臨床流程檢核題目，但屬專家投書，不應取代正式 appropriate use recommendations 或主管機關標示。",
           "limitations": "無系統搜尋、無證據分級、沒有新資料；若干成本與核准狀態可能隨地區和時間改變。"
+        },
+        {
+          "titleZh": "從目標結合到治療治理：Amyloid PET 在抗類澱粉抗體治療中的演變角色",
+          "title": "From Target Engagement to Treatment Governance: The Evolving Role of Amyloid PET in Anti-Amyloid Therapy.",
+          "citation": "Filippi M, Cecchetti G, Ghirelli A, et al. Lancet Reg Health Eur. 2026;101757.",
+          "doi": "10.1016/j.lanepe.2026.101757",
+          "pmid": "42389420",
+          "evidenceLevel": "同儕審查・全文",
+          "articleType": "臨床與治理綜述",
+          "pages": "PDF pp. 2–9",
+          "summaryZh": "探討單株抗體引進後，失智症照護焦點已由診斷釐清轉移至治療治理。討論 Amyloid PET 在基準期及追蹤期間，對於決定持續治療、換藥或停藥的量化指標作用與局限。",
+          "keyFindings": [
+            "照護焦點從單純診斷，擴展至如何管理個別患者的長期藥物暴露（Treatment Governance）。",
+            "Amyloid PET 可作為基準期的目標結合量化參考，並在追蹤期間提供給藥持續、切換或中止的客觀依據。",
+            "強調影像上的類澱粉斑塊減少（plaque reduction）並不等同於個體層次已證實的臨床效益，需考量系統容量與患者負擔。"
+          ],
+          "clinicalMeaning": "建議將 Amyloid PET 納入結構化的抗類澱粉蛋白治療路徑，在醫療系統容量與安全監控間取得實務平衡。",
+          "limitations": "以歐洲高流量記憶門診經驗為基礎之觀點分享，缺乏隨機對照試驗之硬性指標，且 PET 的高成本限制了其普及性。"
+        },
+        {
+          "titleZh": "Lecanemab 臨床實務：AI 輔助 MRI 預測療效與 ARIA 風險",
+          "title": "Lecanemab in practice: AI-derived MRI predictors of benefit and Amyloid Related Imaging Abnormalities (ARIA).",
+          "citation": "Bregman N, de Barros NP, Nathan T, et al. Alzheimers Res Ther. 2026;17(1):127.",
+          "doi": "10.1186/s13195-026-02127-z",
+          "pmid": "42374501",
+          "evidenceLevel": "同儕審查・全文",
+          "articleType": "真實世界回顧性世代研究",
+          "pages": "PDF pp. 1–9",
+          "summaryZh": "回顧性分析 82 名接受 Lecanemab 治療的早期 AD 患者真實世界數據，利用 AI 工具自動測量腦區體積與微出血負荷，探索預測 ARIA 與認知退化軌跡的 MRI 標誌。",
+          "keyFindings": [
+            "基準期灰質（Gray Matter）體積較高者，可顯著預測 Lecanemab 治療 12 個月時較佳的認知預後（MMSE 下降較慢）。",
+            "真實世界中 ARIA 發生率為 20.7%，其中基準期微出血（Microhaemorrhage）負擔是預測 ARIA 發生最強的獨立預測因子。",
+            "AI 自動化分析工具（icobrain）在定量評估微出血負荷上與神經放射專家的評估表現出極高的一致性（ICC = 0.89）。"
+          ],
+          "clinicalMeaning": "支持將 AI 定量 MRI 分析整合進臨床照護流程，以進行更精準的風險分層，從而提升 Lecanemab 的安全監測效率。",
+          "limitations": "單一中心回顧性研究、樣本數較小（n=82）、追蹤時間限於 12 個月，且 AI 工具在基層醫療的普及與可近性仍受限。"
         }
       ]
     }

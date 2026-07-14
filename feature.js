@@ -38,5 +38,5 @@ if (!feature) {
       <p class="citation">${escapeHtml(article.citation)}</p><div class="article-links">${sourceLinks(article)}</div>
     </div>
   </article>`).join("");
-  content.innerHTML = `<aside class="evidence-note"><strong>證據邊界</strong><p>${escapeHtml(feature.evidenceNote)}</p></aside>${overview}<section class="feature-papers"><p class="eyebrow">Full-text reading notes</p><h2>8 篇逐篇解讀</h2>${articles}</section>`;
+  content.innerHTML = `<aside class="evidence-note"><strong>證據邊界</strong><p>${escapeHtml(feature.evidenceNote)}</p></aside>${overview}<section class="feature-papers"><p class="eyebrow">Full-text reading notes</p><h2>${feature.articles.length} 篇逐篇解讀</h2>${articles}</section>`;
 }
