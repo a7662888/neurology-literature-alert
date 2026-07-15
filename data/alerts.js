@@ -12,15 +12,20 @@ window.NEURO_ALERTS_DATA = {
       "kicker": "Anti-amyloid treatment · 2026",
       "title": "AD 新藥 ATT：Lecanemab 與 Donanemab 的真實世界考驗",
       "subtitle": "從臨床試驗後的 ARIA、PET 監測、成本效益與用藥邊界，重新閱讀 2026 年 10 篇全文。",
-      "summary": "逐頁閱讀 10 份 2026 年全文，聚焦 ARIA、真實世界安全性、amyloid PET、成本效益及 donanemab 實務選案。",
+      "summary": "精讀 16 篇 2026 年文獻：新增 TRAILBLAZER-ALZ 2 tau 分層與 NNT、Brain 中國真實世界 407 人、JNNP 英國 AUR、lecanemab 疾病修飾宣稱之方法學評論與 DWI 缺血安全訊號，聚焦 ARIA、療效幅度、早期治療與臨床導入。",
       "publishedAt": "2026-06-21",
       "updatedAt": "2026-07-15",
-      "evidenceNote": "本專題是聚焦式全文策展，不是系統性回顧。材料包括 5 篇原始與真實世界研究、4 篇敘述性與治理綜述與 1 篇實務投書。",
+      "evidenceNote": "本專輯為精讀後的證據彙整，非系統性回顧。共 16 篇：含 2 篇 TRAILBLAZER-ALZ 2 樞紐試驗次分析、多篇真實世界世代（含中國 407 人、多中心 ARIA）、英國適當使用共識、成本效益，以及對疾病修飾宣稱的批判性評論；樂觀與審慎並陳。",
       "sections": [
         {
           "kicker": "Clinical signal",
           "title": "療效已進入日常照護，風險管理才是真正的臨床工作",
           "body": "2026 年的新資料並未再證明一次抗類澱粉蛋白抗體能清除 amyloid，而是把問題推向更務實的層次：哪些病人會發生 ARIA、不同國家的標示如何處理風險、治療後 PET 訊號能否信任，以及醫療體系是否負擔得起。臨床價值因此取決於精準選案、APOE 與基準 MRI 風險溝通、可持續的 MRI 監測，以及對有限平均效益的誠實說明。"
+        },
+        {
+          "kicker": "2026 上半年高影響力更新",
+          "title": "樞紐試驗次分析＋真實世界證據補強：越早越有效、微出血監測、疾病修飾仍待證",
+          "body": "本次併入 6 篇 2026 上半年高影響力文獻，補上原策展較缺的樞紐試驗次分析與高品質真實世界資料。TRAILBLAZER-ALZ 2 兩篇（A&D、Neurol Clin Pract）以 tau 分層與 NNT 量化 donanemab『越早、低 tau 越有效』（最低 P-tau217 三分位減緩 46%；阻止階段進展 NNT 9.1）。Brain 的中國 407 人多中心世代提供東亞真實世界安全性（ARIA 12.15%、APOE ε4 與 ARIA 無關、微出血是關鍵風險），對台灣導入最具參考性。JNNP 的英國 AUR 給出可移植的資格與 MRI 監測框架。同時保留批判觀點：A&D 的方法學評論指出 lecanemab OLE 的疾病修飾宣稱尚待 AHEAD 3-45 等 RCT 驗證；另一篇 A&D 揭示 ARIA 之外的靜默 DWI 缺血訊號。整體訊息：療效方向明確但幅度中等、安全監測（尤其微出血）是落地關鍵、長期疾病修飾仍需前瞻證據。"
         },
         {
           "kicker": "What changed",
@@ -39,6 +44,120 @@ window.NEURO_ALERTS_DATA = {
         }
       ],
       "articles": [
+        {
+          "titleZh": "Donanemab 療效隨基線 tau 負荷而異：TRAILBLAZER-ALZ 2 分層分析",
+          "title": "Donanemab treatment effect by baseline tau burden and disease severity: Observations from the TRAILBLAZER-ALZ 2 trial",
+          "citation": "Raket LL, Lu M, Evans CD, et al. Alzheimers Dement. 2026;22(6):e71577. doi:10.1002/alz.71577.",
+          "doi": "10.1002/alz.71577",
+          "pmid": "42273802",
+          "evidenceLevel": "同儕審查・全文",
+          "articleType": "樞紐試驗 post-hoc 分層分析",
+          "pages": "全文",
+          "summaryZh": "以樞紐三期 TRAILBLAZER-ALZ 2（n=1736）做 post-hoc，依基線 tau PET、血漿 P-tau217 與模型推估的疾病階段分層，檢視 donanemab 減緩 CDR-SB 惡化的幅度是否隨基線病理負荷改變。結果一致顯示：基線 tau／病理負荷越低，減緩幅度越大，支持「越早治療越有效」。",
+          "keyFindings": [
+            "血漿 P-tau217 最低三分位者，76 週 CDR-SB 惡化較安慰劑減緩 46%；中三分位 28%、高三分位 26%。",
+            "Latent-time 疾病進程模型：於預測疾病階段第 25／50／75 百分位起始治療，分別延緩疾病進程 60%（95%CI 50–70）／33%／17%。",
+            "外推推估延後至重度失智（CDR-SB=16）分別為 26.1／10.8／5.5 個月（相對延緩 41%／21%／13%）。",
+            "MCI 且低 tau 亞群減緩達 46%，高於整體族群的 29%。"
+          ],
+          "clinicalMeaning": "為「早期、低 tau 者獲益最大」提供量化證據，並支持以較實用的血漿 P-tau217 辨識最可能獲益的病人，呼應本中心以生物標記分層的臨床策略。",
+          "limitations": "post-hoc、探索性分析；血漿標記預測價值需前瞻驗證；長期延緩為模型外推，非試驗直接觀察；Eli Lilly 資助且多數作者為其員工／持股人。"
+        },
+        {
+          "titleZh": "Donanemab 的臨床意義性：NNT 與疾病階段轉移（TRAILBLAZER-ALZ 2）",
+          "title": "Clinical Meaningfulness of Donanemab in Early Symptomatic Alzheimer Disease: Data From the Randomized Phase 3 TRAILBLAZER-ALZ 2 Trial",
+          "citation": "Atri A, Apostolova LG, Iwata A, et al. Neurol Clin Pract. 2026;16(3):e200621. doi:10.1212/CPJ.0000000000200621.",
+          "doi": "10.1212/CPJ.0000000000200621",
+          "pmid": "42128444",
+          "evidenceLevel": "同儕審查・全文",
+          "articleType": "樞紐試驗意義性分析（NNT）",
+          "pages": "全文",
+          "summaryZh": "把 TRAILBLAZER-ALZ 2 的統計顯著性轉譯為病人可理解的「臨床意義性」：以 NNT、臨床階段轉移、與依賴程度等多面向指標，說明 donanemab 讓病人停留在較早期階段更久的實際意義。",
+          "keyFindings": [
+            "阻止進展到下一臨床階段的 NNT＝9.1（95%CI 6.5–14.9），治療 76 週。",
+            "MCI→輕度 AD 風險降低 33%（HR 0.67, 95%CI 0.52–0.87；p=0.003），NNT＝8.5。",
+            "進展至中度失智風險降低 50%（HR 0.50, 95%CI 0.33–0.78；p=0.002），NNT＝21.4。",
+            "階段轉移分析：安慰劑組 38.8% 由 MCI 轉為輕度失智，donanemab 組僅 26.7%（p<0.0001）。"
+          ],
+          "clinicalMeaning": "提供醫病溝通可用的具體語言（NNT、維持獨立更久），有助知情決策與衛教；可直接用於失智中心的病人諮詢。",
+          "limitations": "多為探索性、未校正多重比較；『臨床意義性』本為多維概念，單一指標難以完整涵蓋；Eli Lilly 資助。"
+        },
+        {
+          "titleZh": "Lecanemab 中國多中心真實世界：407 人安全與短期結果",
+          "title": "Safety and short-term outcomes of lecanemab for Alzheimer's disease in China: a multicentre study",
+          "citation": "Li LL, Wang RZ, Wang Z, et al. Brain. 2026;149(6):1973-1985. doi:10.1093/brain/awaf427.",
+          "doi": "10.1093/brain/awaf427",
+          "pmid": "41215623",
+          "evidenceLevel": "同儕審查・全文",
+          "articleType": "前瞻性多中心真實世界世代",
+          "pages": "全文",
+          "summaryZh": "中國 7 家醫院共 407 位 AD 病人的首個全國性真實世界 lecanemab 世代（平均追蹤 5.6 月），評估東亞族群的安全性、ARIA 風險因子與 6 個月生物標記／認知變化，直接關乎台灣導入時的風險評估。",
+          "keyFindings": [
+            "治療相關症狀 22.2%、輸注反應（IRR）10.1%；嚴重不良反應僅 3 例（突發性耳聾、下肢血栓、嚴重症狀性 ARIA）；withdrawal 9.4%。",
+            "ARIA 12.15%（39/321 有監測 MRI）：ARIA-E 16、孤立 ARIA-H 23，89.7% 無症狀。",
+            "APOE ε4 與不良反應／ARIA 無顯著相關（有別於西方族群）；基線微出血 → 不良反應 OR 2.55、ARIA OR≈4.98；表淺鐵質沉積 → 孤立 ARIA-H OR 15.68。",
+            "6 個月：amyloid centiloid 降 26.6、SUVR 降 12.5%，血漿 P-tau217／GFAP 下降、認知穩定；但皮質 tau PET SUVR 仍上升。"
+          ],
+          "clinicalMeaning": "東亞真實世界安全性與 Clarity AD 亞洲區相當、低於西方真實世界；微出血（而非 APOE ε4）是本族群的關鍵風險，強化「治療前後密集 MRI 監測」的臨床流程，對台灣族群具高度參考性。",
+          "limitations": "追蹤短、樣本與追蹤生物標記數有限、無對照組，效能不可據此判定；未含中國西部；認知『穩定』可能含開放標籤的練習效應。"
+        },
+        {
+          "titleZh": "對 lecanemab「疾病修飾」宣稱的警示：選擇性報告與因果推論",
+          "title": "Caution in interpreting disease-modification claims with lecanemab: Selective reporting and causal inference",
+          "citation": "Schneider LS, Kennedy RE, Cutter G. Alzheimers Dement. 2026;22(5):e71486. doi:10.1002/alz.71486.",
+          "doi": "10.1002/alz.71486",
+          "pmid": "42168764",
+          "evidenceLevel": "同儕審查・全文",
+          "articleType": "方法學評論（Letter）",
+          "pages": "全文",
+          "summaryZh": "Schneider、Kennedy、Cutter 針對 Clarity AD 開放標籤延伸（OLE）長期結果提出方法學質疑，主張其「持續獲益、疾病修飾」的宣稱超出非隨機、無假說檢定之設計所能支持，為本專輯提供必要的批判性平衡。",
+          "keyFindings": [
+            "OLE 為非隨機、無正式假說檢定，卻採用確認式與因果語言（如『benefit continued to accrue』『disease-modifying』）。",
+            "長期療效多以圖形斜率呈現，缺數值、效應量與信賴區間，妨礙獨立評估。",
+            "delayed-start 缺乏事先設定的 post-switch estimand；ADNI 外部對照的 dropout 差異大（36 月時 35% vs 60%）。",
+            "低 amyloid／低 tau 亞群為 post-hoc，易受多重比較與選擇偏差；作者結論：是否疾病修飾須待 AHEAD 3-45 等 RCT，『目前尚未達此標準』。"
+          ],
+          "clinicalMeaning": "提醒臨床與政策在解讀 DMT 長期宣稱時保持審慎，平衡樂觀敘事，避免以開放標籤資料過度外推，符合本站的證據邊界立場。",
+          "limitations": "為評論非原始數據；由 Della Martin Foundation 資助；作者揭露有多重藥廠往來（利益衝突須並陳）。"
+        },
+        {
+          "titleZh": "英國 lecanemab 臨床實務適當使用建議（AUR）",
+          "title": "Lecanemab appropriate use recommendations for clinical practice in the UK",
+          "citation": "Mummery CJ, Rasmussen J, Blackburn D, et al. J Neurol Neurosurg Psychiatry. 2026;97(5):372-384. doi:10.1136/jnnp-2025-336597.",
+          "doi": "10.1136/jnnp-2025-336597",
+          "pmid": "41390238",
+          "evidenceLevel": "同儕審查・全文",
+          "articleType": "專家共識建議",
+          "pages": "全文",
+          "summaryZh": "英國神經科、老年精神科與老年醫學專家共識，以安全為核心，訂出 lecanemab 於英國臨床實務的適當使用建議，可作為台灣建置服務流程與安全監測的參照框架。",
+          "keyFindings": [
+            "適應症：MCI 或輕度 AD 失智，且經 amyloid PET 或 CSF 確認類澱粉病理，並限 APOE4 heterozygote 或非帶原者（排除 homozygote）。",
+            "二級照護篩檢 → 轉介專科中心確認診斷、APOE4 諮詢與檢測、多專科（MDT）共識決定治療資格。",
+            "IV 每 2 週輸注；MRI 監測安排於第 1、5、7、14 次輸注前；並提供 ARIA 與 IRR 的分級處置指引。",
+            "英國／愛爾蘭目前未給付／未由 NICE 核准報銷，凸顯『臨床可用但支付未解』的落差。"
+          ],
+          "clinicalMeaning": "提供可移植的資格篩選、APOE4 分層與 MRI 監測時程，適合作為台灣失智中心導入 lecanemab 之 SOP 藍本。",
+          "limitations": "為專家共識而非試驗證據；APOE4 homozygote 排除係英國藥證限制（各地標示不同）；未處理給付與成本議題。"
+        },
+        {
+          "titleZh": "Lecanemab 治療中的瀰散影像異常與腦缺血（ARIA 之外的安全訊號）",
+          "title": "Diffusion weighted imaging abnormalities and cerebral ischemia in a cohort of patients on lecanemab",
+          "citation": "Ryan D, Lutz MW, Sides T, et al. Alzheimers Dement. 2026;22(4):e71392. doi:10.1002/alz.71392.",
+          "doi": "10.1002/alz.71392",
+          "pmid": "42015330",
+          "evidenceLevel": "同儕審查・全文",
+          "articleType": "單中心回溯世代",
+          "pages": "全文",
+          "summaryZh": "Duke 記憶疾患門診 261 位 lecanemab 病人的回溯世代，描述 ARIA 之外、瀰散加權影像（DWI）上與中風一致的缺血病灶之頻率、型態與危險因子，提出一個較少被關注的安全面向。",
+          "keyFindings": [
+            "4.2% 出現間隔性缺血病灶，且全部臨床無症狀（靜默）。",
+            "缺血病灶與 ARIA 顯著相關，經傾向分數配對後仍維持。",
+            "病灶最常見於皮質與小腦，提示血管性類澱粉、ARIA 與局部缺血可能有共同機轉。",
+            "神經放射與血管神經科判讀一致性達 91.7%。"
+          ],
+          "clinicalMeaning": "提示抗類澱粉治療的影像監測除 ARIA 外，靜默缺血／微中風亦值得留意，可納入監測 MRI 判讀與病人風險溝通。",
+          "limitations": "單中心、回溯、樣本小、無對照組；因果、發生率與時間動態需前瞻登錄研究釐清。"
+        },
         {
           "titleZh": "Lecanemab 真實世界 ARIA：468 人學術醫療體系世代",
           "title": "Real-World Characterization of Amyloid-Related Imaging Abnormalities (ARIA) in Lecanemab Treatment at an Academic Health System",
