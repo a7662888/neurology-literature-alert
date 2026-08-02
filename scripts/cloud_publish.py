@@ -21,9 +21,31 @@ ALERTS_JSON = ROOT / "data" / "alerts.json"
 ALERTS_JS = ROOT / "data" / "alerts.js"
 KNOWLEDGE_NOTES = ROOT / "knowledge-notes"
 EUTILS = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
-GITHUB_MODELS_ENDPOINT = "https://models.github.ai/inference/chat/completions"
+# GitHub Models (models.github.ai) was fully retired on 2026-07-30, so verified
+# summaries now come from the Anthropic Messages API instead.
+ANTHROPIC_ENDPOINT = "https://api.anthropic.com/v1/messages"
+ANTHROPIC_VERSION = "2023-06-01"
+DEFAULT_MODEL = "claude-sonnet-5"
 USER_AGENT = "NeurologyLiteratureAlert-GitHubActions/1.0 (a7662888@gmail.com)"
 TAIPEI = timezone(timedelta(hours=8))
+
+SUMMARY_FIELDS = (
+    "titleZh",
+    "summaryZh",
+    "keyFindings",
+    "mechanism",
+    "clinicalMeaning",
+    "researchMeaning",
+    "teachingApplication",
+    "limitations",
+)
+# Shown verbatim when the LLM backend is unreachable. It is an explicit,
+# honest placeholder — never a fabricated summary — so the site stays current
+# without inventing evidence. A later scheduled run upgrades it in place.
+SUMMARY_PENDING_MARKER = (
+    "AI 摘要暫時無法產生（雲端模型服務中斷）：本項目僅提供已通過 PMID/DOI 驗證的文獻 "
+    "metadata，繁體中文摘要待下次排程或本機開機後自動補齊。"
+)
 
 THEMES = {
     "dementia": {
@@ -263,22 +285,33 @@ def citation(row: dict) -> str:
     return f"{authors}. {title}. {row['journal_abbrev'] or row['journal']}. {row['pub_date']}."
 
 
-def github_models_summary(title: str, abstract: str, theme_label: str) -> dict:
-    token = os.environ.get("GITHUB_TOKEN")
-    if not token:
-        raise RuntimeError("GITHUB_TOKEN is required for verified AI summaries")
+class SummaryUnavailable(RuntimeError):
+    """Raised when the LLM backend cannot return a verified summary.
 
-    model = os.environ.get("GITHUB_MODELS_MODEL", "openai/gpt-4.1")
-    required = (
-        "titleZh",
-        "summaryZh",
-        "keyFindings",
-        "mechanism",
-        "clinicalMeaning",
-        "researchMeaning",
-        "teachingApplication",
-        "limitations",
-    )
+    Callers degrade gracefully to an explicit pending placeholder instead of
+    fabricating content or aborting the whole publish run.
+    """
+
+
+def _extract_json_object(text: str) -> dict:
+    text = text.strip()
+    if not text.startswith("{"):
+        text = "{" + text
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        end = text.rfind("}")
+        if end == -1:
+            raise
+        return json.loads(text[: end + 1])
+
+
+def claude_summary(title: str, abstract: str, theme_label: str) -> dict:
+    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    if not api_key:
+        raise SummaryUnavailable("ANTHROPIC_API_KEY is required for verified AI summaries")
+
+    model = os.environ.get("ANTHROPIC_MODEL", DEFAULT_MODEL)
     prompt = f"""
 請只根據下列 PubMed 英文標題與摘要，建立繁體中文（台灣醫學術語）的神經科文獻摘要。
 
@@ -297,54 +330,72 @@ def github_models_summary(title: str, abstract: str, theme_label: str) -> dict:
 PubMed 摘要：
 {abstract}
 
-輸出 JSON 欄位：
+只輸出一個 JSON 物件，欄位為：
 titleZh, summaryZh, keyFindings, mechanism, clinicalMeaning,
 researchMeaning, teachingApplication, limitations
+不要輸出 JSON 以外的任何文字或 Markdown。
 """.strip()
     payload = {
         "model": model,
-        "messages": [
-            {
-                "role": "system",
-                "content": (
-                    "You are a conservative neurology literature editor. "
-                    "Return valid JSON and never invent evidence."
-                ),
-            },
-            {"role": "user", "content": prompt},
-        ],
+        "max_tokens": 1500,
         "temperature": 0.1,
-        "max_tokens": 1200,
-        "response_format": {"type": "json_object"},
+        "system": (
+            "You are a conservative neurology literature editor. "
+            "Return a single valid JSON object and never invent evidence."
+        ),
+        "messages": [
+            {"role": "user", "content": prompt},
+            # Prefill forces the reply to begin the JSON object directly.
+            {"role": "assistant", "content": "{"},
+        ],
     }
     last_error: Exception | None = None
     for attempt in range(1, 4):
         try:
             request = urllib.request.Request(
-                GITHUB_MODELS_ENDPOINT,
+                ANTHROPIC_ENDPOINT,
                 data=json.dumps(payload).encode("utf-8"),
                 headers={
-                    "Accept": "application/vnd.github+json",
-                    "Authorization": f"Bearer {token}",
-                    "Content-Type": "application/json",
-                    "X-GitHub-Api-Version": "2022-11-28",
+                    "x-api-key": api_key,
+                    "anthropic-version": ANTHROPIC_VERSION,
+                    "content-type": "application/json",
                     "User-Agent": USER_AGENT,
                 },
                 method="POST",
             )
-            with urllib.request.urlopen(request, timeout=90) as response:
+            with urllib.request.urlopen(request, timeout=120) as response:
                 result = json.loads(response.read().decode("utf-8"))
-            content = result["choices"][0]["message"]["content"].strip()
-            generated = json.loads(content)
-            missing = [key for key in required if not str(generated.get(key, "")).strip()]
+            content = "".join(
+                block.get("text", "")
+                for block in result.get("content", [])
+                if block.get("type") == "text"
+            )
+            generated = _extract_json_object(content)
+            missing = [key for key in SUMMARY_FIELDS if not str(generated.get(key, "")).strip()]
             if missing:
                 raise ValueError(f"AI response omitted fields: {', '.join(missing)}")
-            return {key: str(generated[key]).strip() for key in required}
+            return {key: str(generated[key]).strip() for key in SUMMARY_FIELDS}
         except Exception as exc:
             last_error = exc
             if attempt < 3:
                 time.sleep(attempt * 5)
-    raise RuntimeError(f"GitHub Models failed for PMID/title: {title}") from last_error
+    raise SummaryUnavailable(f"Claude summary failed for: {title}") from last_error
+
+
+def degraded_summary(row: dict, theme_label: str) -> dict:
+    """Honest placeholder used only when the LLM backend is unreachable."""
+    pending = "摘要待補（雲端模型服務中斷，尚未產生）。"
+    return {
+        # Keep the verified English title rather than fabricating a translation.
+        "titleZh": row["title"],
+        "summaryZh": SUMMARY_PENDING_MARKER,
+        "keyFindings": pending,
+        "mechanism": pending,
+        "clinicalMeaning": pending,
+        "researchMeaning": f"已納入「{theme_label}」研究監測清單；摘要待補。",
+        "teachingApplication": pending,
+        "limitations": pending,
+    }
 
 
 def safe_filename(value: str, limit: int = 72) -> str:
@@ -432,12 +483,19 @@ summary: {json.dumps(article["summaryZh"], ensure_ascii=False)}
 def build_article(row: dict, run_date: date) -> dict:
     theme = row["themes"][0]
     label = THEMES[theme]["label"]
-    generated = github_models_summary(row["title"], row["abstract"], label)
+    try:
+        generated = claude_summary(row["title"], row["abstract"], label)
+        status = "complete"
+    except SummaryUnavailable as exc:
+        print(f"WARN: summary unavailable for PMID {row['pmid']}: {exc}")
+        generated = degraded_summary(row, label)
+        status = "pending"
     cloud_path = cloud_note_relative_path(row, run_date)
     return {
         "topic": theme,
         "priority": "high" if row["score"] >= 75 else "medium",
         "journalTier": row.get("journal_tier", "other"),
+        "summaryStatus": status,
         "titleZh": generated["titleZh"],
         "citation": citation(row),
         "pmid": row["pmid"],
@@ -457,6 +515,85 @@ def build_article(row: dict, run_date: date) -> dict:
     }
 
 
+def issue_summary_text(articles: list[dict]) -> str:
+    total = len(articles)
+    pending = sum(1 for article in articles if article.get("summaryStatus") == "pending")
+    complete = total - pending
+    base = (
+        f"本期由 GitHub Actions 背景排程收錄 {total} 篇經 PubMed PMID/DOI 驗證"
+        "且通過歷史去重的神經科新文獻。"
+    )
+    if pending == 0:
+        return base + (
+            "繁體中文摘要由 Claude（Anthropic）僅依 PubMed abstract 產生；"
+            "全文效果量與臨床結論仍須回到原文審讀。"
+        )
+    if complete == 0:
+        return base + (
+            "因雲端模型暫時中斷，本期僅提供已驗證 metadata，AI 摘要待後續排程"
+            "或本機開機後自動補齊；系統不會輸出未經模型的假摘要。"
+        )
+    return base + (
+        f"其中 {complete} 篇已產生 Claude 繁中摘要，{pending} 篇因模型暫時中斷待補，"
+        "後續排程會自動補齊；全文結論仍須回到原文審讀。"
+    )
+
+
+def write_payload(payload: dict) -> None:
+    ALERTS_JSON.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
+    ALERTS_JS.write_text(
+        "window.NEURO_ALERTS_DATA = " + json.dumps(payload, ensure_ascii=False, indent=2) + ";\n",
+        encoding="utf-8",
+    )
+
+
+def upgrade_pending_issue(issue: dict, run_date: date) -> bool:
+    """Re-attempt Claude summaries for an existing issue's pending articles.
+
+    Returns True if at least one article was upgraded to a real summary.
+    """
+    pending_articles = [
+        article for article in issue.get("articles", [])
+        if article.get("summaryStatus") == "pending"
+    ]
+    pmids = [str(article["pmid"]) for article in pending_articles if article.get("pmid")]
+    rows = {row["pmid"]: row for row in efetch(pmids)}
+    upgraded = False
+    for article in pending_articles:
+        row = rows.get(str(article.get("pmid")))
+        if not row or not row.get("abstract"):
+            continue
+        theme = article.get("topic") if article.get("topic") in THEMES else "neuroscience"
+        label = THEMES[theme]["label"]
+        try:
+            generated = claude_summary(row["title"], row["abstract"], label)
+        except SummaryUnavailable as exc:
+            print(f"WARN: upgrade still unavailable for PMID {article.get('pmid')}: {exc}")
+            continue
+        article.update(
+            {
+                "summaryStatus": "complete",
+                "titleZh": generated["titleZh"],
+                "summaryZh": generated["summaryZh"],
+                "keyFindings": generated["keyFindings"],
+                "mechanism": generated["mechanism"],
+                "clinicalMeaning": generated["clinicalMeaning"],
+                "researchMeaning": generated["researchMeaning"],
+                "teachingApplication": generated["teachingApplication"],
+                "limitations": generated["limitations"],
+            }
+        )
+        row["themes"] = [theme]
+        note_rel = article.get("cloudNotePath") or cloud_note_relative_path(row, run_date).as_posix()
+        note_path = ROOT / note_rel
+        note_path.parent.mkdir(parents=True, exist_ok=True)
+        note_path.write_text(render_knowledge_note(row, article, run_date), encoding="utf-8")
+        upgraded = True
+    return upgraded
+
+
 def run_date_from_environment(override: str | None) -> date:
     if override:
         return date.fromisoformat(override)
@@ -472,7 +609,7 @@ def main() -> int:
     args = parser.parse_args()
 
     if args.ai_smoke_test:
-        sample = github_models_summary(
+        sample = claude_summary(
             "Feasibility of a neurology prevention program",
             (
                 "This pilot study enrolled 20 adults and assessed feasibility over "
@@ -481,14 +618,47 @@ def main() -> int:
             ),
             "政策公衛",
         )
-        print("GitHub Models smoke test passed:", ",".join(sorted(sample)))
+        print("Claude API smoke test passed:", ",".join(sorted(sample)))
         return 0
 
     run_date = run_date_from_environment(args.date)
     publisher = "codex" if run_date.day % 2 == 0 else "antigravity"
     payload = json.loads(ALERTS_JSON.read_text(encoding="utf-8"))
-    if any(issue.get("date") == run_date.isoformat() for issue in payload.get("issues", [])):
-        print(f"Issue {run_date.isoformat()} already exists.")
+    today_iso = run_date.isoformat()
+    existing_issue = next(
+        (issue for issue in payload.get("issues", []) if issue.get("date") == today_iso),
+        None,
+    )
+    if existing_issue is not None:
+        pending = [
+            article for article in existing_issue.get("articles", [])
+            if article.get("summaryStatus") == "pending"
+        ]
+        if not pending:
+            print(f"Issue {today_iso} already complete.")
+            return 0
+        print(f"Issue {today_iso} exists with {len(pending)} pending summaries; attempting upgrade.")
+        if not args.dry_run and upgrade_pending_issue(existing_issue, run_date):
+            existing_issue["summary"] = issue_summary_text(existing_issue["articles"])
+            still_pending = sum(
+                1 for article in existing_issue["articles"]
+                if article.get("summaryStatus") == "pending"
+            )
+            existing_issue["status"] = "current"
+            for other in payload.get("issues", []):
+                if other is not existing_issue:
+                    other["status"] = "archived"
+            payload["site"]["updatedAt"] = datetime.now(TAIPEI).isoformat(timespec="seconds")
+            write_payload(payload)
+            output = os.environ.get("GITHUB_OUTPUT")
+            if output:
+                with open(output, "a", encoding="utf-8") as handle:
+                    handle.write(f"issue_date={today_iso}\n")
+                    handle.write(f"publisher={existing_issue.get('publisher', publisher)}\n")
+                    handle.write(f"article_count={len(existing_issue['articles'])}\n")
+            print(f"Upgraded pending summaries; {still_pending} still pending.")
+        else:
+            print("Summaries still unavailable; leaving pending issue for next scheduled retry.")
         return 0
 
     known_pmids = set()
@@ -586,10 +756,7 @@ def main() -> int:
         "title": f"{run_date.isoformat()} 神經科文獻速報",
         "status": "current",
         "publisher": publisher,
-        "summary": (
-            f"本期由 GitHub Actions 背景排程收錄 {len(selected)} 篇經 PubMed PMID/DOI 驗證且通過歷史去重的神經科新文獻。"
-            "繁體中文摘要由 GitHub Models 僅依 PubMed abstract 產生；全文效果量與臨床結論仍須回到原文審讀。"
-        ),
+        "summary": issue_summary_text(articles),
         "searchLog": search_log,
         "zotero": {
             "imported": 0,
@@ -609,11 +776,7 @@ def main() -> int:
         "每日 07:30（Asia/Taipei）更新；延遲時由雲端排程自動補發。"
     )
 
-    ALERTS_JSON.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    ALERTS_JS.write_text(
-        "window.NEURO_ALERTS_DATA = " + json.dumps(payload, ensure_ascii=False, indent=2) + ";\n",
-        encoding="utf-8",
-    )
+    write_payload(payload)
     for row, article in article_pairs:
         note_path = ROOT / article["cloudNotePath"]
         note_path.parent.mkdir(parents=True, exist_ok=True)

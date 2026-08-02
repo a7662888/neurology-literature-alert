@@ -44,13 +44,14 @@ GitHub Actions 會在每日台北時間 `07:15` 預先喚醒 runner，等待至 
 - 去重：既有網站歷史中的 PMID、DOI、正規化標題
 - 選文優先序：高影響力期刊 → 經維護的 IF>2 優先期刊清單 → 其他合格文獻
 - 遞補範圍：最近 7 天尚未發布且通過識別碼驗證的候選文獻
-- 摘要：GitHub Models，使用 workflow 內建 `GITHUB_TOKEN`，不需要另設 API key
-- AI 摘要失敗時整個 workflow 失敗，不發布模板或半成品
+- 摘要：Claude（Anthropic Messages API），需在 repo `Settings → Secrets and variables → Actions` 設 `ANTHROPIC_API_KEY`；模型預設 `claude-sonnet-5`，可用 workflow 內 `ANTHROPIC_MODEL` 覆寫（例如 `claude-opus-5`）
+- 摘要模型暫時無法連線時，仍發布已驗證的文獻 metadata 並將該項標記為 `summaryStatus: pending`（明確標示「摘要待補」，絕不輸出未經模型的假摘要）；同日後續排程會自動補齊 pending 摘要
+- 註：原採用的 GitHub Models 已於 2026-07-30 全面退役，故改用 Anthropic API
 - 雲端知識筆記：`knowledge-notes/YYYY/YYYY-MM-DD/<PMID>.md`
 - 雲端更新網站；本機開機後由 Windows `12:30` 工作把雲端筆記同步進 Obsidian Vault
 - Zotero 仍需本機與 Zotero Web API 可用時另外同步
 
-`antigravity` 與 `codex` 是奇偶日責任標籤與提示詞規約。電腦關機時並非啟動桌面版 Agent，而是由 GitHub Actions 與 GitHub Models 執行同一套已驗證流程。
+`antigravity` 與 `codex` 是奇偶日責任標籤與提示詞規約。電腦關機時並非啟動桌面版 Agent，而是由 GitHub Actions 呼叫 Anthropic API 執行同一套已驗證流程。
 
 ## GitHub Pages 設定
 
