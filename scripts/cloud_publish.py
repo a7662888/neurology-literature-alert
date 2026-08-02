@@ -295,16 +295,17 @@ class SummaryUnavailable(RuntimeError):
 
 
 def _extract_json_object(text: str) -> dict:
+    """Parse the first complete JSON object out of a model reply.
+
+    Tolerates surrounding prose or ```json code fences by slicing from the
+    first "{" to the last "}".
+    """
     text = text.strip()
-    if not text.startswith("{"):
-        text = "{" + text
-    try:
-        return json.loads(text)
-    except json.JSONDecodeError:
-        end = text.rfind("}")
-        if end == -1:
-            raise
-        return json.loads(text[: end + 1])
+    start = text.find("{")
+    end = text.rfind("}")
+    if start == -1 or end == -1 or end < start:
+        raise ValueError("no JSON object found in model response")
+    return json.loads(text[start : end + 1])
 
 
 def claude_summary(title: str, abstract: str, theme_label: str) -> dict:
@@ -345,10 +346,10 @@ researchMeaning, teachingApplication, limitations
             "You are a conservative neurology literature editor. "
             "Return a single valid JSON object and never invent evidence."
         ),
+        # Newer Claude models reject assistant-message prefill, so the request
+        # ends with the user turn and the JSON is extracted from the reply.
         "messages": [
             {"role": "user", "content": prompt},
-            # Prefill forces the reply to begin the JSON object directly.
-            {"role": "assistant", "content": "{"},
         ],
     }
     last_error: Exception | None = None
