@@ -339,7 +339,8 @@ researchMeaning, teachingApplication, limitations
     payload = {
         "model": model,
         "max_tokens": 1500,
-        "temperature": 0.1,
+        # Newer Claude models (5-series) reject the `temperature` parameter
+        # ("temperature is deprecated for this model"), so it is omitted.
         "system": (
             "You are a conservative neurology literature editor. "
             "Return a single valid JSON object and never invent evidence."
