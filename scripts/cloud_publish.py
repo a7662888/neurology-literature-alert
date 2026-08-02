@@ -9,6 +9,7 @@ import json
 import os
 import re
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -375,11 +376,26 @@ researchMeaning, teachingApplication, limitations
             if missing:
                 raise ValueError(f"AI response omitted fields: {', '.join(missing)}")
             return {key: str(generated[key]).strip() for key in SUMMARY_FIELDS}
-        except Exception as exc:
-            last_error = exc
+        except urllib.error.HTTPError as exc:
+            body = ""
+            try:
+                body = exc.read().decode("utf-8", "replace")
+            except Exception:
+                pass
+            detail = f"HTTP {exc.code} {exc.reason}: {body[:400]}"
+            last_error = SummaryUnavailable(detail)
+            print(f"WARN: Claude API attempt {attempt}/3 failed -> {detail}")
             if attempt < 3:
                 time.sleep(attempt * 5)
-    raise SummaryUnavailable(f"Claude summary failed for: {title}") from last_error
+        except Exception as exc:  # noqa: BLE001 - report and retry any transient failure
+            detail = f"{type(exc).__name__}: {exc}"
+            last_error = exc
+            print(f"WARN: Claude API attempt {attempt}/3 failed -> {detail}")
+            if attempt < 3:
+                time.sleep(attempt * 5)
+    raise SummaryUnavailable(
+        f"Claude summary failed for '{title[:50]}': {last_error}"
+    ) from last_error
 
 
 def degraded_summary(row: dict, theme_label: str) -> dict:
