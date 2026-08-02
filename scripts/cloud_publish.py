@@ -339,7 +339,9 @@ researchMeaning, teachingApplication, limitations
 """.strip()
     payload = {
         "model": model,
-        "max_tokens": 1500,
+        # Headroom for eight Traditional-Chinese fields; 1500 truncated the
+        # JSON for longer abstracts, yielding "no JSON object found".
+        "max_tokens": 3000,
         # Newer Claude models (5-series) reject the `temperature` parameter
         # ("temperature is deprecated for this model"), so it is omitted.
         "system": (
