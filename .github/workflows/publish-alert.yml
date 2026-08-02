@@ -17,14 +17,13 @@ on:
   workflow_dispatch:
     inputs:
       smoke_test:
-        description: Test GitHub Models without publishing an issue
+        description: Test Claude API without publishing an issue
         required: false
         default: false
         type: boolean
 
 permissions:
   contents: write
-  models: read
 
 concurrency:
   group: neurology-literature-alert-publisher
@@ -49,19 +48,20 @@ jobs:
         if: github.event_name == 'schedule'
         run: python scripts/wait_for_publish_window.py
 
-      - name: Test GitHub Models
+      - name: Test Claude API
         if: github.event_name == 'workflow_dispatch' && inputs.smoke_test
         run: python scripts/cloud_publish.py --ai-smoke-test
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
       - name: Generate verified alert
         if: github.event_name != 'workflow_dispatch' || !inputs.smoke_test
         id: generate
         run: python scripts/cloud_publish.py
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_MODELS_MODEL: openai/gpt-4.1
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Default model is claude-sonnet-5; set claude-opus-5 here for max quality.
+          ANTHROPIC_MODEL: claude-sonnet-5
 
       - name: Commit and push when data changed
         if: github.event_name != 'workflow_dispatch' || !inputs.smoke_test
